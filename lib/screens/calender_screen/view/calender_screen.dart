@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import '../core/utils/colors.dart';
-import '../core/widgets/wallets.dart';
+import '../../../core/utils/colors.dart';
+import '../../../core/widgets/wallets.dart';
 
 // import '../../Forms/basic_elements_container/textaual.dart';
 

@@ -1,4 +1,4 @@
-import 'package:clinix_admin_panel/views/main_screen.dart';
+import 'package:clinix_admin_panel/screens/main_screen/view/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 

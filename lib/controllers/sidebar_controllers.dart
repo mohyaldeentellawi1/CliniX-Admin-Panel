@@ -2,7 +2,7 @@
 
 import 'package:get/get.dart';
 
-import '../views/calender_screen.dart';
+import '../screens/calender_screen/view/calender_screen.dart';
 // import 'package:minia_web_project/view/Apps/Emails/emailview.dart';
 // import 'package:minia_web_project/view/Apps/contactList/contact_view.dart';
 // import 'package:minia_web_project/view/Apps/contactList/profile_view.dart';
