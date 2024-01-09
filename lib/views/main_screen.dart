@@ -94,7 +94,6 @@ class _MainScreenViewState extends State<MainScreenView> {
               height: 900,
               width: 250,
               child: Container(
-                // color: Color.fromARGB(255, 224, 209, 249),
                 color: AppColor.backgorundDrawer,
                 child: Obx(
                   () => ListView(
@@ -104,11 +103,11 @@ class _MainScreenViewState extends State<MainScreenView> {
                         padding: EdgeInsets.all(20),
                         child: Row(
                           children: [
-                            SvgPicture.asset(
-                              "assets/svg/minia_logo.svg",
-                              fit: BoxFit.contain,
-                              height: 25,
-                              width: 25,
+                            Image.asset(
+                              "assets/image/logo1.png",
+                              fit: BoxFit.cover,
+                              height: 70,
+                              width: 70,
                             ),
                             Container(width: 10),
                             Text(
@@ -116,16 +115,10 @@ class _MainScreenViewState extends State<MainScreenView> {
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w600),
                             ),
-                            Spacer(),
-                            InkWell(
-                                onTap: () {
-                                  Get.back();
-                                },
-                                child: Icon(Icons.menu)),
                           ],
                         ),
                       ),
-                      Container(height: 25),
+                      SizedBox(height: 10),
                       Padding(
                         padding: const EdgeInsets.only(left: 20),
                         child: Text(
@@ -134,10 +127,23 @@ class _MainScreenViewState extends State<MainScreenView> {
                               fontSize: 12, fontWeight: FontWeight.w500),
                         ),
                       ),
-                      Container(height: 10),
-                      CommanListTile(
+                      SizedBox(height: 10),
+                      MenuItem(
                         minWidth: 40,
-                        text: "Dashboard",
+                        text: "Calender",
+                        icon: "assets/svg/dashboard/home_non.svg",
+                        color: controller.index.value == 0
+                            ? AppColor.selecteColor
+                            : null,
+                        onTap: () {
+                          controller.index.value = 0;
+                          Get.back();
+                        },
+                        selected: controller.index.value == 0,
+                      ),
+                      MenuItem(
+                        minWidth: 40,
+                        text: "Account",
                         icon: "assets/svg/dashboard/home_non.svg",
                         color: controller.index.value == 0
                             ? AppColor.selecteColor
@@ -149,261 +155,127 @@ class _MainScreenViewState extends State<MainScreenView> {
                         selected: controller.index.value == 0,
                       ),
                       ExpansionListCustom(
-                        title: "Apps",
+                        title: "Profile",
                         icon: "assets/svg/dashboard/grid_box.svg",
                         color: controller.index.value == 1
                             ? AppColor.selecteColor
                             : null,
                         children: [
                           Menu(
-                            text: 'Calender',
+                            text: 'Clinic Information',
                             color: controller.index.value == 1
                                 ? AppColor.selecteColor
                                 : null,
                             onTap: () {
-                              controller.index.value = 1;
-                              Get.back();
+                              // controller.index.value = 1;
+                              // Get.back();
                             },
                           ),
                           Menu(
-                            text: 'Chat',
+                            text: 'Clinic Description',
                             color: controller.index.value == 2
                                 ? AppColor.selecteColor
                                 : null,
                             onTap: () {
-                              controller.index.value = 2;
-                              Get.back();
-                            },
-                          ),
-                          ExpansionListCustom(
-                            title: "Email",
-                            icon: "",
-                            color: controller.index.value == 3
-                                ? AppColor.selecteColor
-                                : null,
-                            children: [
-                              SubMenu(
-                                subtext: "Inbox",
-                                color: controller.index.value == 3
-                                    ? AppColor.selecteColor
-                                    : null,
-                                onTap: () {
-                                  controller.index.value = 3;
-                                  Get.back();
-                                },
-                              ),
-                              SubMenu(
-                                subtext: "Read Email",
-                                color: controller.index.value == 4
-                                    ? AppColor.selecteColor
-                                    : null,
-                                onTap: () {
-                                  controller.index.value = 4;
-                                  Get.back();
-                                },
-                              ),
-                            ],
-                          ),
-                          ExpansionListCustom(
-                            title: "Invoices",
-                            color: controller.index.value == 5
-                                ? AppColor.selecteColor
-                                : null,
-                            children: [
-                              SubMenu(
-                                subtext: "Invoice List",
-                                color: controller.index.value == 5
-                                    ? AppColor.selecteColor
-                                    : null,
-                                onTap: () {
-                                  controller.index.value = 5;
-                                  Get.back();
-                                },
-                              ),
-                              SubMenu(
-                                subtext: "Invoice Detail",
-                                color: controller.index.value == 6
-                                    ? AppColor.selecteColor
-                                    : null,
-                                onTap: () {
-                                  controller.index.value = 6;
-                                  Get.back();
-                                },
-                              ),
-                            ],
-                          ),
-                          ExpansionListCustom(
-                            title: "Contacts",
-                            color: controller.index.value == 7
-                                ? AppColor.selecteColor
-                                : null,
-                            children: [
-                              SubMenu(
-                                subtext: "User Grid",
-                                color: controller.index.value == 7
-                                    ? AppColor.selecteColor
-                                    : null,
-                                onTap: () {
-                                  controller.index.value = 7;
-                                  Get.back();
-                                },
-                              ),
-                              SubMenu(
-                                subtext: "User List",
-                                color: controller.index.value == 8
-                                    ? AppColor.selecteColor
-                                    : null,
-                                onTap: () {
-                                  controller.index.value = 8;
-                                  Get.back();
-                                },
-                              ),
-                              SubMenu(
-                                subtext: "Profile",
-                                color: controller.index.value == 9
-                                    ? AppColor.selecteColor
-                                    : null,
-                                onTap: () {
-                                  controller.index.value = 9;
-                                  Get.back();
-                                },
-                              ),
-                            ],
-                          ),
-                          ExpansionListCustom(
-                            title: "Blog",
-
-                            // icon: "assets/svg/dashboard/grid_box.svg",
-                            color: controller.index.value == 10
-                                ? AppColor.selecteColor
-                                : null,
-                            children: [
-                              SubMenu(
-                                subtext: "Blog Grid",
-                                color: controller.index.value == 10
-                                    ? AppColor.selecteColor
-                                    : null,
-                                onTap: () {
-                                  controller.index.value = 10;
-                                  Get.back();
-                                },
-                              ),
-                              SubMenu(
-                                subtext: "Blog List",
-                                color: controller.index.value == 11
-                                    ? AppColor.selecteColor
-                                    : null,
-                                onTap: () {
-                                  controller.index.value = 11;
-                                  Get.back();
-                                },
-                              ),
-                              SubMenu(
-                                subtext: "Blog Details",
-                                color: controller.index.value == 12
-                                    ? AppColor.selecteColor
-                                    : null,
-                                onTap: () {
-                                  controller.index.value = 12;
-                                  Get.back();
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-                      // Authentication
-
-                      ExpansionListCustom(
-                        title: "Authentication",
-                        icon: "assets/svg/dashboard/auth_icon.svg",
-                        color: AppColor.selecteColor,
-                        children: [
-                          Menu(
-                            text: "Login",
-                            color: controller.index.value == 50
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              // Get.to(Login());
+                              // controller.index.value = 2;
+                              // Get.back();
                             },
                           ),
                           Menu(
-                            text: "Register",
-                            color: controller.index.value == 50
+                            text: 'Add Video',
+                            color: controller.index.value == 2
                                 ? AppColor.selecteColor
                                 : null,
                             onTap: () {
-                              // Get.to(Signup());
+                              // controller.index.value = 2;
+                              // Get.back();
                             },
                           ),
                           Menu(
-                            text: "Recover Password",
-                            color: controller.index.value == 50
+                            text: 'Pictures',
+                            color: controller.index.value == 2
                                 ? AppColor.selecteColor
                                 : null,
                             onTap: () {
-                              // Get.to(ResetPassword());
+                              // controller.index.value = 2;
+                              // Get.back();
                             },
                           ),
                           Menu(
-                            text: "Lock Screen",
-                            color: controller.index.value == 50
+                            text: 'Currency',
+                            color: controller.index.value == 2
                                 ? AppColor.selecteColor
                                 : null,
                             onTap: () {
-                              // Get.to(LockScreen());
+                              // controller.index.value = 2;
+                              // Get.back();
                             },
                           ),
                           Menu(
-                            text: "Log Out",
-                            color: controller.index.value == 50
+                            text: 'Opening Hour',
+                            color: controller.index.value == 2
                                 ? AppColor.selecteColor
                                 : null,
                             onTap: () {
-                              // Get.to(Logout());
+                              // controller.index.value = 2;
+                              // Get.back();
                             },
                           ),
                           Menu(
-                            text: "Confirm Mail",
-                            color: controller.index.value == 50
+                            text: 'Clinic Service',
+                            color: controller.index.value == 2
                                 ? AppColor.selecteColor
                                 : null,
                             onTap: () {
-                              // Get.to(ConfirmMail());
+                              // controller.index.value = 2;
+                              // Get.back();
                             },
                           ),
                           Menu(
-                            text: "Email Verification",
-                            color: controller.index.value == 50
+                            text: 'Payment information',
+                            color: controller.index.value == 2
                                 ? AppColor.selecteColor
                                 : null,
                             onTap: () {
-                              // Get.to(EmailVerify());
-                            },
-                          ),
-                          Menu(
-                            text: "Two Step Verification",
-                            color: controller.index.value == 50
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              // Get.to(TwoStepVerify());
+                              // controller.index.value = 2;
+                              // Get.back();
                             },
                           ),
                         ],
                       ),
-
-                      // Pages
-
+                      MenuItem(
+                        minWidth: 40,
+                        text: "Treatments",
+                        icon: "assets/svg/dashboard/home_non.svg",
+                        color: controller.index.value == 0
+                            ? AppColor.selecteColor
+                            : null,
+                        onTap: () {
+                          controller.index.value = 0;
+                          Get.back();
+                        },
+                        selected: controller.index.value == 0,
+                      ),
+                      MenuItem(
+                        minWidth: 40,
+                        text: "Staff",
+                        icon: "assets/svg/dashboard/home_non.svg",
+                        color: controller.index.value == 0
+                            ? AppColor.selecteColor
+                            : null,
+                        onTap: () {
+                          controller.index.value = 0;
+                          Get.back();
+                        },
+                        selected: controller.index.value == 0,
+                      ),
                       ExpansionListCustom(
-                        title: "Pages",
+                        title: "Reviews",
                         icon: "assets/svg/dashboard/file_icon.svg",
                         color: AppColor.selecteColor,
                         children: [
                           Menu(
-                            text: "Starter Page",
+                            text: "Overview",
                             color: controller.index.value == 13
                                 ? AppColor.selecteColor
                                 : null,
@@ -413,7 +285,7 @@ class _MainScreenViewState extends State<MainScreenView> {
                             },
                           ),
                           Menu(
-                            text: "Maintenance",
+                            text: "Invite patients to leave a review",
                             color: controller.index.value == 50
                                 ? AppColor.selecteColor
                                 : null,
@@ -421,197 +293,33 @@ class _MainScreenViewState extends State<MainScreenView> {
                               // Get.to(Maintenance());
                             },
                           ),
-                          Menu(
-                            text: "Coming Soon",
-                            color: controller.index.value == 50
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              // Get.to(ComingSoon());
-                            },
-                          ),
-                          Menu(
-                            text: "Timeline",
-                            color: controller.index.value == 14
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              controller.index.value = 14;
-                              Get.back();
-                            },
-                          ),
-                          Menu(
-                            text: "FAQs",
-                            color: controller.index.value == 15
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              controller.index.value = 15;
-                              Get.back();
-                            },
-                          ),
-                          Menu(
-                            text: "Pricing",
-                            color: controller.index.value == 16
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              controller.index.value = 16;
-                              Get.back();
-                            },
-                          ),
-                          Menu(
-                            text: "Error 404",
-                            color: controller.index.value == 50
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              // Get.to(Error404());
-                            },
-                          ),
-                          Menu(
-                            text: "Error 500",
-                            color: controller.index.value == 50
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              // Get.to(Error500());
-                            },
-                          ),
                         ],
                       ),
-                      Container(height: 25),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: Text(
-                          "Elements",
-                          style: TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                      Container(height: 10),
-
-                      // Form
-
-                      ExpansionListCustom(
-                        title: "Forms",
-                        icon: "assets/svg/dashboard/form_icon.svg",
-                        color: controller.index.value == 3
+                      MenuItem(
+                        minWidth: 40,
+                        text: "Service Score",
+                        icon: "assets/svg/dashboard/home_non.svg",
+                        color: controller.index.value == 0
                             ? AppColor.selecteColor
                             : null,
-                        children: [
-                          Menu(
-                            text: "Basic Elements",
-                            color: controller.index.value == 17
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              controller.index.value = 17;
-                              Get.back();
-                            },
-                          ),
-                          Menu(
-                            text: "Validation",
-                            color: controller.index.value == 18
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              controller.index.value = 18;
-                              Get.back();
-                            },
-                          ),
-                          Menu(
-                            text: "Advanced Plugins",
-                            color: controller.index.value == 19
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              controller.index.value = 19;
-                              Get.back();
-                            },
-                          ),
-                          // Menu(
-                          //   text: "Editors",
-                          //   color: controller.index.value == 20
-                          //       ? AppColor.selecteColor
-                          //       : null,
-                          //   onTap: () {
-                          //     controller.index.value = 20;
-                          //     Get.back();
-                          //   },
-                          // ),
-                          Menu(
-                            text: "File Upload",
-                            color: controller.index.value == 20
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              controller.index.value = 20;
-                              Get.back();
-                            },
-                          ),
-                          Menu(
-                            text: "Wizard",
-                            color: controller.index.value == 21
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              controller.index.value = 21;
-                              Get.back();
-                            },
-                          ),
-                          Menu(
-                            text: "Mask",
-                            color: controller.index.value == 22
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              controller.index.value = 22;
-                              Get.back();
-                            },
-                          ),
-                        ],
+                        onTap: () {
+                          controller.index.value = 0;
+                          Get.back();
+                        },
+                        selected: controller.index.value == 0,
                       ),
-
-                      // Tables
-                      ExpansionListCustom(
-                        title: "Tables",
-                        icon: "assets/svg/dashboard/table_icon.svg",
-                        color: controller.index.value == 3
+                      MenuItem(
+                        minWidth: 40,
+                        text: "LogOut",
+                        icon: "assets/svg/dashboard/home_non.svg",
+                        color: controller.index.value == 0
                             ? AppColor.selecteColor
                             : null,
-                        children: [
-                          Menu(
-                            text: "Bootstrap Basic",
-                            color: controller.index.value == 23
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              controller.index.value = 23;
-                              Get.back();
-                            },
-                          ),
-                          Menu(
-                            text: "DataTables",
-                            color: controller.index.value == 24
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              controller.index.value = 24;
-                              Get.back();
-                            },
-                          ),
-                          Menu(
-                            text: "Editable",
-                            color: controller.index.value == 25
-                                ? AppColor.selecteColor
-                                : null,
-                            onTap: () {
-                              controller.index.value = 25;
-                              Get.back();
-                            },
-                          ),
-                        ],
+                        onTap: () {
+                          controller.index.value = 0;
+                          Get.back();
+                        },
+                        selected: controller.index.value == 0,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(24),
@@ -619,53 +327,12 @@ class _MainScreenViewState extends State<MainScreenView> {
                           height: 276,
                           decoration: BoxDecoration(
                             color: AppColor.selecteColor.withOpacity(.10),
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: BorderRadius.circular(12),
                           ),
-                          child: Column(
-                            children: [
-                              Container(height: 20),
-                              Image.asset(
-                                "assets/image/gift.png",
-                                fit: BoxFit.cover,
-                              ),
-                              Container(height: 22),
-                              Text(
-                                "Unlimited Access",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: AppColor.selecteColor,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              Container(height: 7),
-                              Text(
-                                """Upgrade your plan from a 
-            Free trial, to select 
-            ‘Business Plan’.""",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 13,
-                                    color: AppColor.dark,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                              Container(height: 23),
-                              Container(
-                                height: 38,
-                                width: 110,
-                                decoration: BoxDecoration(
-                                  color: AppColor.selecteColor,
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    "Upgrade Now",
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        color: AppColor.mainbackground,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          clipBehavior: Clip.hardEdge,
+                          child: Image.asset(
+                            "assets/image/logo1.png",
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -1259,22 +926,22 @@ class _MainScreenViewState extends State<MainScreenView> {
                 padding: EdgeInsets.all(20),
                 child: Row(
                   children: [
-                    SvgPicture.asset(
-                      "assets/svg/minia_logo.svg",
-                      fit: BoxFit.contain,
-                      height: 25,
-                      width: 25,
+                    Image.asset(
+                      "assets/image/logo1.png",
+                      fit: BoxFit.cover,
+                      height: 30,
+                      width: 30,
                     ),
                     Container(width: 10),
                     Text(
-                      "Clinix Dashboard",
+                      "Clinicx",
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                     ),
                     Spacer(),
                     InkWell(
                         onTap: () {
-                          expandOrShrinkDrawer();
+                          // expandOrShrinkDrawer();
                         },
                         child: Icon(Icons.menu)),
                   ],
@@ -1288,272 +955,150 @@ class _MainScreenViewState extends State<MainScreenView> {
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
                 ),
               ),
-              Container(height: 10),
-              // CommanListTile(
-              //   minWidth: 40,
-              //   text: "Dashboard",
-              //   icon: "assets/svg/dashboard/home_non.svg",
-              //   color:
-              //       controller.index.value == 0 ? AppColor.selecteColor : null,
-              //   onTap: () => controller.index.value = 0,
-              //   selected: controller.index.value == 0,
-              // ),
-              // CommanListTile(
-              //   minWidth: 40,
-              //   text: "Calender",
-              //   icon: "assets/svg/dashboard/calendar.svg",
-              //   color:
-              //       controller.index.value == 0 ? AppColor.selecteColor : null,
-              //   onTap: () {
-              //     controller.index.value = 1;
-              //     width < 983 ? expandOrShrinkDrawer() : null;
-              //   },
-              //   selected: controller.index.value == 0,
-              // ),
+              SizedBox(height: 10),
+              MenuItem(
+                minWidth: 40,
+                text: "Calender",
+                icon: "assets/svg/dashboard/home_non.svg",
+                color:
+                    controller.index.value == 0 ? AppColor.selecteColor : null,
+                onTap: () {
+                  controller.index.value = 0;
+                  Get.back();
+                },
+                selected: controller.index.value == 0,
+              ),
+              MenuItem(
+                minWidth: 40,
+                text: "Account",
+                icon: "assets/svg/dashboard/home_non.svg",
+                color:
+                    controller.index.value == 0 ? AppColor.selecteColor : null,
+                onTap: () {
+                  controller.index.value = 0;
+                  Get.back();
+                },
+                selected: controller.index.value == 0,
+              ),
               ExpansionListCustom(
-                title: "Apps",
+                title: "Profile",
                 icon: "assets/svg/dashboard/grid_box.svg",
                 color:
                     controller.index.value == 1 ? AppColor.selecteColor : null,
                 children: [
                   Menu(
-                    text: 'Calender',
-                    color: controller.index.value == 0
+                    text: 'Clinic Information',
+                    color: controller.index.value == 1
                         ? AppColor.selecteColor
                         : null,
                     onTap: () {
-                      controller.index.value = 0;
-                      width < 983 ? expandOrShrinkDrawer() : null;
+                      // controller.index.value = 1;
+                      // Get.back();
                     },
                   ),
                   Menu(
-                    text: 'Chat',
+                    text: 'Clinic Description',
                     color: controller.index.value == 2
                         ? AppColor.selecteColor
                         : null,
                     onTap: () {
-                      controller.index.value = 2;
-                      width < 983 ? expandOrShrinkDrawer() : null;
-                    },
-                  ),
-                  ExpansionListCustom(
-                    title: "Email",
-                    color: controller.index.value == 3
-                        ? AppColor.selecteColor
-                        : null,
-                    children: [
-                      SubMenu(
-                        subtext: "Inbox",
-                        color: controller.index.value == 3
-                            ? AppColor.selecteColor
-                            : null,
-                        onTap: () {
-                          controller.index.value = 3;
-                        },
-                      ),
-                      SubMenu(
-                        subtext: "Read Email",
-                        color: controller.index.value == 4
-                            ? AppColor.selecteColor
-                            : null,
-                        onTap: () {
-                          controller.index.value = 4;
-                        },
-                      ),
-                    ],
-                  ),
-                  ExpansionListCustom(
-                    title: "Invoices",
-                    color: controller.index.value == 5
-                        ? AppColor.selecteColor
-                        : null,
-                    children: [
-                      SubMenu(
-                        subtext: "Invoice List",
-                        color: controller.index.value == 5
-                            ? AppColor.selecteColor
-                            : null,
-                        onTap: () {
-                          controller.index.value = 5;
-                        },
-                      ),
-                      SubMenu(
-                        subtext: "Invoice Detail",
-                        color: controller.index.value == 6
-                            ? AppColor.selecteColor
-                            : null,
-                        onTap: () {
-                          controller.index.value = 6;
-                        },
-                      ),
-                    ],
-                  ),
-                  ExpansionListCustom(
-                    title: "Contacts",
-                    color: controller.index.value == 7
-                        ? AppColor.selecteColor
-                        : null,
-                    children: [
-                      SubMenu(
-                        subtext: "User Grid",
-                        color: controller.index.value == 7
-                            ? AppColor.selecteColor
-                            : null,
-                        onTap: () {
-                          controller.index.value = 7;
-                        },
-                      ),
-                      SubMenu(
-                        subtext: "User List",
-                        color: controller.index.value == 8
-                            ? AppColor.selecteColor
-                            : null,
-                        onTap: () {
-                          controller.index.value = 8;
-                        },
-                      ),
-                      SubMenu(
-                        subtext: "Profile",
-                        color: controller.index.value == 9
-                            ? AppColor.selecteColor
-                            : null,
-                        onTap: () {
-                          controller.index.value = 9;
-                        },
-                      ),
-                    ],
-                  ),
-                  ExpansionListCustom(
-                    title: "Blog",
-
-                    // icon: "assets/svg/dashboard/grid_box.svg",
-                    color: controller.index.value == 10
-                        ? AppColor.selecteColor
-                        : null,
-                    children: [
-                      SubMenu(
-                        subtext: "Blog Grid",
-                        color: controller.index.value == 10
-                            ? AppColor.selecteColor
-                            : null,
-                        onTap: () {
-                          controller.index.value = 10;
-                        },
-                      ),
-                      SubMenu(
-                        subtext: "Blog List",
-                        color: controller.index.value == 11
-                            ? AppColor.selecteColor
-                            : null,
-                        onTap: () {
-                          controller.index.value = 11;
-                        },
-                      ),
-                      SubMenu(
-                        subtext: "Blog Details",
-                        color: controller.index.value == 12
-                            ? AppColor.selecteColor
-                            : null,
-                        onTap: () {
-                          controller.index.value = 12;
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-
-              // Authentication
-
-              ExpansionListCustom(
-                title: "Authentication",
-                icon: "assets/svg/dashboard/auth_icon.svg",
-                color: AppColor.selecteColor,
-                children: [
-                  Menu(
-                    text: "Login",
-                    color: controller.index.value == 50
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      // Get.to(Login());
+                      // controller.index.value = 2;
+                      // Get.back();
                     },
                   ),
                   Menu(
-                    text: "Register",
-                    color: controller.index.value == 50
+                    text: 'Add Video',
+                    color: controller.index.value == 2
                         ? AppColor.selecteColor
                         : null,
                     onTap: () {
-                      // Get.to(Signup());
+                      // controller.index.value = 2;
+                      // Get.back();
                     },
                   ),
                   Menu(
-                    text: "Recover Password",
-                    color: controller.index.value == 50
+                    text: 'Pictures',
+                    color: controller.index.value == 2
                         ? AppColor.selecteColor
                         : null,
                     onTap: () {
-                      // Get.to(ResetPassword());
+                      // controller.index.value = 2;
+                      // Get.back();
                     },
                   ),
                   Menu(
-                    text: "Lock Screen",
-                    color: controller.index.value == 50
+                    text: 'Currency',
+                    color: controller.index.value == 2
                         ? AppColor.selecteColor
                         : null,
                     onTap: () {
-                      // Get.to(LockScreen());
+                      // controller.index.value = 2;
+                      // Get.back();
                     },
                   ),
                   Menu(
-                    text: "Log Out",
-                    color: controller.index.value == 50
+                    text: 'Opening Hour',
+                    color: controller.index.value == 2
                         ? AppColor.selecteColor
                         : null,
                     onTap: () {
-                      // Get.to(Logout());
+                      // controller.index.value = 2;
+                      // Get.back();
                     },
                   ),
                   Menu(
-                    text: "Confirm Mail",
-                    color: controller.index.value == 50
+                    text: 'Clinic Service',
+                    color: controller.index.value == 2
                         ? AppColor.selecteColor
                         : null,
                     onTap: () {
-                      // Get.to(ConfirmMail());
+                      // controller.index.value = 2;
+                      // Get.back();
                     },
                   ),
                   Menu(
-                    text: "Email Verification",
-                    color: controller.index.value == 50
+                    text: 'Payment information',
+                    color: controller.index.value == 2
                         ? AppColor.selecteColor
                         : null,
                     onTap: () {
-                      // Get.to(EmailVerify());
-                    },
-                  ),
-                  Menu(
-                    text: "Two Step Verification",
-                    color: controller.index.value == 50
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      // Get.to(TwoStepVerify());
+                      // controller.index.value = 2;
+                      // Get.back();
                     },
                   ),
                 ],
               ),
-
-              // Pages
-
+              MenuItem(
+                minWidth: 40,
+                text: "Treatments",
+                icon: "assets/svg/dashboard/home_non.svg",
+                color:
+                    controller.index.value == 0 ? AppColor.selecteColor : null,
+                onTap: () {
+                  controller.index.value = 0;
+                  Get.back();
+                },
+                selected: controller.index.value == 0,
+              ),
+              MenuItem(
+                minWidth: 40,
+                text: "Staff",
+                icon: "assets/svg/dashboard/home_non.svg",
+                color:
+                    controller.index.value == 0 ? AppColor.selecteColor : null,
+                onTap: () {
+                  controller.index.value = 0;
+                  Get.back();
+                },
+                selected: controller.index.value == 0,
+              ),
               ExpansionListCustom(
-                title: "Pages",
+                title: "Reviews",
                 icon: "assets/svg/dashboard/file_icon.svg",
                 color: AppColor.selecteColor,
                 children: [
                   Menu(
-                    text: "Starter Page",
+                    text: "Overview",
                     color: controller.index.value == 13
                         ? AppColor.selecteColor
                         : null,
@@ -1563,7 +1108,7 @@ class _MainScreenViewState extends State<MainScreenView> {
                     },
                   ),
                   Menu(
-                    text: "Maintenance",
+                    text: "Invite patients to leave a review",
                     color: controller.index.value == 50
                         ? AppColor.selecteColor
                         : null,
@@ -1571,194 +1116,31 @@ class _MainScreenViewState extends State<MainScreenView> {
                       // Get.to(Maintenance());
                     },
                   ),
-                  Menu(
-                    text: "Coming Soon",
-                    color: controller.index.value == 50
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      // Get.to(ComingSoon());
-                    },
-                  ),
-                  Menu(
-                    text: "Timeline",
-                    color: controller.index.value == 14
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      controller.index.value = 14;
-                      Get.back();
-                    },
-                  ),
-                  Menu(
-                    text: "FAQs",
-                    color: controller.index.value == 15
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      controller.index.value = 15;
-                      Get.back();
-                    },
-                  ),
-                  Menu(
-                    text: "Pricing",
-                    color: controller.index.value == 16
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      controller.index.value = 16;
-                      Get.back();
-                    },
-                  ),
-                  Menu(
-                    text: "Error 404",
-                    color: controller.index.value == 50
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      // Get.to(Error404());
-                    },
-                  ),
-                  Menu(
-                    text: "Error 500",
-                    color: controller.index.value == 50
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      // Get.to(Error500());
-                    },
-                  ),
                 ],
               ),
-              Container(height: 25),
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Text(
-                  "Elements",
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-                ),
-              ),
-              Container(height: 10),
-
-              // Form
-
-              ExpansionListCustom(
-                title: "Forms",
-                icon: "assets/svg/dashboard/form_icon.svg",
+              MenuItem(
+                minWidth: 40,
+                text: "Service Score",
+                icon: "assets/svg/dashboard/home_non.svg",
                 color:
-                    controller.index.value == 3 ? AppColor.selecteColor : null,
-                children: [
-                  Menu(
-                    text: "Basic Elements",
-                    color: controller.index.value == 17
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      controller.index.value = 17;
-                      Get.back();
-                    },
-                  ),
-                  Menu(
-                    text: "Validation",
-                    color: controller.index.value == 18
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      controller.index.value = 18;
-                      Get.back();
-                    },
-                  ),
-                  Menu(
-                    text: "Advanced Plugins",
-                    color: controller.index.value == 19
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      controller.index.value = 19;
-                      Get.back();
-                    },
-                  ),
-                  // Menu(
-                  //   text: "Editors",
-                  //   color: controller.index.value == 20
-                  //       ? AppColor.selecteColor
-                  //       : null,
-                  //   onTap: () {
-                  //     controller.index.value = 20;
-                  //     Get.back();
-                  //   },
-                  // ),
-                  Menu(
-                    text: "File Upload",
-                    color: controller.index.value == 20
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      controller.index.value = 20;
-                      Get.back();
-                    },
-                  ),
-                  Menu(
-                    text: "Wizard",
-                    color: controller.index.value == 21
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      controller.index.value = 21;
-                      Get.back();
-                    },
-                  ),
-                  Menu(
-                    text: "Mask",
-                    color: controller.index.value == 22
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      controller.index.value = 22;
-                      Get.back();
-                    },
-                  ),
-                ],
+                    controller.index.value == 0 ? AppColor.selecteColor : null,
+                onTap: () {
+                  controller.index.value = 0;
+                  Get.back();
+                },
+                selected: controller.index.value == 0,
               ),
-
-              // Tables
-              ExpansionListCustom(
-                title: "Tables",
-                icon: "assets/svg/dashboard/table_icon.svg",
+              MenuItem(
+                minWidth: 40,
+                text: "LogOut",
+                icon: "assets/svg/dashboard/home_non.svg",
                 color:
-                    controller.index.value == 3 ? AppColor.selecteColor : null,
-                children: [
-                  Menu(
-                    text: "Bootstrap Basic",
-                    color: controller.index.value == 23
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      controller.index.value = 23;
-                      Get.back();
-                    },
-                  ),
-                  Menu(
-                    text: "DataTables",
-                    color: controller.index.value == 24
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      controller.index.value = 24;
-                      Get.back();
-                    },
-                  ),
-                  Menu(
-                    text: "Editable",
-                    color: controller.index.value == 25
-                        ? AppColor.selecteColor
-                        : null,
-                    onTap: () {
-                      controller.index.value = 25;
-                      Get.back();
-                    },
-                  ),
-                ],
+                    controller.index.value == 0 ? AppColor.selecteColor : null,
+                onTap: () {
+                  controller.index.value = 0;
+                  Get.back();
+                },
+                selected: controller.index.value == 0,
               ),
               Padding(
                 padding: const EdgeInsets.all(24),
@@ -1766,50 +1148,12 @@ class _MainScreenViewState extends State<MainScreenView> {
                   height: 276,
                   decoration: BoxDecoration(
                     color: AppColor.selecteColor.withOpacity(.10),
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Column(
-                    children: [
-                      Container(height: 20),
-                      Image.asset("assets/image/gift.png", fit: BoxFit.cover),
-                      Container(height: 22),
-                      Text(
-                        "Unlimited Access",
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: AppColor.selecteColor,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      Container(height: 7),
-                      Text(
-                        """Upgrade your plan from a
-Free trial, to select
-‘Business Plan’.""",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 13,
-                            color: AppColor.dark,
-                            fontWeight: FontWeight.w400),
-                      ),
-                      Container(height: 23),
-                      Container(
-                        height: 38,
-                        width: 110,
-                        decoration: BoxDecoration(
-                          color: AppColor.selecteColor,
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Upgrade Now",
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: AppColor.mainbackground,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ),
-                      ),
-                    ],
+                  clipBehavior: Clip.hardEdge,
+                  child: Image.asset(
+                    "assets/image/logo1.png",
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -2369,7 +1713,7 @@ class bottomText extends StatelessWidget {
             Expanded(
               flex: 6,
               child: Text(
-                "2023 © Minia.",
+                "2023 © Clinix.",
                 style: TextStyle(
                     overflow: TextOverflow.clip,
                     fontSize: 14,
@@ -2383,27 +1727,11 @@ class bottomText extends StatelessWidget {
                     flex: 0,
                     child: Align(
                       alignment: Alignment.centerRight,
-                      child: Text(
-                        "Design & Develop by ",
-                        style: TextStyle(
-                            overflow: TextOverflow.clip,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: AppColor.lightdark),
-                      ),
-                    ),
-                  )
-                : Container(),
-            width > 570
-                ? Expanded(
-                    flex: 0,
-                    child: Align(
-                      alignment: Alignment.centerRight,
                       child: RichText(
                         text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: 'Themesbrand',
+                              text: '© www.clinix.com',
                               style: TextStyle(
                                   overflow: TextOverflow.clip,
                                   fontSize: 14,
@@ -2422,7 +1750,7 @@ class bottomText extends StatelessWidget {
   }
 }
 
-class CommanListTile extends StatelessWidget {
+class MenuItem extends StatelessWidget {
   final String text;
   final String? icon;
   final VoidCallback onTap;
@@ -2430,7 +1758,7 @@ class CommanListTile extends StatelessWidget {
   final dynamic color;
   final double minWidth;
 
-  const CommanListTile({
+  const MenuItem({
     super.key,
     required this.text,
     this.icon,
