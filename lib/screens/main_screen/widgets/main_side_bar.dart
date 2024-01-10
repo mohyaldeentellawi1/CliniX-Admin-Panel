@@ -8,8 +8,9 @@ import 'menu_item_in_expansion_list.dart';
 import 'menu_item_in_side_bar.dart';
 
 class MainSideBar extends StatelessWidget {
-  const MainSideBar({super.key, required this.controller});
+  const MainSideBar({super.key, required this.controller, required this.onTap});
   final SideBarController controller;
+  final void Function() onTap;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -44,7 +45,7 @@ class MainSideBar extends StatelessWidget {
                     const Spacer(),
                     InkWell(
                         onTap: () {
-                          // expandOrShrinkDrawer();
+                          onTap();
                         },
                         child: const Icon(Icons.menu)),
                   ],

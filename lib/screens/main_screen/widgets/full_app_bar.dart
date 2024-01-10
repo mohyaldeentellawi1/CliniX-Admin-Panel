@@ -1,7 +1,6 @@
 import 'package:clinix_admin_panel/screens/main_screen/widgets/profil_in_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 
 import '../../../core/utils/colors.dart';
 import 'grid_button_app_bar.dart';
@@ -12,10 +11,10 @@ class FullAppBar extends StatelessWidget {
   const FullAppBar(
       {super.key,
       required this.width,
-      required this.isExpanded,
+      required this.condition,
       required this.onTap});
   final double width;
-  final RxBool isExpanded;
+  final bool condition;
   final void Function() onTap;
 
   @override
@@ -32,9 +31,11 @@ class FullAppBar extends StatelessWidget {
             child: Row(
               children: [
                 Container(width: 15),
-                isExpanded.isFalse && width > 983
+                condition
                     ? InkWell(
-                        onTap: onTap,
+                        onTap: () {
+                          onTap();
+                        },
                         child: const Icon(Icons.menu),
                       )
                     : Container(),
@@ -69,7 +70,7 @@ class FullAppBar extends StatelessWidget {
                           decoration: const BoxDecoration(
                             color: AppColor.searchbackground,
                             borderRadius: BorderRadius.all(
-                              Radius.circular(4),
+                              Radius.circular(6),
                             ),
                           ),
                           child:
@@ -84,7 +85,7 @@ class FullAppBar extends StatelessWidget {
                 const GridButtonAppBar(),
                 NotificationButton(width: width), // for notifications
                 Container(width: 10),
-                ProfileInAppBar(width: width), // ontap
+                ProfileInAppBar(width: width),
                 Container(width: width > 1200 ? 35 : 20),
               ],
             ),

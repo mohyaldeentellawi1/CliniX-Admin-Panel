@@ -15,7 +15,6 @@ class ClinixAdminPanel extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Clinix Admin Panel',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       home: const MainScreenView(),

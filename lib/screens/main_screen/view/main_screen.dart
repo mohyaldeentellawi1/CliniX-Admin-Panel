@@ -8,7 +8,6 @@ import 'package:clinix_admin_panel/screens/main_screen/widgets/small_app_bar.dar
 import 'package:clinix_admin_panel/screens/main_screen/widgets/small_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../controllers/dashboard_controller.dart';
 import '../../../controllers/sidebar_controllers.dart';
 import '../../../core/utils/colors.dart';
 // import 'package:minia_web_project/view/Authentication/pages/confirm_mail.dart';
@@ -35,9 +34,9 @@ class _MainScreenViewState extends State<MainScreenView> {
   RxBool isExpanded = true.obs;
   RxBool hide = true.obs;
 
-  RxInt iSIndex = 0.obs;
+  // RxInt iSIndex = 0.obs;
   SideBarController controller = Get.put(SideBarController());
-  final DashboardController dashcontroller = Get.put(DashboardController());
+  // final DashboardController dashcontroller = Get.put(DashboardController());
   final GlobalKey<_MainScreenViewState> button1Key = GlobalKey();
   final GlobalKey<_MainScreenViewState> button2Key = GlobalKey();
   void expandOrShrinkDrawer() {
@@ -48,7 +47,7 @@ class _MainScreenViewState extends State<MainScreenView> {
 
   @override
   Widget build(BuildContext context) {
-    iSIndex.value = controller.index.value;
+    // iSIndex.value = controller.index.value;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: AppColor.mainbackground,
@@ -59,7 +58,8 @@ class _MainScreenViewState extends State<MainScreenView> {
           isExpanded.isFalse && width > 983
               ? IconsSideBar(controller: controller)
               : width > 983
-                  ? MainSideBar(controller: controller)
+                  ? MainSideBar(
+                      controller: controller, onTap: expandOrShrinkDrawer)
                   : Container(),
           Expanded(
             child: Column(
@@ -68,8 +68,10 @@ class _MainScreenViewState extends State<MainScreenView> {
                 width > 983
                     ? FullAppBar(
                         width: width,
-                        isExpanded: isExpanded,
-                        onTap: expandOrShrinkDrawer)
+                        condition: isExpanded.isFalse && width > 983,
+                        onTap: () {
+                          expandOrShrinkDrawer();
+                        })
                     : Container(),
                 Expanded(
                   child: SingleChildScrollView(

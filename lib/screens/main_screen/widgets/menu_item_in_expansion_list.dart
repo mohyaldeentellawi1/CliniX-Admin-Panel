@@ -18,7 +18,6 @@ class Menu extends StatelessWidget {
       onTap: onTap,
       child: SizedBox(
         height: 45,
-        // color: Colors.green,
         child: Row(
           children: [
             Container(width: 53),
