@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../core/utils/colors.dart';
 
 class MenuItem extends StatelessWidget {
   final String text;
-  final String? icon;
+  final IconData icon;
   final VoidCallback onTap;
   final dynamic selected;
   final dynamic color;
@@ -15,7 +14,7 @@ class MenuItem extends StatelessWidget {
   const MenuItem({
     super.key,
     required this.text,
-    this.icon,
+    required this.icon,
     required this.onTap,
     this.selected,
     required this.color,
@@ -36,15 +35,7 @@ class MenuItem extends StatelessWidget {
       ),
       contentPadding: EdgeInsets.zero,
       leading: Padding(
-        padding: const EdgeInsets.only(left: 20.0),
-        child: SvgPicture.asset(
-          icon!,
-          fit: BoxFit.cover,
-          height: 17,
-          width: 22,
-          colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
-        ),
-      ),
+          padding: const EdgeInsets.only(left: 20.0), child: Icon(icon)),
       onTap: onTap,
       selected: selected,
     );

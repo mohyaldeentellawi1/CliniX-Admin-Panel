@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:clinix_admin_panel/screens/account_screen/view/account_screen_view.dart';
 import 'package:get/get.dart';
 
 import '../screens/calender_screen/view/calender_screen.dart';
@@ -33,7 +34,7 @@ class SideBarController extends GetxController {
 
   var page = [
     Calender(), //0
-    // Calender(), //1
+    AccountScreenView()
     // ChatView(), //2
     // EmailView(), //3
     // EmailView(), //4

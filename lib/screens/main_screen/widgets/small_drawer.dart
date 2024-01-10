@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import '../../../controllers/sidebar_controllers.dart';
 import '../../../core/utils/colors.dart';
@@ -59,7 +60,7 @@ class SmallDrawer extends StatelessWidget {
                       MenuItem(
                         minWidth: 40,
                         text: "Calender",
-                        icon: "assets/svg/dashboard/home_non.svg",
+                        icon: FontAwesomeIcons.calendar,
                         color: controller.index.value == 0
                             ? AppColor.selecteColor
                             : null,
@@ -72,7 +73,7 @@ class SmallDrawer extends StatelessWidget {
                       MenuItem(
                         minWidth: 40,
                         text: "Account",
-                        icon: "assets/svg/dashboard/home_non.svg",
+                        icon: FontAwesomeIcons.person,
                         color: controller.index.value == 0
                             ? AppColor.selecteColor
                             : null,
@@ -84,7 +85,7 @@ class SmallDrawer extends StatelessWidget {
                       ),
                       ExpansionListCustom(
                         title: "Profile",
-                        icon: "assets/svg/dashboard/grid_box.svg",
+                        icoN: FontAwesomeIcons.addressCard,
                         color: controller.index.value == 1
                             ? AppColor.selecteColor
                             : null,
@@ -174,7 +175,7 @@ class SmallDrawer extends StatelessWidget {
                       MenuItem(
                         minWidth: 40,
                         text: "Treatments",
-                        icon: "assets/svg/dashboard/home_non.svg",
+                        icon: FontAwesomeIcons.staffSnake,
                         color: controller.index.value == 0
                             ? AppColor.selecteColor
                             : null,
@@ -187,7 +188,7 @@ class SmallDrawer extends StatelessWidget {
                       MenuItem(
                         minWidth: 40,
                         text: "Staff",
-                        icon: "assets/svg/dashboard/home_non.svg",
+                        icon: FontAwesomeIcons.rightToBracket,
                         color: controller.index.value == 0
                             ? AppColor.selecteColor
                             : null,
@@ -199,7 +200,7 @@ class SmallDrawer extends StatelessWidget {
                       ),
                       ExpansionListCustom(
                         title: "Reviews",
-                        icon: "assets/svg/dashboard/file_icon.svg",
+                        icoN: FontAwesomeIcons.star,
                         color: AppColor.selecteColor,
                         children: [
                           Menu(
@@ -226,7 +227,7 @@ class SmallDrawer extends StatelessWidget {
                       MenuItem(
                         minWidth: 40,
                         text: "Service Score",
-                        icon: "assets/svg/dashboard/home_non.svg",
+                        icon: FontAwesomeIcons.servicestack,
                         color: controller.index.value == 0
                             ? AppColor.selecteColor
                             : null,
@@ -239,7 +240,7 @@ class SmallDrawer extends StatelessWidget {
                       MenuItem(
                         minWidth: 40,
                         text: "LogOut",
-                        icon: "assets/svg/dashboard/home_non.svg",
+                        icon: FontAwesomeIcons.rightToBracket,
                         color: controller.index.value == 0
                             ? AppColor.selecteColor
                             : null,

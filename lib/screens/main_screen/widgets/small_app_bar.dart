@@ -1,4 +1,4 @@
-import 'package:clinix_admin_panel/screens/main_screen/widgets/grid_button_app_bar.dart';
+import 'package:clinix_admin_panel/screens/main_screen/widgets/dark_light_switch.dart';
 import 'package:clinix_admin_panel/screens/main_screen/widgets/localization_widget.dart';
 import 'package:clinix_admin_panel/screens/main_screen/widgets/notification_app_bar_button.dart';
 import 'package:clinix_admin_panel/screens/main_screen/widgets/profil_in_app_bar.dart';
@@ -48,8 +48,8 @@ class SmallAppBar extends StatelessWidget implements PreferredSizeWidget {
               const Spacer(),
               width > 600 ? const LocalizationWidget() : Container(),
               Container(width: 20),
-              width > 984 ? const GridButtonAppBar() : Container(),
-              NotificationButton(width: width), // for notifications
+              const SwitcLightDark(),
+              NotificationButton(width: width),
               Container(width: 10),
               ProfileInAppBar(width: width),
             ],

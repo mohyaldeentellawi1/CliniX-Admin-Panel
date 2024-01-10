@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/utils/colors.dart';
-import 'grid_button_app_bar.dart';
+import 'dark_light_switch.dart';
 import 'localization_widget.dart';
 import 'notification_app_bar_button.dart';
 
@@ -82,7 +82,7 @@ class FullAppBar extends StatelessWidget {
                 const Spacer(),
                 const LocalizationWidget(), // for language change
                 Container(width: 10),
-                const GridButtonAppBar(),
+                const SwitcLightDark(),
                 NotificationButton(width: width), // for notifications
                 Container(width: 10),
                 ProfileInAppBar(width: width),

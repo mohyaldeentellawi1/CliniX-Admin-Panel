@@ -8,6 +8,7 @@ import '../../../core/utils/colors.dart';
 class ExpansionListCustom extends StatefulWidget {
   final String title;
   final String? icon;
+  final IconData icoN;
   final dynamic selected;
   final dynamic color;
   final dynamic children;
@@ -18,6 +19,7 @@ class ExpansionListCustom extends StatefulWidget {
     this.color,
     this.children,
     this.icon,
+    required this.icoN,
   });
 
   @override
@@ -33,7 +35,6 @@ class _ExpansionListCustomState extends State<ExpansionListCustom> {
   Widget build(BuildContext context) {
     return ListTileTheme(
       dense: true,
-      //  data:
       child: Theme(
         data: ThemeData().copyWith(dividerColor: Colors.transparent),
         child: ExpansionTile(
@@ -60,7 +61,6 @@ class _ExpansionListCustomState extends State<ExpansionListCustom> {
                     size: 12,
                   ),
                 ),
-          // collapsedIconColor: AppColor.black,
           textColor: AppColor.searchbackground,
           iconColor: AppColor.searchbackground,
           tilePadding: EdgeInsets.zero,
@@ -77,13 +77,7 @@ class _ExpansionListCustomState extends State<ExpansionListCustom> {
           leading: widget.icon != null && widget.icon!.isNotEmpty
               ? Padding(
                   padding: const EdgeInsets.only(left: 20.0, right: 0.0),
-                  child: SvgPicture.asset(
-                    widget.icon!,
-                    fit: BoxFit.cover,
-                    height: 17,
-                    width: 22,
-                    color: _isExpanded ? AppColor.searchbackground : null,
-                  ),
+                  child: Icon(widget.icoN),
                 )
               : Container(width: 0.0),
         ),

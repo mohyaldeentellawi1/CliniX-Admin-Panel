@@ -33,8 +33,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.9
+  font_awesome_flutter: ^10.6.0
   get: ^4.6.6
-  syncfusion_flutter_calendar: ^24.1.44
+  syncfusion_flutter_calendar: ^24.1.45
 
 dev_dependencies:
 
