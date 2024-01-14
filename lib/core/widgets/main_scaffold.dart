@@ -36,7 +36,7 @@ class MainScaffold extends StatelessWidget {
               textii: textii,
             ),
           ),
-        if (width > 1000) webTabletViewWidget else mobileWidget
+        if (width > 900) webTabletViewWidget else mobileWidget
       ],
     );
   }

@@ -19,7 +19,7 @@ class FootterWidget extends StatelessWidget {
             const Expanded(
               flex: 6,
               child: Text(
-                "2023 © Clinix.",
+                "2024 © Clinix.",
                 style: TextStyle(
                     overflow: TextOverflow.clip,
                     fontSize: 14,

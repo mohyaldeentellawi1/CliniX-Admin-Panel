@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:clinix_admin_panel/screens/calender_screen/view/calendar.dart';
 import 'package:clinix_admin_panel/screens/account_screen/view/account_screen_view.dart';
 import 'package:get/get.dart';
 
-import '../screens/calender_screen/view/calender_screen.dart';
 // import 'package:minia_web_project/view/Apps/Emails/emailview.dart';
 // import 'package:minia_web_project/view/Apps/contactList/contact_view.dart';
 // import 'package:minia_web_project/view/Apps/contactList/profile_view.dart';
@@ -33,7 +33,7 @@ class SideBarController extends GetxController {
   RxInt index = 0.obs;
 
   var page = [
-    Calender(), //0
+    EventCalendar(), //0
     AccountScreenView()
     // ChatView(), //2
     // EmailView(), //3

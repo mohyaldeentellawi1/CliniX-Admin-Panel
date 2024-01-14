@@ -252,7 +252,6 @@ class MainSideBar extends StatelessWidget {
                 child: Container(
                   height: 276,
                   decoration: BoxDecoration(
-                    color: AppColor.selecteColor.withOpacity(.10),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   clipBehavior: Clip.hardEdge,
