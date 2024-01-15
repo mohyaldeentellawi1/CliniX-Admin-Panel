@@ -1,9 +1,10 @@
+import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Menu extends StatelessWidget {
   final String text;
-  final dynamic color;
+  final Color color;
   final VoidCallback onTap;
   const Menu({
     super.key,
@@ -22,15 +23,11 @@ class Menu extends StatelessWidget {
           children: [
             Container(width: 53),
             Expanded(
-              child: Text(
-                text.tr,
-                style: TextStyle(
-                    overflow: TextOverflow.clip,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 0.5,
-                    color: color),
-              ),
+              child: ResponsiveTextStyle(
+                  text: text.tr,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: color),
             ),
           ],
         ),

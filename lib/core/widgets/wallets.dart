@@ -122,7 +122,7 @@ class ColumnTitel extends StatelessWidget {
       children: [
         Align(
           alignment: Alignment.topLeft,
-          child: TitelText(
+          child: ResponsiveTextStyle(
             color: AppColor.dark,
             fontWeight: FontWeight.w600,
             fontSize: 18,
@@ -132,7 +132,7 @@ class ColumnTitel extends StatelessWidget {
         Container(height: 5),
         Row(
           children: [
-            TitelText(
+            ResponsiveTextStyle(
               color: AppColor.dark,
               fontWeight: FontWeight.w400,
               fontSize: 14,
@@ -141,7 +141,7 @@ class ColumnTitel extends StatelessWidget {
             Container(width: 2),
             Icon(Icons.chevron_right, color: AppColor.lightgrey),
             Container(width: 2),
-            TitelText(
+            ResponsiveTextStyle(
               color: AppColor.lightdark,
               fontWeight: FontWeight.w400,
               fontSize: 14,
@@ -169,14 +169,14 @@ class RowTitel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        TitelText(
+        ResponsiveTextStyle(
           color: AppColor.dark,
           fontWeight: FontWeight.w600,
           fontSize: 18,
           text: textL,
         ),
         Spacer(),
-        TitelText(
+        ResponsiveTextStyle(
           color: AppColor.dark,
           fontWeight: FontWeight.w400,
           fontSize: 14,
@@ -185,7 +185,7 @@ class RowTitel extends StatelessWidget {
         Container(width: 10),
         Icon(Icons.chevron_right, color: AppColor.lightgrey),
         Container(width: 10),
-        TitelText(
+        ResponsiveTextStyle(
           color: AppColor.lightdark,
           fontWeight: FontWeight.w400,
           fontSize: 14,

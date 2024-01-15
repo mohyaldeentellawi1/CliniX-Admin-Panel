@@ -1,3 +1,4 @@
+import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/colors.dart';
@@ -35,13 +36,11 @@ class NotificationCountIcon extends StatelessWidget {
                   color: AppColor.notired,
                   borderRadius: BorderRadius.circular(8)),
               child: Center(
-                child: Text(
-                  '$notificationCount',
-                  style: const TextStyle(
-                    color: AppColor.mainbackground,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                  ),
+                child: ResponsiveTextStyle(
+                  text: '$notificationCount',
+                  color: AppColor.mainbackground,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),

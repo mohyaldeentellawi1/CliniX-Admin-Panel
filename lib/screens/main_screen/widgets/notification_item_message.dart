@@ -1,3 +1,4 @@
+import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 
 class NotifcationItemMessage extends StatelessWidget {
@@ -29,27 +30,22 @@ class NotifcationItemMessage extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              name,
-              style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xFF313533)),
-            ),
+            ResponsiveTextStyle(
+                text: name,
+                color: const Color(0xFF313533),
+                fontSize: 14,
+                fontWeight: FontWeight.w600),
             Container(height: 5),
             SizedBox(
               width: width < 325 ? 190 : 230,
               child: Row(
                 children: [
                   Expanded(
-                    child: Text(
-                      message,
-                      overflow: TextOverflow.clip,
-                      style: const TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFF2C302E),
-                      ),
+                    child: ResponsiveTextStyle(
+                      text: message,
+                      color: const Color(0xFF2C302E),
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ],
@@ -61,13 +57,11 @@ class NotifcationItemMessage extends StatelessWidget {
               children: [
                 const Icon(Icons.watch_later_outlined, size: 15),
                 Container(width: 4),
-                Text(
-                  time,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFF2C302E),
-                  ),
+                ResponsiveTextStyle(
+                  text: time,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                  color: const Color(0xFF2C302E),
                 ),
               ],
             ),

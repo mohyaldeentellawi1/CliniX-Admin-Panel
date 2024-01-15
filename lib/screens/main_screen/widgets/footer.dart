@@ -1,3 +1,4 @@
+import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/colors.dart';
@@ -18,14 +19,11 @@ class FootterWidget extends StatelessWidget {
             Container(width: 18),
             const Expanded(
               flex: 6,
-              child: Text(
-                "2024 © Clinix.",
-                style: TextStyle(
-                    overflow: TextOverflow.clip,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: AppColor.lightdark),
-              ),
+              child: ResponsiveTextStyle(
+                  text: '2024 © Clinix.',
+                  color: AppColor.lightdark,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400),
             ),
             const Spacer(),
             width > 570

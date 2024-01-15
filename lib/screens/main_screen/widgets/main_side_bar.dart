@@ -1,6 +1,7 @@
 import 'package:clinix_admin_panel/controllers/sidebar_controllers.dart';
+import 'package:clinix_admin_panel/core/utils/constant.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:get/get.dart';
 
 import '../../../core/utils/colors.dart';
@@ -28,27 +29,19 @@ class MainSideBar extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(20),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/image/logo1.png",
-                      fit: BoxFit.cover,
-                      height: 30,
-                      width: 30,
-                    ),
-                    Container(width: 10),
-                    const Text(
-                      "Clinicx",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                    ),
-                    const Spacer(),
-                    InkWell(
-                        onTap: () {
-                          onTap();
-                        },
-                        child: const Icon(Icons.menu)),
-                  ],
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                  leading: Image.asset(
+                    logo,
+                    width: 50,
+                    height: 50,
+                  ),
+                  title: const Text('ClinicX'),
+                  titleTextStyle: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold),
+                  trailing: IconButton(
+                      onPressed: onTap, icon: const Icon(Icons.menu)),
                 ),
               ),
               Container(height: 25),
@@ -63,9 +56,10 @@ class MainSideBar extends StatelessWidget {
               MenuItem(
                 minWidth: 40,
                 text: "Calender",
-                icon: FontAwesomeIcons.calendar,
-                color:
-                    controller.index.value == 0 ? AppColor.selecteColor : null,
+                icon: calendar,
+                color: controller.index.value == 0
+                    ? AppColor.selecteColor
+                    : Colors.black,
                 onTap: () {
                   controller.index.value = 0;
                   Get.back();
@@ -75,9 +69,10 @@ class MainSideBar extends StatelessWidget {
               MenuItem(
                 minWidth: 40,
                 text: "Account",
-                icon: FontAwesomeIcons.person,
-                color:
-                    controller.index.value == 1 ? AppColor.selecteColor : null,
+                icon: account,
+                color: controller.index.value == 1
+                    ? AppColor.selecteColor
+                    : Colors.transparent,
                 onTap: () {
                   controller.index.value = 1;
                   Get.back();
@@ -86,15 +81,16 @@ class MainSideBar extends StatelessWidget {
               ),
               ExpansionListCustom(
                 title: "Profile",
-                icoN: FontAwesomeIcons.addressCard,
-                color:
-                    controller.index.value == 2 ? AppColor.selecteColor : null,
+                icoN: profile,
+                color: controller.index.value == 2
+                    ? AppColor.selecteColor
+                    : AppColor.darkblack,
                 children: [
                   Menu(
                     text: 'Clinic Information',
                     color: controller.index.value == 2
                         ? AppColor.selecteColor
-                        : null,
+                        : AppColor.darkblack,
                     onTap: () {
                       controller.index.value = 2;
                       Get.back();
@@ -104,7 +100,7 @@ class MainSideBar extends StatelessWidget {
                     text: 'Clinic Description',
                     color: controller.index.value == 3
                         ? AppColor.selecteColor
-                        : null,
+                        : AppColor.darkblack,
                     onTap: () {
                       controller.index.value = 3;
                       Get.back();
@@ -114,7 +110,7 @@ class MainSideBar extends StatelessWidget {
                     text: 'Add Video',
                     color: controller.index.value == 4
                         ? AppColor.selecteColor
-                        : null,
+                        : AppColor.darkblack,
                     onTap: () {
                       controller.index.value = 4;
                       Get.back();
@@ -124,7 +120,7 @@ class MainSideBar extends StatelessWidget {
                     text: 'Pictures',
                     color: controller.index.value == 5
                         ? AppColor.selecteColor
-                        : null,
+                        : AppColor.darkblack,
                     onTap: () {
                       controller.index.value = 5;
                       Get.back();
@@ -134,7 +130,7 @@ class MainSideBar extends StatelessWidget {
                     text: 'Currency',
                     color: controller.index.value == 6
                         ? AppColor.selecteColor
-                        : null,
+                        : AppColor.darkblack,
                     onTap: () {
                       controller.index.value = 6;
                       Get.back();
@@ -144,7 +140,7 @@ class MainSideBar extends StatelessWidget {
                     text: 'Opening Hour',
                     color: controller.index.value == 7
                         ? AppColor.selecteColor
-                        : null,
+                        : AppColor.darkblack,
                     onTap: () {
                       controller.index.value = 7;
                       Get.back();
@@ -154,7 +150,7 @@ class MainSideBar extends StatelessWidget {
                     text: 'Clinic Service',
                     color: controller.index.value == 8
                         ? AppColor.selecteColor
-                        : null,
+                        : AppColor.darkblack,
                     onTap: () {
                       controller.index.value = 8;
                       Get.back();
@@ -164,7 +160,7 @@ class MainSideBar extends StatelessWidget {
                     text: 'Payment information',
                     color: controller.index.value == 9
                         ? AppColor.selecteColor
-                        : null,
+                        : AppColor.darkblack,
                     onTap: () {
                       controller.index.value = 9;
                       Get.back();
@@ -175,9 +171,10 @@ class MainSideBar extends StatelessWidget {
               MenuItem(
                 minWidth: 40,
                 text: "Treatments",
-                icon: FontAwesomeIcons.staffSnake,
-                color:
-                    controller.index.value == 10 ? AppColor.selecteColor : null,
+                icon: treatment,
+                color: controller.index.value == 10
+                    ? AppColor.selecteColor
+                    : Colors.transparent,
                 onTap: () {
                   controller.index.value = 10;
                   Get.back();
@@ -187,9 +184,10 @@ class MainSideBar extends StatelessWidget {
               MenuItem(
                 minWidth: 40,
                 text: "Staff",
-                icon: FontAwesomeIcons.staffSnake,
-                color:
-                    controller.index.value == 11 ? AppColor.selecteColor : null,
+                icon: staff,
+                color: controller.index.value == 11
+                    ? AppColor.selecteColor
+                    : Colors.transparent,
                 onTap: () {
                   controller.index.value = 11;
                   Get.back();
@@ -198,14 +196,14 @@ class MainSideBar extends StatelessWidget {
               ),
               ExpansionListCustom(
                 title: "Reviews",
-                icoN: FontAwesomeIcons.star,
+                icoN: review,
                 color: AppColor.selecteColor,
                 children: [
                   Menu(
                     text: "Overview",
                     color: controller.index.value == 12
                         ? AppColor.selecteColor
-                        : null,
+                        : AppColor.darkblack,
                     onTap: () {
                       controller.index.value = 12;
                       Get.back();
@@ -215,7 +213,7 @@ class MainSideBar extends StatelessWidget {
                     text: "Invite patients to leave a review",
                     color: controller.index.value == 13
                         ? AppColor.selecteColor
-                        : null,
+                        : AppColor.darkblack,
                     onTap: () {
                       controller.index.value = 13;
                       Get.back();
@@ -226,9 +224,10 @@ class MainSideBar extends StatelessWidget {
               MenuItem(
                 minWidth: 40,
                 text: "Service Score",
-                icon: FontAwesomeIcons.servicestack,
-                color:
-                    controller.index.value == 14 ? AppColor.selecteColor : null,
+                icon: score,
+                color: controller.index.value == 14
+                    ? AppColor.selecteColor
+                    : Colors.transparent,
                 onTap: () {
                   controller.index.value = 14;
                   Get.back();
@@ -238,9 +237,10 @@ class MainSideBar extends StatelessWidget {
               MenuItem(
                 minWidth: 40,
                 text: "LogOut",
-                icon: FontAwesomeIcons.rightToBracket,
-                color:
-                    controller.index.value == 15 ? AppColor.selecteColor : null,
+                icon: logout,
+                color: controller.index.value == 15
+                    ? AppColor.selecteColor
+                    : Colors.transparent,
                 onTap: () {
                   controller.index.value = 15;
                   Get.back();

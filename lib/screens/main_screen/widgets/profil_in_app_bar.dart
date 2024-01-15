@@ -1,3 +1,4 @@
+import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/colors.dart';
@@ -27,13 +28,11 @@ class ProfileInAppBar extends StatelessWidget {
             children: [
               const Icon(Icons.face, size: 15),
               Container(width: 5),
-              const Text(
-                "Profile",
-                style: TextStyle(
-                  fontSize: 13.5,
-                  color: AppColor.black,
-                  fontWeight: FontWeight.w500,
-                ),
+              const ResponsiveTextStyle(
+                text: "Profile",
+                fontSize: 13.5,
+                color: AppColor.black,
+                fontWeight: FontWeight.w500,
               )
             ],
           ),
@@ -46,13 +45,11 @@ class ProfileInAppBar extends StatelessWidget {
             children: [
               const Icon(Icons.lock, size: 15),
               Container(width: 5),
-              const Text(
-                "Lock Screen",
-                style: TextStyle(
-                  fontSize: 13.5,
-                  color: AppColor.black,
-                  fontWeight: FontWeight.w500,
-                ),
+              const ResponsiveTextStyle(
+                text: "Lock Screen",
+                fontSize: 13.5,
+                color: AppColor.black,
+                fontWeight: FontWeight.w500,
               )
             ],
           ),
@@ -73,13 +70,11 @@ class ProfileInAppBar extends StatelessWidget {
                   children: [
                     const Icon(Icons.logout, size: 15),
                     Container(width: 5),
-                    const Text(
-                      "Logout",
-                      style: TextStyle(
-                        fontSize: 13.5,
-                        color: AppColor.black,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    const ResponsiveTextStyle(
+                      text: "LogOut",
+                      fontSize: 13.5,
+                      color: AppColor.black,
+                      fontWeight: FontWeight.w500,
                     )
                   ],
                 ),

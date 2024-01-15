@@ -1,7 +1,8 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:clinix_admin_panel/core/utils/constant.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:get/get.dart';
 import '../../../controllers/sidebar_controllers.dart';
 import '../../../core/utils/colors.dart';
@@ -63,10 +64,10 @@ class SmallDrawer extends StatelessWidget {
                     MenuItem(
                       minWidth: 40,
                       text: "Calender",
-                      icon: FontAwesomeIcons.calendar,
+                      icon: calendar,
                       color: controller.index.value == 0
                           ? AppColor.selecteColor
-                          : null,
+                          : Colors.transparent,
                       onTap: () {
                         controller.index.value = 0;
                         Get.back();
@@ -76,10 +77,10 @@ class SmallDrawer extends StatelessWidget {
                     MenuItem(
                       minWidth: 40,
                       text: "Account",
-                      icon: FontAwesomeIcons.person,
+                      icon: account,
                       color: controller.index.value == 0
                           ? AppColor.selecteColor
-                          : null,
+                          : Colors.transparent,
                       onTap: () {
                         controller.index.value = 0;
                         Get.back();
@@ -88,16 +89,16 @@ class SmallDrawer extends StatelessWidget {
                     ),
                     ExpansionListCustom(
                       title: "Profile",
-                      icoN: FontAwesomeIcons.addressCard,
+                      icoN: profile,
                       color: controller.index.value == 1
                           ? AppColor.selecteColor
-                          : null,
+                          : AppColor.darkblack,
                       children: [
                         Menu(
                           text: 'Clinic Information',
                           color: controller.index.value == 1
                               ? AppColor.selecteColor
-                              : null,
+                              : AppColor.darkblack,
                           onTap: () {
                             // controller.index.value = 1;
                             // Get.back();
@@ -107,7 +108,7 @@ class SmallDrawer extends StatelessWidget {
                           text: 'Clinic Description',
                           color: controller.index.value == 2
                               ? AppColor.selecteColor
-                              : null,
+                              : AppColor.darkblack,
                           onTap: () {
                             // controller.index.value = 2;
                             // Get.back();
@@ -117,7 +118,7 @@ class SmallDrawer extends StatelessWidget {
                           text: 'Add Video',
                           color: controller.index.value == 2
                               ? AppColor.selecteColor
-                              : null,
+                              : AppColor.darkblack,
                           onTap: () {
                             // controller.index.value = 2;
                             // Get.back();
@@ -127,7 +128,7 @@ class SmallDrawer extends StatelessWidget {
                           text: 'Pictures',
                           color: controller.index.value == 2
                               ? AppColor.selecteColor
-                              : null,
+                              : AppColor.darkblack,
                           onTap: () {
                             // controller.index.value = 2;
                             // Get.back();
@@ -137,7 +138,7 @@ class SmallDrawer extends StatelessWidget {
                           text: 'Currency',
                           color: controller.index.value == 2
                               ? AppColor.selecteColor
-                              : null,
+                              : AppColor.darkblack,
                           onTap: () {
                             // controller.index.value = 2;
                             // Get.back();
@@ -147,7 +148,7 @@ class SmallDrawer extends StatelessWidget {
                           text: 'Opening Hour',
                           color: controller.index.value == 2
                               ? AppColor.selecteColor
-                              : null,
+                              : AppColor.darkblack,
                           onTap: () {
                             // controller.index.value = 2;
                             // Get.back();
@@ -157,7 +158,7 @@ class SmallDrawer extends StatelessWidget {
                           text: 'Clinic Service',
                           color: controller.index.value == 2
                               ? AppColor.selecteColor
-                              : null,
+                              : AppColor.darkblack,
                           onTap: () {
                             // controller.index.value = 2;
                             // Get.back();
@@ -167,7 +168,7 @@ class SmallDrawer extends StatelessWidget {
                           text: 'Payment information',
                           color: controller.index.value == 2
                               ? AppColor.selecteColor
-                              : null,
+                              : AppColor.darkblack,
                           onTap: () {
                             // controller.index.value = 2;
                             // Get.back();
@@ -178,10 +179,10 @@ class SmallDrawer extends StatelessWidget {
                     MenuItem(
                       minWidth: 40,
                       text: "Treatments",
-                      icon: FontAwesomeIcons.staffSnake,
+                      icon: treatment,
                       color: controller.index.value == 0
                           ? AppColor.selecteColor
-                          : null,
+                          : Colors.transparent,
                       onTap: () {
                         controller.index.value = 0;
                         Get.back();
@@ -191,10 +192,10 @@ class SmallDrawer extends StatelessWidget {
                     MenuItem(
                       minWidth: 40,
                       text: "Staff",
-                      icon: FontAwesomeIcons.rightToBracket,
+                      icon: staff,
                       color: controller.index.value == 0
                           ? AppColor.selecteColor
-                          : null,
+                          : Colors.transparent,
                       onTap: () {
                         controller.index.value = 0;
                         Get.back();
@@ -203,14 +204,16 @@ class SmallDrawer extends StatelessWidget {
                     ),
                     ExpansionListCustom(
                       title: "Reviews",
-                      icoN: FontAwesomeIcons.star,
-                      color: AppColor.selecteColor,
+                      icoN: review,
+                      color: controller.index.value == 13
+                          ? AppColor.selecteColor
+                          : AppColor.darkblack,
                       children: [
                         Menu(
                           text: "Overview",
                           color: controller.index.value == 13
                               ? AppColor.selecteColor
-                              : null,
+                              : AppColor.darkblack,
                           onTap: () {
                             controller.index.value = 13;
                             Get.back();
@@ -220,7 +223,7 @@ class SmallDrawer extends StatelessWidget {
                           text: "Invite patients to leave a review",
                           color: controller.index.value == 50
                               ? AppColor.selecteColor
-                              : null,
+                              : AppColor.darkblack,
                           onTap: () {
                             // Get.to(Maintenance());
                           },
@@ -230,10 +233,10 @@ class SmallDrawer extends StatelessWidget {
                     MenuItem(
                       minWidth: 40,
                       text: "Service Score",
-                      icon: FontAwesomeIcons.servicestack,
+                      icon: score,
                       color: controller.index.value == 0
                           ? AppColor.selecteColor
-                          : null,
+                          : Colors.transparent,
                       onTap: () {
                         controller.index.value = 0;
                         Get.back();
@@ -243,10 +246,10 @@ class SmallDrawer extends StatelessWidget {
                     MenuItem(
                       minWidth: 40,
                       text: "LogOut",
-                      icon: FontAwesomeIcons.rightToBracket,
+                      icon: logout,
                       color: controller.index.value == 0
                           ? AppColor.selecteColor
-                          : null,
+                          : Colors.transparent,
                       onTap: () {
                         controller.index.value = 0;
                         Get.back();

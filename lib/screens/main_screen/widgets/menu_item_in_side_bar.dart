@@ -1,14 +1,15 @@
+import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/utils/colors.dart';
 
 class MenuItem extends StatelessWidget {
   final String text;
-  final IconData icon;
+  final String icon;
   final VoidCallback onTap;
   final dynamic selected;
-  final dynamic color;
+  final Color color;
   final double minWidth;
 
   const MenuItem({
@@ -25,17 +26,22 @@ class MenuItem extends StatelessWidget {
     return ListTile(
       dense: true,
       selectedColor: AppColor.selecteColor,
-      title: Text(
-        text.tr,
-        style: const TextStyle(
-            overflow: TextOverflow.clip,
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-            letterSpacing: 0.5),
+      title: ResponsiveTextStyle(
+        text: text,
+        color: AppColor.darkblack,
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
       ),
       contentPadding: EdgeInsets.zero,
       leading: Padding(
-          padding: const EdgeInsets.only(left: 20.0), child: Icon(icon)),
+        padding: const EdgeInsets.only(left: 20.0),
+        child: SvgPicture.asset(
+          icon,
+          height: 30,
+          width: 30,
+          colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+        ),
+      ),
       onTap: onTap,
       selected: selected,
     );

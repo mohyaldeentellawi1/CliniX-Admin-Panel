@@ -1,3 +1,4 @@
+import 'package:clinix_admin_panel/core/utils/constant.dart';
 import 'package:clinix_admin_panel/screens/main_screen/widgets/profil_in_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -73,8 +74,7 @@ class FullAppBar extends StatelessWidget {
                               Radius.circular(6),
                             ),
                           ),
-                          child:
-                              SvgPicture.asset("assets/svg/topbar_search.svg"),
+                          child: SvgPicture.asset(search),
                         ),
                       ),
                     )),

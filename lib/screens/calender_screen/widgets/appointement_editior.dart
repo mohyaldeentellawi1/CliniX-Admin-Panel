@@ -8,7 +8,7 @@ class AppointmentEditor extends StatefulWidget {
 }
 
 class AppointmentEditorState extends State<AppointmentEditor> {
-  Widget getAppointmentEditor(BuildContext context) {
+  Widget _getAppointmentEditor(BuildContext context) {
     return Container(
         color: Colors.white,
         child: ListView(
@@ -16,7 +16,7 @@ class AppointmentEditorState extends State<AppointmentEditor> {
           children: <Widget>[
             ListTile(
               contentPadding: const EdgeInsets.fromLTRB(5, 0, 5, 5),
-              leading: const Icon(Icons.calendar_today),
+              leading: SvgPicture.asset(calendar),
               title: TextFormField(
                 controller: TextEditingController(text: _subject),
                 onChanged: (String value) {
@@ -40,9 +40,12 @@ class AppointmentEditorState extends State<AppointmentEditor> {
             ),
             ListTile(
               contentPadding: const EdgeInsets.fromLTRB(5, 2, 5, 2),
-              leading: const Icon(Icons.health_and_safety),
-              title: Text(
-                _treatment[_selectedTreatment],
+              leading: SvgPicture.asset(treatment),
+              title: ResponsiveTextStyle(
+                text: _treatment[_selectedTreatment],
+                color: AppColor.black,
+                fontSize: 15,
+                fontWeight: FontWeight.normal,
               ),
               onTap: () {
                 showDialog<Widget>(
@@ -60,11 +63,13 @@ class AppointmentEditorState extends State<AppointmentEditor> {
             ),
             ListTile(
               contentPadding: const EdgeInsets.fromLTRB(5, 2, 5, 2),
-              leading: const Icon(
-                Icons.person,
-                color: Colors.black87,
+              leading: SvgPicture.asset(staff),
+              title: ResponsiveTextStyle(
+                text: _doctor[_selectedDoctor],
+                color: AppColor.black,
+                fontSize: 15,
+                fontWeight: FontWeight.normal,
               ),
-              title: Text(_doctor[_selectedDoctor]),
               onTap: () {
                 showDialog<Widget>(
                   context: context,
@@ -101,12 +106,7 @@ class AppointmentEditorState extends State<AppointmentEditor> {
                         });
                       }
                     },
-                    child: const Card(
-                        elevation: 5,
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text('From'),
-                        ))),
+                    child: SvgPicture.asset(time)),
                 title: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
@@ -156,12 +156,7 @@ class AppointmentEditorState extends State<AppointmentEditor> {
             ListTile(
                 contentPadding: const EdgeInsets.fromLTRB(5, 2, 5, 2),
                 leading: InkWell(
-                  child: const Card(
-                      elevation: 5,
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text('To'),
-                      )),
+                  child: SvgPicture.asset(time),
                   onTap: () async {
                     final DateTime? date = await showDatePicker(
                       context: context,
@@ -240,9 +235,10 @@ class AppointmentEditorState extends State<AppointmentEditor> {
             ),
             ListTile(
                 contentPadding: const EdgeInsets.fromLTRB(5, 2, 5, 2),
-                leading: const Icon(
-                  Icons.access_time,
-                  color: Colors.black54,
+                leading: SvgPicture.asset(
+                  allday,
+                  width: 30,
+                  height: 30,
                 ),
                 title: Row(children: <Widget>[
                   const Expanded(
@@ -251,14 +247,17 @@ class AppointmentEditorState extends State<AppointmentEditor> {
                   Expanded(
                       child: Align(
                           alignment: Alignment.centerRight,
-                          child: Switch.adaptive(
-                            activeColor: AppColor.selecteColor,
-                            value: _isAllDay,
-                            onChanged: (bool value) {
-                              setState(() {
-                                _isAllDay = value;
-                              });
-                            },
+                          child: Transform.scale(
+                            scale: 0.7,
+                            child: Switch.adaptive(
+                              activeColor: AppColor.selecteColor,
+                              value: _isAllDay,
+                              onChanged: (bool value) {
+                                setState(() {
+                                  _isAllDay = value;
+                                });
+                              },
+                            ),
                           ))),
                 ])),
             const Divider(
@@ -371,7 +370,7 @@ class AppointmentEditorState extends State<AppointmentEditor> {
         body: Padding(
           padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
           child: Stack(
-            children: <Widget>[getAppointmentEditor(context)],
+            children: <Widget>[_getAppointmentEditor(context)],
           ),
         ),
         floatingActionButton: _selectedAppointment == null

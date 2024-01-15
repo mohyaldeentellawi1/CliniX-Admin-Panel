@@ -1,3 +1,4 @@
+import 'package:clinix_admin_panel/core/utils/constant.dart';
 import 'package:clinix_admin_panel/screens/main_screen/widgets/dark_light_switch.dart';
 import 'package:clinix_admin_panel/screens/main_screen/widgets/localization_widget.dart';
 import 'package:clinix_admin_panel/screens/main_screen/widgets/notification_app_bar_button.dart';
@@ -20,14 +21,11 @@ class SmallAppBar extends StatelessWidget implements PreferredSizeWidget {
             : width > 280
                 ? 0
                 : 0,
-        leading: Container(
-          color: AppColor.selecteColor.withOpacity(.10),
-          child: Padding(
-            padding: const EdgeInsets.all(5),
-            child: Image.asset(
-              "assets/image/logo1.png",
-              fit: BoxFit.cover,
-            ),
+        leading: Padding(
+          padding: const EdgeInsets.all(5),
+          child: Image.asset(
+            logo,
+            fit: BoxFit.cover,
           ),
         ),
         title: SizedBox(
@@ -39,18 +37,15 @@ class SmallAppBar extends StatelessWidget implements PreferredSizeWidget {
                   hoverColor: AppColor.mainbackground,
                   highlightColor: AppColor.mainbackground,
                   onPressed: () => Scaffold.of(context).openDrawer(),
-                  icon: const Icon(
-                    Icons.menu,
-                    color: AppColor.black,
-                  ),
+                  icon: const Icon(Icons.menu, color: AppColor.black),
                 ),
               ),
               const Spacer(),
-              width > 600 ? const LocalizationWidget() : Container(),
-              Container(width: 20),
+              width > 600 ? const LocalizationWidget() : const SizedBox(),
+              const SizedBox(width: 20),
               const SwitcLightDark(),
               NotificationButton(width: width),
-              Container(width: 10),
+              const SizedBox(width: 10),
               ProfileInAppBar(width: width),
             ],
           ),

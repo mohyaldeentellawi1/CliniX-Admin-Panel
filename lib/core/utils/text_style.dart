@@ -1,41 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../controllers/dashboard_controller.dart';
-import 'colors.dart';
-
-class Drawertextstyle extends StatelessWidget {
-  final String text;
-
-  Drawertextstyle({
-    super.key,
-    required this.text,
-  });
-
-  final DashboardController controller = Get.find();
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(
-        fontSize: 14.4,
-        fontWeight: FontWeight.bold,
-        color: controller.selected.isFalse
-            ? AppColor.notselecteColor
-            : AppColor.selecteColor,
-      ),
-    );
-  }
-}
-
-// dashboard text
-class TitelText extends StatelessWidget {
+//dashboard text
+class ResponsiveTextStyle extends StatelessWidget {
   final Color color;
   final FontWeight fontWeight;
   final double fontSize;
   final String text;
 
-  const TitelText({
+  const ResponsiveTextStyle({
     super.key,
     required this.color,
     required this.fontWeight,
@@ -48,10 +20,30 @@ class TitelText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        fontSize: fontSize,
+        fontSize: getResponsiveFontSize(context, fontSize: fontSize),
         fontWeight: fontWeight,
         color: color,
       ),
     );
+  }
+
+  double getResponsiveFontSize(BuildContext context,
+      {required double fontSize}) {
+    double scaleFactor = getScaleFactor(context);
+    double responsiveFontSize = fontSize * scaleFactor;
+    double lowerLimit = fontSize * .8;
+    double upperLimit = fontSize * 1.2;
+    return responsiveFontSize.clamp(lowerLimit, upperLimit);
+  }
+
+  double getScaleFactor(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
+    if (width < 600) {
+      return width / 400;
+    } else if (width < 900) {
+      return width / 700;
+    } else {
+      return width / 1000;
+    }
   }
 }

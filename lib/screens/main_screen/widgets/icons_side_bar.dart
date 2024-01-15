@@ -1,5 +1,7 @@
+import 'package:clinix_admin_panel/core/utils/constant.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:get/get.dart';
 
 import '../../../controllers/sidebar_controllers.dart';
@@ -23,51 +25,95 @@ class IconsSideBar extends StatelessWidget {
             child: ListView(
               children: [
                 Container(height: 25),
-                Image.asset(
-                  "assets/image/logo1.png",
-                  fit: BoxFit.contain,
-                  height: 25,
-                  width: 25,
-                ),
+                ListTile(title: Image.asset(logo, width: 25, height: 25)),
                 Container(height: 30),
                 SideBarIconItem(
-                    icon: FontAwesomeIcons.calendar,
-                    onTap: () {},
-                    selected: controller.index.value == 0),
+                  icon: calendar,
+                  onTap: () {
+                    controller.index.value = 0;
+                    Get.back();
+                  },
+                  color: controller.index.value == 0
+                      ? AppColor.selecteColor
+                      : Colors.black,
+                  selected: controller.index.value == 0,
+                ),
                 Container(height: 5),
                 SideBarIconItem(
-                    icon: FontAwesomeIcons.person,
-                    onTap: () {},
+                    icon: account,
+                    onTap: () {
+                      controller.index.value = 1;
+                      Get.back();
+                    },
+                    color: controller.index.value == 1
+                        ? AppColor.selecteColor
+                        : Colors.black,
                     selected: controller.index.value == 1),
                 Container(height: 5),
                 SideBarIconItem(
-                    icon: FontAwesomeIcons.addressCard,
-                    onTap: () {},
+                    icon: profile,
+                    onTap: () {
+                      controller.index.value = 2;
+                      Get.back();
+                    },
+                    color: controller.index.value == 2
+                        ? AppColor.selecteColor
+                        : Colors.black,
                     selected: controller.index.value == 2),
                 Container(height: 5),
                 SideBarIconItem(
-                    icon: FontAwesomeIcons.staffSnake,
-                    onTap: () {},
+                    color: controller.index.value == 3
+                        ? AppColor.selecteColor
+                        : Colors.black,
+                    icon: treatment,
+                    onTap: () {
+                      controller.index.value = 3;
+                      Get.back();
+                    },
                     selected: controller.index.value == 3),
                 Container(height: 5),
                 SideBarIconItem(
-                    icon: FontAwesomeIcons.staffSnake,
-                    onTap: () {},
+                    icon: staff,
+                    onTap: () {
+                      controller.index.value = 4;
+                      Get.back();
+                    },
+                    color: controller.index.value == 4
+                        ? AppColor.selecteColor
+                        : Colors.black,
                     selected: controller.index.value == 4),
                 Container(height: 5),
                 SideBarIconItem(
-                    icon: FontAwesomeIcons.star,
-                    onTap: () {},
+                    icon: review,
+                    onTap: () {
+                      controller.index.value = 5;
+                      Get.back();
+                    },
+                    color: controller.index.value == 5
+                        ? AppColor.selecteColor
+                        : Colors.black,
                     selected: controller.index.value == 5),
                 Container(height: 5),
                 SideBarIconItem(
-                    icon: FontAwesomeIcons.servicestack,
-                    onTap: () {},
+                    icon: score,
+                    onTap: () {
+                      controller.index.value = 6;
+                      Get.back();
+                    },
+                    color: controller.index.value == 6
+                        ? AppColor.selecteColor
+                        : Colors.black,
                     selected: controller.index.value == 6),
                 Container(height: 5),
                 SideBarIconItem(
-                    icon: FontAwesomeIcons.rightToBracket,
-                    onTap: () {},
+                    icon: logout,
+                    onTap: () {
+                      controller.index.value = 7;
+                      Get.back();
+                    },
+                    color: controller.index.value == 7
+                        ? AppColor.selecteColor
+                        : Colors.black,
                     selected: controller.index.value == 7),
               ],
             ),
@@ -83,25 +129,20 @@ class SideBarIconItem extends StatelessWidget {
       {super.key,
       required this.icon,
       required this.onTap,
-      required this.selected});
+      required this.selected,
+      required this.color});
 
-  final IconData icon;
+  final String icon;
   final void Function() onTap;
   final bool selected;
+  final Color color;
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Container(
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-            color: AppColor.darkblack.withOpacity(.10),
-            blurRadius: 3,
-            spreadRadius: .1,
-            offset: Offset.zero,
-          )
-        ]),
-        child: Icon(icon),
-      ),
+      leading: SvgPicture.asset(icon,
+          height: 25,
+          width: 25,
+          colorFilter: ColorFilter.mode(color, BlendMode.srcIn)),
       onTap: onTap,
       selected: selected,
     );

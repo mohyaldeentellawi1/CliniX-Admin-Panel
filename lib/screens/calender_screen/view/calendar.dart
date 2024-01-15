@@ -2,9 +2,12 @@ library event_calendar;
 
 import 'dart:math';
 
+import 'package:clinix_admin_panel/core/utils/constant.dart';
+import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:clinix_admin_panel/core/widgets/main_scaffold.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
@@ -172,7 +175,12 @@ class EventCalendarState extends State<EventCalendar> {
           final Meeting meeting = calendarAppointmentDetails.appointments.first;
           return Container(
             color: meeting.background.withOpacity(0.8),
-            child: Text(meeting.title),
+            child: ResponsiveTextStyle(
+              text: meeting.title,
+              fontSize: 13,
+              fontWeight: FontWeight.normal,
+              color: AppColor.dark,
+            ),
           );
         },
         initialDisplayDate: DateTime(DateTime.now().year, DateTime.now().month,
@@ -232,285 +240,6 @@ class EventCalendarState extends State<EventCalendar> {
                 builder: (BuildContext context) => const AppointmentEditor()));
       }
     });
-  }
-
-  Widget getAppointmentEditor(BuildContext context) {
-    return Container(
-        color: Colors.white,
-        child: ListView(
-          padding: const EdgeInsets.all(0),
-          children: <Widget>[
-            ListTile(
-              contentPadding: const EdgeInsets.fromLTRB(5, 0, 5, 5),
-              leading: const Icon(Icons.calendar_today),
-              title: TextFormField(
-                controller: TextEditingController(text: _subject),
-                onChanged: (String value) {
-                  _subject = value;
-                },
-                keyboardType: TextInputType.multiline,
-                maxLines: 1,
-                style: const TextStyle(
-                    fontSize: 25,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w400),
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'Add Appointment...',
-                ),
-              ),
-            ),
-            const Divider(
-              height: 1.0,
-              thickness: 1,
-            ),
-            ListTile(
-              contentPadding: const EdgeInsets.fromLTRB(5, 2, 5, 2),
-              leading: const Icon(Icons.health_and_safety),
-              title: Text(
-                _treatment[_selectedTreatment],
-              ),
-              onTap: () {
-                showDialog<Widget>(
-                  context: context,
-                  barrierDismissible: true,
-                  builder: (BuildContext context) {
-                    return _Treatment();
-                  },
-                ).then((dynamic value) => setState(() {}));
-              },
-            ),
-            const Divider(
-              height: 1.0,
-              thickness: 1,
-            ),
-            ListTile(
-              contentPadding: const EdgeInsets.fromLTRB(5, 2, 5, 2),
-              leading: const Icon(
-                Icons.person,
-                color: Colors.black87,
-              ),
-              title: Text(_doctor[_selectedDoctor]),
-              onTap: () {
-                showDialog<Widget>(
-                  context: context,
-                  barrierDismissible: true,
-                  builder: (BuildContext context) {
-                    return _Doctor();
-                  },
-                ).then((dynamic value) => setState(() {}));
-              },
-            ),
-            const Divider(
-              height: 1.0,
-              thickness: 1,
-            ),
-            ListTile(
-                contentPadding: const EdgeInsets.fromLTRB(5, 2, 5, 2),
-                leading: InkWell(
-                    onTap: () async {
-                      final DateTime? date = await showDatePicker(
-                        context: context,
-                        initialDate: _startDate,
-                        firstDate: DateTime(1900),
-                        lastDate: DateTime(2100),
-                      );
-                      if (date != null && date != _startDate) {
-                        setState(() {
-                          final Duration difference =
-                              _endDate.difference(_startDate);
-                          _startDate = DateTime(date.year, date.month, date.day,
-                              _startTime.hour, _startTime.minute, 0);
-                          _endDate = _startDate.add(difference);
-                          _endTime = TimeOfDay(
-                              hour: _endDate.hour, minute: _endDate.minute);
-                        });
-                      }
-                    },
-                    child: const Card(
-                        elevation: 5,
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text('From'),
-                        ))),
-                title: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                        flex: 7,
-                        child: Text(
-                            DateFormat('EEE, MMM dd yyyy').format(_startDate),
-                            textAlign: TextAlign.left),
-                      ),
-                      Expanded(
-                          flex: 3,
-                          child: _isAllDay
-                              ? const Text('')
-                              : GestureDetector(
-                                  child: Text(
-                                    DateFormat('hh:mm a').format(_startDate),
-                                    textAlign: TextAlign.right,
-                                  ),
-                                  onTap: () async {
-                                    final TimeOfDay? time =
-                                        await showTimePicker(
-                                            context: context,
-                                            initialTime: TimeOfDay(
-                                                hour: _startTime.hour,
-                                                minute: _startTime.minute));
-
-                                    if (time != null && time != _startTime) {
-                                      setState(() {
-                                        _startTime = time;
-                                        final Duration difference =
-                                            _endDate.difference(_startDate);
-                                        _startDate = DateTime(
-                                            _startDate.year,
-                                            _startDate.month,
-                                            _startDate.day,
-                                            _startTime.hour,
-                                            _startTime.minute,
-                                            0);
-                                        _endDate = _startDate.add(difference);
-                                        _endTime = TimeOfDay(
-                                            hour: _endDate.hour,
-                                            minute: _endDate.minute);
-                                      });
-                                    }
-                                  })),
-                    ])),
-            ListTile(
-                contentPadding: const EdgeInsets.fromLTRB(5, 2, 5, 2),
-                leading: InkWell(
-                  child: const Card(
-                      elevation: 5,
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text('To'),
-                      )),
-                  onTap: () async {
-                    final DateTime? date = await showDatePicker(
-                      context: context,
-                      initialDate: _endDate,
-                      firstDate: DateTime(1900),
-                      lastDate: DateTime(2100),
-                    );
-                    if (date != null && date != _endDate) {
-                      setState(() {
-                        final Duration difference =
-                            _endDate.difference(_startDate);
-                        _endDate = DateTime(date.year, date.month, date.day,
-                            _endTime.hour, _endTime.minute, 0);
-                        if (_endDate.isBefore(_startDate)) {
-                          _startDate = _endDate.subtract(difference);
-                          _startTime = TimeOfDay(
-                              hour: _startDate.hour, minute: _startDate.minute);
-                        }
-                      });
-                    }
-                  },
-                ),
-                title: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                        flex: 7,
-                        child: Text(
-                          DateFormat('EEE, MMM dd yyyy').format(_endDate),
-                          textAlign: TextAlign.left,
-                        ),
-                      ),
-                      Expanded(
-                          flex: 3,
-                          child: _isAllDay
-                              ? const Text('')
-                              : GestureDetector(
-                                  child: Text(
-                                    DateFormat('hh:mm a').format(_endDate),
-                                    textAlign: TextAlign.right,
-                                  ),
-                                  onTap: () async {
-                                    final TimeOfDay? time =
-                                        await showTimePicker(
-                                            context: context,
-                                            initialTime: TimeOfDay(
-                                                hour: _endTime.hour,
-                                                minute: _endTime.minute));
-
-                                    if (time != null && time != _endTime) {
-                                      setState(() {
-                                        _endTime = time;
-                                        final Duration difference =
-                                            _endDate.difference(_startDate);
-                                        _endDate = DateTime(
-                                            _endDate.year,
-                                            _endDate.month,
-                                            _endDate.day,
-                                            _endTime.hour,
-                                            _endTime.minute,
-                                            0);
-                                        if (_endDate.isBefore(_startDate)) {
-                                          _startDate =
-                                              _endDate.subtract(difference);
-                                          _startTime = TimeOfDay(
-                                              hour: _startDate.hour,
-                                              minute: _startDate.minute);
-                                        }
-                                      });
-                                    }
-                                  })),
-                    ])),
-            const Divider(
-              height: 1.0,
-              thickness: 1,
-            ),
-            ListTile(
-                contentPadding: const EdgeInsets.fromLTRB(5, 2, 5, 2),
-                leading: const Icon(
-                  Icons.access_time,
-                  color: Colors.black54,
-                ),
-                title: Row(children: <Widget>[
-                  const Expanded(
-                    child: Text('All-day'),
-                  ),
-                  Expanded(
-                      child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Switch.adaptive(
-                            activeColor: AppColor.selecteColor,
-                            value: _isAllDay,
-                            onChanged: (bool value) {
-                              setState(() {
-                                _isAllDay = value;
-                              });
-                            },
-                          ))),
-                ])),
-            const Divider(
-              height: 1.0,
-              thickness: 1,
-            ),
-            ListTile(
-              contentPadding: const EdgeInsets.fromLTRB(5, 2, 5, 2),
-              leading: Icon(Icons.lens,
-                  color: _colorCollection[_selectedColorIndex]),
-              onTap: () {
-                showDialog<Widget>(
-                  context: context,
-                  barrierDismissible: true,
-                  builder: (BuildContext context) {
-                    return _ColorPicker();
-                  },
-                ).then((dynamic value) => setState(() {}));
-              },
-            ),
-            const Divider(
-              height: 1.0,
-              thickness: 1,
-            ),
-          ],
-        ));
   }
 
   List<Meeting> getMeetingDetails() {

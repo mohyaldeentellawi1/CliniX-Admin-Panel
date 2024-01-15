@@ -1,7 +1,9 @@
+import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/utils/colors.dart';
+import '../../../core/utils/constant.dart';
 
 class LocalizationWidget extends StatefulWidget {
   const LocalizationWidget({super.key});
@@ -14,127 +16,126 @@ class _LocalizationWidgetState extends State<LocalizationWidget> {
   String dropDownValue2 = "one";
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 85,
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton(
-          icon: Container(),
-          // underline: Container(),
-          value: dropDownValue2,
-
-          items: [
-            DropdownMenuItem<String>(
-              onTap: () {
-                Get.updateLocale(const Locale('en', 'US'));
-              },
-              value: "one",
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/image/flags/us.jpg",
-                    fit: BoxFit.cover,
-                    height: 18,
-                    width: 25,
-                  ),
-                  Container(width: 10),
-                  const Text(
-                    "English",
-                    style: TextStyle(fontSize: 13, color: AppColor.black),
-                  ),
-                ],
-              ),
+    return DropdownButtonHideUnderline(
+      child: DropdownButton(
+        value: dropDownValue2,
+        items: [
+          DropdownMenuItem<String>(
+            onTap: () {
+              Get.updateLocale(const Locale('en', 'US'));
+            },
+            value: "one",
+            child: Row(
+              children: [
+                Image.asset(
+                  en,
+                  fit: BoxFit.cover,
+                  height: 18,
+                  width: 25,
+                ),
+                Container(width: 10),
+                const ResponsiveTextStyle(
+                    text: "English",
+                    color: AppColor.black,
+                    fontSize: 10,
+                    fontWeight: FontWeight.normal),
+              ],
             ),
-            DropdownMenuItem<String>(
-              onTap: () {
-                Get.updateLocale(const Locale('es', 'ES'));
-              },
-              value: "two",
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/image/flags/spain.jpg",
-                    fit: BoxFit.cover,
-                    height: 18,
-                    width: 25,
-                  ),
-                  Container(width: 10),
-                  const Text(
-                    "Spanish",
-                    style: TextStyle(fontSize: 13, color: AppColor.black),
-                  ),
-                ],
-              ),
+          ),
+          DropdownMenuItem<String>(
+            onTap: () {
+              Get.updateLocale(const Locale('es', 'ES'));
+            },
+            value: "two",
+            child: Row(
+              children: [
+                Image.asset(
+                  spanish,
+                  fit: BoxFit.cover,
+                  height: 18,
+                  width: 25,
+                ),
+                Container(width: 10),
+                const ResponsiveTextStyle(
+                    text: "Spanish",
+                    color: AppColor.black,
+                    fontSize: 10,
+                    fontWeight: FontWeight.normal),
+              ],
             ),
-            DropdownMenuItem<String>(
-              onTap: () {
-                Get.updateLocale(const Locale('de', 'CH'));
-              },
-              value: "three",
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/image/flags/germany.jpg",
-                    fit: BoxFit.cover,
-                    height: 18,
-                    width: 25,
-                  ),
-                  Container(width: 10),
-                  const Text(
-                    "German",
-                    style: TextStyle(fontSize: 13, color: AppColor.black),
-                  ),
-                ],
-              ),
+          ),
+          DropdownMenuItem<String>(
+            onTap: () {
+              Get.updateLocale(const Locale('de', 'CH'));
+            },
+            value: "three",
+            child: Row(
+              children: [
+                Image.asset(
+                  german,
+                  fit: BoxFit.cover,
+                  height: 18,
+                  width: 25,
+                ),
+                Container(width: 10),
+                const ResponsiveTextStyle(
+                    text: "German",
+                    color: AppColor.black,
+                    fontSize: 10,
+                    fontWeight: FontWeight.normal),
+              ],
             ),
-            DropdownMenuItem<String>(
-              onTap: () {
-                Get.updateLocale(const Locale('it', 'CH'));
-              },
-              value: "four",
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/image/flags/italy.jpg",
-                    fit: BoxFit.cover,
-                    height: 18,
-                    width: 25,
-                  ),
-                  Container(width: 18),
-                  const Text(
-                    "Italian",
-                    style: TextStyle(fontSize: 13, color: AppColor.black),
-                  ),
-                ],
-              ),
+          ),
+          DropdownMenuItem<String>(
+            onTap: () {
+              Get.updateLocale(const Locale('it', 'CH'));
+            },
+            value: "four",
+            child: Row(
+              children: [
+                Image.asset(
+                  italy,
+                  fit: BoxFit.cover,
+                  height: 18,
+                  width: 25,
+                ),
+                Container(width: 18),
+                const ResponsiveTextStyle(
+                    text: "Italian",
+                    color: AppColor.black,
+                    fontSize: 10,
+                    fontWeight: FontWeight.normal),
+              ],
             ),
-            DropdownMenuItem<String>(
-              onTap: () {
-                Get.updateLocale(const Locale('ru', 'RU'));
-              },
-              value: "five",
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/image/flags/russia.jpg",
-                    fit: BoxFit.cover,
-                    height: 18,
-                    width: 25,
-                  ),
-                  Container(width: 10),
-                  const Text(
-                    "Russian",
-                    style: TextStyle(fontSize: 13, color: AppColor.black),
-                  ),
-                ],
-              ),
+          ),
+          DropdownMenuItem<String>(
+            onTap: () {
+              Get.updateLocale(const Locale('ru', 'RU'));
+            },
+            value: "five",
+            child: Row(
+              children: [
+                Image.asset(
+                  rus,
+                  fit: BoxFit.cover,
+                  height: 18,
+                  width: 25,
+                ),
+                Container(width: 10),
+                const ResponsiveTextStyle(
+                    text: "Russian",
+                    color: AppColor.black,
+                    fontSize: 10,
+                    fontWeight: FontWeight.normal),
+              ],
             ),
-          ],
-          onChanged: (val) {
-            setState(() {
-              dropDownValue2 = val!;
-            });
-          },
-        ),
+          ),
+        ],
+        onChanged: (val) {
+          setState(() {
+            dropDownValue2 = val!;
+          });
+        },
       ),
     );
   }

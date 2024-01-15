@@ -1,3 +1,4 @@
+import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:clinix_admin_panel/screens/main_screen/widgets/notification_count_icon.dart';
 import 'package:flutter/material.dart';
 import '../../../core/utils/colors.dart';
@@ -16,11 +17,6 @@ class NotificationButton extends StatelessWidget {
         maxHeight: 330,
         minWidth: 250,
         maxWidth: 310,
-
-        // minHeight: 50,
-        // maxHeight: 330,
-        // minWidth: 250,
-        // maxWidth: 310,
       ),
       itemBuilder: (context) => [
         PopupMenuItem(
@@ -29,21 +25,17 @@ class NotificationButton extends StatelessWidget {
             children: [
               const Row(
                 children: [
-                  Text(
-                    "Notifications",
-                    style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF313533)),
-                  ),
+                  ResponsiveTextStyle(
+                      text: "Notifications",
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF313533)),
                   Spacer(),
-                  Text(
-                    "Unread",
-                    style: TextStyle(
-                        fontSize: 11.2,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF2C302E)),
-                  )
+                  ResponsiveTextStyle(
+                      text: "Unread",
+                      fontSize: 11.2,
+                      color: Color(0xFF2C302E),
+                      fontWeight: FontWeight.w400)
                 ],
               ),
               Container(height: 30),
