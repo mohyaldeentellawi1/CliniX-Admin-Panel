@@ -2,6 +2,8 @@
 
 import 'package:clinix_admin_panel/screens/calender_screen/view/calendar.dart';
 import 'package:clinix_admin_panel/screens/account_screen/view/account_screen_view.dart';
+
+import 'package:clinix_admin_panel/screens/profile_screen/view/prfile_screen_view.dart';
 import 'package:get/get.dart';
 
 // import 'package:minia_web_project/view/Apps/Emails/emailview.dart';
@@ -34,9 +36,9 @@ class SideBarController extends GetxController {
 
   var page = [
     EventCalendar(), //0
-    AccountScreenView()
-    // ChatView(), //2
-    // EmailView(), //3
+    AccountScreenView(),
+    ProfileScreenView(),
+
     // EmailView(), //4
     // InvoiceView(), //5
     // InvoiceDetail(), //6

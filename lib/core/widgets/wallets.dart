@@ -182,15 +182,16 @@ class RowTitel extends StatelessWidget {
           fontSize: 14,
           text: texti,
         ),
-        Container(width: 10),
-        Icon(Icons.chevron_right, color: AppColor.lightgrey),
-        Container(width: 10),
+        SizedBox(width: 10),
+        texti.isNotEmpty && textii.isNotEmpty
+            ? Icon(Icons.chevron_right, color: AppColor.lightgrey)
+            : SizedBox(),
+        SizedBox(width: 10),
         ResponsiveTextStyle(
-          color: AppColor.lightdark,
-          fontWeight: FontWeight.w400,
-          fontSize: 14,
-          text: textii,
-        )
+            color: AppColor.lightdark,
+            fontWeight: FontWeight.w400,
+            fontSize: 14,
+            text: textii)
       ],
     );
   }

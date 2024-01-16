@@ -88,6 +88,8 @@ class SmallDrawer extends StatelessWidget {
                       selected: controller.index.value == 0,
                     ),
                     ExpansionListCustom(
+                      selected: controller.index.value == 2,
+                      onExpansionChanged: (p0) {},
                       title: "Profile",
                       icoN: profile,
                       color: controller.index.value == 1
@@ -203,6 +205,8 @@ class SmallDrawer extends StatelessWidget {
                       selected: controller.index.value == 0,
                     ),
                     ExpansionListCustom(
+                      selected: controller.index.value == 6,
+                      onExpansionChanged: (p0) {},
                       title: "Reviews",
                       icoN: review,
                       color: controller.index.value == 13

@@ -4,34 +4,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../../controllers/sidebar_controllers.dart';
 import '../../../core/utils/colors.dart';
 
-class ExpansionListCustom extends StatefulWidget {
+class ExpansionListCustom extends StatelessWidget {
   final String title;
   final String? icon;
   final String icoN;
-  final dynamic selected;
+  final bool selected;
   final Color color;
-  final dynamic children;
-  const ExpansionListCustom({
-    super.key,
-    required this.title,
-    this.selected,
-    required this.color,
-    this.children,
-    this.icon,
-    required this.icoN,
-  });
+  final List<Widget> children;
 
-  @override
-  State<ExpansionListCustom> createState() => _ExpansionListCustomState();
-}
-
-class _ExpansionListCustomState extends State<ExpansionListCustom> {
-  SideBarController controller = Get.find();
-
-  bool _isExpanded = false;
+  final void Function(bool) onExpansionChanged;
+  const ExpansionListCustom(
+      {super.key,
+      required this.title,
+      required this.selected,
+      required this.color,
+      required this.children,
+      this.icon,
+      required this.icoN,
+      required this.onExpansionChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +32,8 @@ class _ExpansionListCustomState extends State<ExpansionListCustom> {
       child: Theme(
         data: ThemeData().copyWith(dividerColor: Colors.transparent),
         child: ExpansionTile(
-            onExpansionChanged: (bool isExpanded) {
-              setState(() {
-                _isExpanded = isExpanded;
-              });
-            },
-            trailing: _isExpanded
+            onExpansionChanged: onExpansionChanged,
+            trailing: selected
                 ? Padding(
                     padding: const EdgeInsets.only(right: 20.0),
                     child: SvgPicture.asset(
@@ -65,20 +53,20 @@ class _ExpansionListCustomState extends State<ExpansionListCustom> {
                   ),
             tilePadding: EdgeInsets.zero,
             title: ResponsiveTextStyle(
-              text: widget.title.tr,
+              text: title.tr,
               fontSize: 14,
               fontWeight: FontWeight.w400,
-              color: widget.color,
+              color: color,
             ),
-            children: widget.children,
             leading: Padding(
               padding: const EdgeInsets.only(left: 20.0, right: 0.0),
               child: SvgPicture.asset(
-                widget.icoN,
+                icoN,
                 width: 30,
                 height: 30,
               ),
-            )),
+            ),
+            children: children),
       ),
     );
   }

@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,7 +10,7 @@ class MenuItem extends StatelessWidget {
   final String text;
   final String icon;
   final VoidCallback onTap;
-  final dynamic selected;
+  final bool selected;
   final Color color;
   final double minWidth;
 
@@ -17,7 +19,7 @@ class MenuItem extends StatelessWidget {
     required this.text,
     required this.icon,
     required this.onTap,
-    this.selected,
+    required this.selected,
     required this.color,
     required this.minWidth,
   });
