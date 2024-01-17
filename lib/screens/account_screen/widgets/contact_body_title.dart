@@ -1,6 +1,5 @@
+import 'package:clinix_admin_panel/core/widgets/custom_container_button.dart';
 import 'package:flutter/material.dart';
-
-import '../../../core/utils/colors.dart';
 
 class ContactBodyTitle extends StatefulWidget {
   const ContactBodyTitle({super.key});
@@ -24,21 +23,11 @@ class _ContactBodyTitleState extends State<ContactBodyTitle> {
       children: [
         const Text('Contact'),
         const SizedBox(width: 10),
-        InkWell(
-          onTap: () {},
-          onHover: _handleHover,
-          child: Container(
-            padding: const EdgeInsetsDirectional.symmetric(horizontal: 5),
-            decoration: BoxDecoration(
-                color: _isTouched ? AppColor.selecteColor : Colors.transparent,
-                border: Border.all(color: AppColor.borders)),
-            child: Text(
-              'Add New Contact',
-              style: TextStyle(
-                  color: _isTouched ? AppColor.mainbackground : Colors.black),
-            ),
-          ),
-        ),
+        CustomContainerButton(
+            onTap: () {},
+            onHover: _handleHover,
+            isTouched: _isTouched,
+            buttonName: 'Add New Contact'),
       ],
     );
   }
