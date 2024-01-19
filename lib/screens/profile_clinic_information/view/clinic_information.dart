@@ -24,9 +24,8 @@ class _ClinicInformationState extends State<ClinicInformation> {
         webTabletViewWidget: const Row(
           children: [
             FormSideBody(),
-            SizedBox(width: 50),
-            MapsSideBody(),
-            SizedBox(width: 20),
+            SizedBox(width: 10),
+            Expanded(child: MapsSideBody()),
           ],
         ),
         mobileWidget: const SizedBox());

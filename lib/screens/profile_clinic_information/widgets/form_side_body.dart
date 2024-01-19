@@ -75,6 +75,22 @@ class _FormSideBodyState extends State<FormSideBody> {
             labelText: 'Zip/postal code',
             controller: clinicNameController,
             keyboardType: TextInputType.number),
+        const SizedBox(height: 10),
+        Row(
+          children: [
+            CustomTextFeild(
+                width: width * .2,
+                labelText: 'mobile',
+                controller: clinicNameController,
+                keyboardType: TextInputType.text),
+            const SizedBox(width: 10),
+            CustomTextFeild(
+                width: width * .2,
+                labelText: 'Mobile',
+                controller: clinicNameController,
+                keyboardType: TextInputType.text),
+          ],
+        ),
       ],
     );
   }
