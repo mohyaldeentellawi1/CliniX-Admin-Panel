@@ -11,33 +11,34 @@ class _DoctorState extends State<_Doctor> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-        title: const Text('Select Doctor'),
-        content: DropdownButton<int>(
-          value: _selectedDoctor,
-          onChanged: (int? newValue) {
-            setState(() {
-              _selectedDoctor = newValue!;
-            });
-            Navigator.pop(context);
-          },
-          items: List<DropdownMenuItem<int>>.generate(
-            _doctor.length,
-            (int index) => DropdownMenuItem<int>(
-              value: index,
-              child: Row(
-                children: <Widget>[
-                  Icon(
-                    index == _selectedDoctor
-                        ? Icons.check_box
-                        : Icons.check_box_outline_blank,
-                  ),
-                  const SizedBox(width: 8),
-                  Text(_doctor[index]),
-                ],
-              ),
+      title: const Text('Select Doctor'),
+      content: DropdownButton<int>(
+        value: _selectedDoctor,
+        onChanged: (int? newValue) {
+          setState(() {
+            _selectedDoctor = newValue!;
+          });
+          Navigator.pop(context);
+        },
+        items: List<DropdownMenuItem<int>>.generate(
+          _doctor.length,
+          (int index) => DropdownMenuItem<int>(
+            value: index,
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  index == _selectedDoctor
+                      ? Icons.check_box
+                      : Icons.check_box_outline_blank,
+                ),
+                const SizedBox(width: 8),
+                Text(_doctor[index]),
+              ],
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
 /*

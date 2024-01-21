@@ -1,6 +1,5 @@
 // ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, depend_on_referenced_packages, non_constant_identifier_names, deprecated_member_use, prefer_const_literals_to_create_immutables, unnecessary_null_comparison, camel_case_types
 
-import 'package:clinix_admin_panel/controllers/page_controller.dart';
 import 'package:clinix_admin_panel/screens/main_screen/widgets/footer.dart';
 import 'package:clinix_admin_panel/screens/main_screen/widgets/full_app_bar.dart';
 import 'package:clinix_admin_panel/screens/main_screen/widgets/icons_side_bar.dart';
@@ -22,7 +21,6 @@ class MainScreenView extends StatefulWidget {
 class _MainScreenViewState extends State<MainScreenView> {
   RxBool isExpanded = true.obs;
   SideBarController controller = Get.put(SideBarController());
-  CustomPageController pageController = Get.put(CustomPageController());
 
   void expandOrShrinkDrawer() {
     setState(() {
@@ -43,9 +41,7 @@ class _MainScreenViewState extends State<MainScreenView> {
               ? IconsSideBar(controller: controller)
               : width > 983
                   ? MainSideBar(
-                      pageController: pageController,
-                      controller: controller,
-                      onTap: expandOrShrinkDrawer)
+                      controller: controller, onTap: expandOrShrinkDrawer)
                   : Container(),
           Expanded(
             child: Column(

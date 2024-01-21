@@ -32,14 +32,15 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_quill: ^9.2.8
   flutter_svg: ^2.0.9
-  font_awesome_flutter: ^10.6.0
   geolocator: ^10.1.0
   get: ^4.6.6
   google_maps_flutter: ^2.5.3
+  image_picker: ^1.0.7
   intl: ^0.18.0
-  swipeable_page_route: ^0.4.1
   syncfusion_flutter_calendar: ^24.1.45
+  video_player: ^2.8.2
 
 dev_dependencies:
   flutter_lints: ^2.0.0

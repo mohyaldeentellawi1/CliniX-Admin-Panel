@@ -1,6 +1,5 @@
 // ignore_for_file: unused_field
 
-import 'package:clinix_admin_panel/controllers/page_controller.dart';
 import 'package:clinix_admin_panel/controllers/sidebar_controllers.dart';
 import 'package:clinix_admin_panel/core/utils/constant.dart';
 import 'package:flutter/material.dart';
@@ -13,13 +12,12 @@ import 'menu_item_in_expansion_list.dart';
 import 'menu_item_in_side_bar.dart';
 
 class MainSideBar extends StatefulWidget {
-  const MainSideBar(
-      {super.key,
-      required this.controller,
-      required this.onTap,
-      required this.pageController});
+  const MainSideBar({
+    super.key,
+    required this.controller,
+    required this.onTap,
+  });
   final SideBarController controller;
-  final CustomPageController pageController;
 
   final void Function() onTap;
 
@@ -79,6 +77,7 @@ class _MainSideBarState extends State<MainSideBar> {
                     : Colors.black,
                 onTap: () {
                   widget.controller.index.value = 0;
+                  Get.back();
                 },
                 selected: widget.controller.index.value == 0,
               ),
@@ -91,11 +90,12 @@ class _MainSideBarState extends State<MainSideBar> {
                     : Colors.transparent,
                 onTap: () {
                   widget.controller.index.value = 1;
+                  Get.back();
                 },
                 selected: widget.controller.index.value == 1,
               ),
               ExpansionListCustom(
-                selected: widget.controller.index.value == 2,
+                selected: _isExpanded,
                 onExpansionChanged: (bool isExpanded) {
                   setState(() {
                     _isExpanded = isExpanded;
@@ -108,102 +108,91 @@ class _MainSideBarState extends State<MainSideBar> {
                     : AppColor.darkblack,
                 children: [
                   Menu(
+                    selected: widget.controller.index.value == 2,
                     text: 'Clinic Information',
-                    color: widget.pageController.index.value == 0
+                    color: widget.controller.index.value == 2
                         ? AppColor.selecteColor
                         : AppColor.black,
                     onTap: () {
                       widget.controller.index.value = 2;
-                      if (widget.pageController.hasClients) {
-                        widget.pageController.animateToPage(
-                            widget.pageController.index.value = 0,
-                            duration: const Duration(milliseconds: 400),
-                            curve: Curves.bounceIn);
-                      }
+                      Get.back();
                     },
                   ),
                   Menu(
+                    selected: widget.controller.index.value == 3,
                     text: 'Clinic Description',
-                    color: widget.pageController.index.value == 1
+                    color: widget.controller.index.value == 3
                         ? AppColor.selecteColor
                         : AppColor.black,
                     onTap: () {
-                      if (widget.pageController.hasClients) {
-                        widget.pageController
-                            .jumpToPage(widget.pageController.index.value = 1);
-                      }
+                      widget.controller.index.value = 3;
+                      Get.back();
                     },
                   ),
                   Menu(
-                    text: 'Add Video',
-                    color: widget.pageController.index.value == 2
+                    selected: widget.controller.index.value == 4,
+                    text: 'Videos',
+                    color: widget.controller.index.value == 4
                         ? AppColor.selecteColor
                         : AppColor.black,
                     onTap: () {
-                      if (widget.pageController.hasClients) {
-                        widget.pageController
-                            .jumpToPage(widget.pageController.index.value = 2);
-                      }
+                      widget.controller.index.value = 4;
+                      Get.back();
                     },
                   ),
                   Menu(
+                    selected: widget.controller.index.value == 5,
                     text: 'Pictures',
-                    color: widget.pageController.index.value == 3
+                    color: widget.controller.index.value == 5
                         ? AppColor.selecteColor
                         : AppColor.black,
                     onTap: () {
-                      if (widget.pageController.hasClients) {
-                        widget.pageController
-                            .jumpToPage(widget.pageController.index.value = 3);
-                      }
+                      widget.controller.index.value = 5;
+                      Get.back();
                     },
                   ),
                   Menu(
+                    selected: widget.controller.index.value == 6,
                     text: 'Currency',
-                    color: widget.pageController.index.value == 4
+                    color: widget.controller.index.value == 6
                         ? AppColor.selecteColor
                         : AppColor.black,
                     onTap: () {
-                      if (widget.pageController.hasClients) {
-                        widget.pageController
-                            .jumpToPage(widget.pageController.index.value = 4);
-                      }
+                      widget.controller.index.value = 6;
+                      Get.back();
                     },
                   ),
                   Menu(
+                    selected: widget.controller.index.value == 7,
                     text: 'Opening Hour',
-                    color: widget.pageController.index.value == 5
+                    color: widget.controller.index.value == 7
                         ? AppColor.selecteColor
                         : AppColor.black,
                     onTap: () {
-                      if (widget.pageController.hasClients) {
-                        widget.pageController
-                            .jumpToPage(widget.pageController.index.value = 5);
-                      }
+                      widget.controller.index.value = 7;
+                      Get.back();
                     },
                   ),
                   Menu(
+                    selected: widget.controller.index.value == 8,
                     text: 'Clinic Service',
-                    color: widget.pageController.index.value == 6
+                    color: widget.controller.index.value == 8
                         ? AppColor.selecteColor
                         : AppColor.black,
                     onTap: () {
-                      if (widget.pageController.hasClients) {
-                        widget.pageController
-                            .jumpToPage(widget.pageController.index.value = 6);
-                      }
+                      widget.controller.index.value = 8;
+                      Get.back();
                     },
                   ),
                   Menu(
+                    selected: widget.controller.index.value == 9,
                     text: 'Payment information',
-                    color: widget.pageController.index.value == 7
+                    color: widget.controller.index.value == 9
                         ? AppColor.selecteColor
                         : AppColor.black,
                     onTap: () {
-                      if (widget.pageController.hasClients) {
-                        widget.pageController
-                            .jumpToPage(widget.pageController.index.value = 7);
-                      }
+                      widget.controller.index.value = 9;
+                      Get.back();
                     },
                   ),
                 ],
@@ -250,6 +239,7 @@ class _MainSideBarState extends State<MainSideBar> {
                 color: AppColor.selecteColor,
                 children: [
                   Menu(
+                    selected: widget.controller.index.value == 12,
                     text: "Overview",
                     color: widget.controller.index.value == 12
                         ? AppColor.selecteColor
@@ -260,6 +250,7 @@ class _MainSideBarState extends State<MainSideBar> {
                     },
                   ),
                   Menu(
+                    selected: widget.controller.index.value == 13,
                     text: "Invite patients to leave a review",
                     color: widget.controller.index.value == 13
                         ? AppColor.selecteColor

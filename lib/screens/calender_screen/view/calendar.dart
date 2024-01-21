@@ -9,7 +9,7 @@ import 'package:clinix_admin_panel/core/widgets/main_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
-import 'package:swipeable_page_route/swipeable_page_route.dart';
+
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 import '../../../core/utils/colors.dart';
@@ -235,7 +235,7 @@ class EventCalendarState extends State<EventCalendar> {
         _endTime = TimeOfDay(hour: _endDate.hour, minute: _endDate.minute);
         Navigator.push<Widget>(
             context,
-            SwipeablePageRoute(
+            MaterialPageRoute(
                 fullscreenDialog: true,
                 builder: (BuildContext context) => const AppointmentEditor()));
       }

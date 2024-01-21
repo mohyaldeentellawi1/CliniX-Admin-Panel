@@ -9,25 +9,13 @@ class ContactBodyTitle extends StatefulWidget {
 }
 
 class _ContactBodyTitleState extends State<ContactBodyTitle> {
-  bool _isTouched = false;
-
-  void _handleHover(bool isHovering) {
-    setState(() {
-      _isTouched = isHovering;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Wrap(
       children: [
         const Text('Contact'),
         const SizedBox(width: 10),
-        CustomContainerButton(
-            onTap: () {},
-            onHover: _handleHover,
-            isTouched: _isTouched,
-            buttonName: 'Add New Contact'),
+        CustomContainerButton(onTap: () {}, buttonName: 'Add New Contact'),
       ],
     );
   }

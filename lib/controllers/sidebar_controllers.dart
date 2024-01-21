@@ -2,8 +2,15 @@
 
 import 'package:clinix_admin_panel/screens/calender_screen/view/calendar.dart';
 import 'package:clinix_admin_panel/screens/account_screen/view/account_screen_view.dart';
+import 'package:clinix_admin_panel/screens/profile_add_video_screen/view/add_video_screen_view.dart';
+import 'package:clinix_admin_panel/screens/profile_clinic_description/view/clinic_description_view.dart';
+import 'package:clinix_admin_panel/screens/profile_clinic_information/view/clinic_information.dart';
+import 'package:clinix_admin_panel/screens/profile_clinic_services_screen/view/clinic_services_screen_view.dart';
+import 'package:clinix_admin_panel/screens/profile_currency_screen.dart/view/currency_screen_view.dart';
+import 'package:clinix_admin_panel/screens/profile_opening%20_hours_screen/view/opening_hours_screen_view.dart';
+import 'package:clinix_admin_panel/screens/profile_payment_information_screen/view/payment_information_screen_view.dart';
+import 'package:clinix_admin_panel/screens/profile_pictures_screen/view/pictures_screen_view.dart';
 
-import 'package:clinix_admin_panel/screens/profile_screen/view/prfile_screen_view.dart';
 import 'package:get/get.dart';
 
 // import 'package:minia_web_project/view/Apps/Emails/emailview.dart';
@@ -37,7 +44,20 @@ class SideBarController extends GetxController {
   var page = [
     EventCalendar(), //0
     AccountScreenView(),
-    ProfileScreenView(),
+    ClinicInformationScreenView(),
+    ClinicDescriptionScreenView(),
+    AddVideoScreenView(),
+    PicturesScreenView(),
+    CurrencyScreenView(),
+    OpeningHoursScreenView(),
+    ClinicservicesScreenView(),
+    PaymentinformationScreenView()
+  ];
+}
+
+// Editors(), //20
+
+
 
     // EmailView(), //4
     // InvoiceView(), //5
@@ -61,7 +81,3 @@ class SideBarController extends GetxController {
     // BootstrapBasic(), //23
     // DataTableMain(), // 24
     // EditableTable(), //25
-  ];
-}
-
-// Editors(), //20

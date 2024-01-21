@@ -4,30 +4,25 @@ import 'package:clinix_admin_panel/screens/profile_clinic_information/widgets/ma
 
 import 'package:flutter/material.dart';
 
-class ClinicInformation extends StatefulWidget {
-  const ClinicInformation({super.key});
+class ClinicInformationScreenView extends StatelessWidget {
+  const ClinicInformationScreenView({super.key});
 
-  @override
-  State<ClinicInformation> createState() => _ClinicInformationState();
-}
-
-class _ClinicInformationState extends State<ClinicInformation> {
-  TextEditingController clinicNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
     return MainScaffold(
-        width: width,
-        textL: '',
-        texti: 'ClinicX',
-        textii: 'Clinic Information',
-        webTabletViewWidget: const Row(
-          children: [
-            FormSideBody(),
-            SizedBox(width: 10),
-            Expanded(child: MapsSideBody()),
-          ],
-        ),
-        mobileWidget: const SizedBox());
+      width: width,
+      textL: 'Profile',
+      texti: 'ClinicX',
+      textii: 'Clinic Information',
+      webTabletViewWidget: const Row(
+        children: [
+          FormSideBody(),
+          SizedBox(width: 10),
+          Expanded(child: MapsSideBody()),
+        ],
+      ),
+      mobileWidget: const SizedBox(),
+    );
   }
 }

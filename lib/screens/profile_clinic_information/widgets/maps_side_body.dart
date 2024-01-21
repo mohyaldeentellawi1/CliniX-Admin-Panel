@@ -50,10 +50,10 @@ class _MapsSideBodyState extends State<MapsSideBody> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
-    // double height = MediaQuery.sizeOf(context).height;
+    double height = MediaQuery.sizeOf(context).height;
     return SizedBox(
-        width: width * .2,
-        height: 350,
+        width: width * .5,
+        height: height * .72,
         child: GoogleMap(
             onTap: (latLang) async {
               markers.add(Marker(

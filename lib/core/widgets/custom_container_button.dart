@@ -2,34 +2,50 @@ import 'package:flutter/material.dart';
 
 import '../utils/colors.dart';
 
-class CustomContainerButton extends StatelessWidget {
-  const CustomContainerButton({
-    super.key,
-    required this.onTap,
-    required this.onHover,
-    required this.isTouched,
-    required this.buttonName,
-  });
+class CustomContainerButton extends StatefulWidget {
+  const CustomContainerButton(
+      {super.key,
+      required this.onTap,
+      required this.buttonName,
+      this.margin,
+      this.paddingWidth,
+      this.paddingheight});
 
   final void Function() onTap;
-  final void Function(bool) onHover;
-  final bool isTouched;
   final String buttonName;
+  final double? margin;
+  final double? paddingWidth;
+  final double? paddingheight;
+  @override
+  State<CustomContainerButton> createState() => _CustomContainerButtonState();
+}
+
+class _CustomContainerButtonState extends State<CustomContainerButton> {
+  bool _isTouched = false;
+  void _handleHover(bool isHovering) {
+    setState(() {
+      _isTouched = isHovering;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
-      onHover: onHover,
+      onTap: widget.onTap,
+      onHover: _handleHover,
       child: Container(
-        padding: const EdgeInsetsDirectional.symmetric(horizontal: 5),
+        margin: EdgeInsetsDirectional.only(start: widget.margin ?? 0.0),
+        padding: EdgeInsetsDirectional.symmetric(
+          vertical: widget.paddingheight ?? 0.0,
+          horizontal: widget.paddingWidth ?? 5,
+        ),
         decoration: BoxDecoration(
-            color: isTouched ? AppColor.selecteColor : Colors.transparent,
+            color: _isTouched ? AppColor.selecteColor : Colors.transparent,
             border: Border.all(color: AppColor.borders)),
         child: Text(
-          buttonName,
+          widget.buttonName,
           style: TextStyle(
-              color: isTouched ? AppColor.mainbackground : Colors.black),
+              color: _isTouched ? AppColor.mainbackground : Colors.black),
         ),
       ),
     );

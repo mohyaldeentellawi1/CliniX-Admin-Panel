@@ -1,3 +1,4 @@
+import 'package:clinix_admin_panel/screens/profile_pictures_screen/widgets/add_picture_form.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/widgets/main_scaffold.dart';
@@ -10,11 +11,10 @@ class PicturesScreenView extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width;
     return MainScaffold(
         width: width,
-        textL: '',
+        textL: 'Profile',
         texti: 'ClinicX',
         textii: 'Pictures',
-        webTabletViewWidget:
-            Container(color: Colors.black, child: const Text('4')),
+        webTabletViewWidget: const AddPicturForm(),
         mobileWidget: const SizedBox());
   }
 }

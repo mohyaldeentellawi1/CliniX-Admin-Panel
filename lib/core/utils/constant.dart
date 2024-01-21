@@ -16,3 +16,4 @@ const italy = "assets/image/flags/italy.jpg";
 const german = "assets/image/flags/germany.jpg";
 const spanish = "assets/image/flags/spain.jpg";
 const search = "assets/svg/topbar_search.svg";
+const quill = 'assets/svg/dashboard/quill.png';

@@ -78,102 +78,110 @@ class SmallDrawer extends StatelessWidget {
                       minWidth: 40,
                       text: "Account",
                       icon: account,
-                      color: controller.index.value == 0
+                      color: controller.index.value == 1
                           ? AppColor.selecteColor
                           : Colors.transparent,
                       onTap: () {
-                        controller.index.value = 0;
+                        controller.index.value = 1;
                         Get.back();
                       },
-                      selected: controller.index.value == 0,
+                      selected: controller.index.value == 1,
                     ),
                     ExpansionListCustom(
                       selected: controller.index.value == 2,
                       onExpansionChanged: (p0) {},
                       title: "Profile",
                       icoN: profile,
-                      color: controller.index.value == 1
+                      color: controller.index.value == 2
                           ? AppColor.selecteColor
                           : AppColor.darkblack,
                       children: [
                         Menu(
+                          selected: controller.index.value == 2,
                           text: 'Clinic Information',
-                          color: controller.index.value == 1
+                          color: controller.index.value == 2
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
                           onTap: () {
-                            // controller.index.value = 1;
-                            // Get.back();
+                            controller.index.value = 2;
+                            Get.back();
                           },
                         ),
                         Menu(
+                          selected: controller.index.value == 3,
                           text: 'Clinic Description',
-                          color: controller.index.value == 2
+                          color: controller.index.value == 3
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
                           onTap: () {
-                            // controller.index.value = 2;
-                            // Get.back();
+                            controller.index.value = 3;
+                            Get.back();
                           },
                         ),
                         Menu(
-                          text: 'Add Video',
-                          color: controller.index.value == 2
+                          selected: controller.index.value == 4,
+                          text: 'Videos',
+                          color: controller.index.value == 4
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
                           onTap: () {
-                            // controller.index.value = 2;
-                            // Get.back();
+                            controller.index.value = 4;
+                            Get.back();
                           },
                         ),
                         Menu(
+                          selected: controller.index.value == 5,
                           text: 'Pictures',
-                          color: controller.index.value == 2
+                          color: controller.index.value == 5
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
                           onTap: () {
-                            // controller.index.value = 2;
-                            // Get.back();
+                            controller.index.value = 5;
+                            Get.back();
                           },
                         ),
                         Menu(
+                          selected: controller.index.value == 6,
                           text: 'Currency',
-                          color: controller.index.value == 2
+                          color: controller.index.value == 6
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
                           onTap: () {
-                            // controller.index.value = 2;
-                            // Get.back();
+                            controller.index.value = 6;
+                            Get.back();
                           },
                         ),
                         Menu(
+                          selected: controller.index.value == 7,
                           text: 'Opening Hour',
-                          color: controller.index.value == 2
+                          color: controller.index.value == 7
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
                           onTap: () {
-                            // controller.index.value = 2;
-                            // Get.back();
+                            controller.index.value = 7;
+                            Get.back();
                           },
                         ),
                         Menu(
+                          selected: controller.index.value == 8,
                           text: 'Clinic Service',
-                          color: controller.index.value == 2
+                          color: controller.index.value == 8
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
                           onTap: () {
-                            // controller.index.value = 2;
-                            // Get.back();
+                            controller.index.value = 8;
+                            Get.back();
                           },
                         ),
                         Menu(
+                          selected: controller.index.value == 9,
                           text: 'Payment information',
-                          color: controller.index.value == 2
+                          color: controller.index.value == 9
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
                           onTap: () {
-                            // controller.index.value = 2;
-                            // Get.back();
+                            controller.index.value = 9;
+                            Get.back();
                           },
                         ),
                       ],
@@ -214,6 +222,7 @@ class SmallDrawer extends StatelessWidget {
                           : AppColor.darkblack,
                       children: [
                         Menu(
+                          selected: controller.index.value == 13,
                           text: "Overview",
                           color: controller.index.value == 13
                               ? AppColor.selecteColor
@@ -224,6 +233,7 @@ class SmallDrawer extends StatelessWidget {
                           },
                         ),
                         Menu(
+                          selected: controller.index.value == 14,
                           text: "Invite patients to leave a review",
                           color: controller.index.value == 50
                               ? AppColor.selecteColor

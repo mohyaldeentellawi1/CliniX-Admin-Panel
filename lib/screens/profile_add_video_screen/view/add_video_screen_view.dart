@@ -1,4 +1,5 @@
 import 'package:clinix_admin_panel/core/widgets/main_scaffold.dart';
+import 'package:clinix_admin_panel/screens/profile_add_video_screen/widgets/add_video_form.dart';
 import 'package:flutter/material.dart';
 
 class AddVideoScreenView extends StatelessWidget {
@@ -9,11 +10,14 @@ class AddVideoScreenView extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width;
     return MainScaffold(
         width: width,
-        textL: '',
+        textL: 'Profile',
         texti: 'ClinicX',
         textii: 'Add Video',
-        webTabletViewWidget:
-            Container(color: Colors.blue, child: const Text('3')),
+        webTabletViewWidget: const Row(
+          children: [
+            AddVideoForm(),
+          ],
+        ),
         mobileWidget: const SizedBox());
   }
 }
