@@ -54,7 +54,6 @@ class IconsSideBar extends StatelessWidget {
                     icon: profile,
                     onTap: () {
                       controller.index.value = 2;
-                      Get.back();
                     },
                     color: controller.index.value == 2
                         ? AppColor.selecteColor
@@ -62,26 +61,26 @@ class IconsSideBar extends StatelessWidget {
                     selected: controller.index.value == 2),
                 Container(height: 5),
                 SideBarIconItem(
-                    color: controller.index.value == 3
+                    color: controller.index.value == 11
                         ? AppColor.selecteColor
                         : Colors.black,
                     icon: treatment,
                     onTap: () {
-                      controller.index.value = 3;
+                      controller.index.value = 11;
                       Get.back();
                     },
-                    selected: controller.index.value == 3),
+                    selected: controller.index.value == 11),
                 Container(height: 5),
                 SideBarIconItem(
                     icon: staff,
                     onTap: () {
-                      controller.index.value = 4;
+                      controller.index.value = 12;
                       Get.back();
                     },
-                    color: controller.index.value == 4
+                    color: controller.index.value == 12
                         ? AppColor.selecteColor
                         : Colors.black,
-                    selected: controller.index.value == 4),
+                    selected: controller.index.value == 12),
                 Container(height: 5),
                 SideBarIconItem(
                     icon: review,

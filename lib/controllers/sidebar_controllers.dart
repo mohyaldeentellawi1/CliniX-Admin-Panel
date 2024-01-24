@@ -9,7 +9,9 @@ import 'package:clinix_admin_panel/screens/profile_clinic_services_screen/view/c
 import 'package:clinix_admin_panel/screens/profile_currency_screen.dart/view/currency_screen_view.dart';
 import 'package:clinix_admin_panel/screens/profile_opening%20_hours_screen/view/opening_hours_screen_view.dart';
 import 'package:clinix_admin_panel/screens/profile_payment_information_screen/view/payment_information_screen_view.dart';
+import 'package:clinix_admin_panel/screens/profile_peforafter_screen/view/befor_after_screen_view.dart';
 import 'package:clinix_admin_panel/screens/profile_pictures_screen/view/pictures_screen_view.dart';
+import 'package:clinix_admin_panel/screens/treatment_screen/view/treatment_screen_view.dart';
 
 import 'package:get/get.dart';
 
@@ -48,10 +50,12 @@ class SideBarController extends GetxController {
     ClinicDescriptionScreenView(),
     AddVideoScreenView(),
     PicturesScreenView(),
+    BeforAfterScreenView(),
     CurrencyScreenView(),
     OpeningHoursScreenView(),
     ClinicservicesScreenView(),
-    PaymentinformationScreenView()
+    PaymentinformationScreenView(),
+    TreatmentScreenView()
   ];
 }
 

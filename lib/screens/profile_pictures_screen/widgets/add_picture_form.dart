@@ -1,6 +1,8 @@
 import 'package:clinix_admin_panel/core/utils/colors.dart';
 import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:clinix_admin_panel/core/widgets/custom_span_description.dart';
+import 'package:clinix_admin_panel/screens/profile_peforafter_screen/widgets/custom_image_item.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -94,44 +96,20 @@ class _AddPicturFormState extends State<AddPicturForm> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: pickedImages
-                        .map((e) => Column(
-                              children: [
-                                Card(
-                                  elevation: 10,
-                                  margin: const EdgeInsetsDirectional.all(10),
-                                  child: Image.network(
-                                    e.path,
-                                    height: height * .25,
-                                    width: width * .25,
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    TextButton.icon(
-                                        style: const ButtonStyle(
-                                            foregroundColor:
-                                                MaterialStatePropertyAll(
-                                                    AppColor.darkred)),
-                                        onPressed: () {
-                                          removeImage(pathImage: e.path);
-                                        },
-                                        label: const Icon(Icons.remove),
-                                        icon: const Text('Remove')),
-                                    TextButton.icon(
-                                        style: const ButtonStyle(
-                                            foregroundColor:
-                                                MaterialStatePropertyAll(
-                                                    AppColor.darkGreen)),
-                                        onPressed: () {},
-                                        label: const Icon(Icons.upload),
-                                        icon: const Text('upload')),
-                                  ],
-                                )
-                              ],
-                            ))
+                        .map((e) => CustomImageItem(
+                            image: e,
+                            height: height,
+                            width: width,
+                            firstIconColor: AppColor.darkred,
+                            secondeIconColor: AppColor.selecteColor,
+                            firstIconName: 'Remove',
+                            secondeIconName: 'Uplode',
+                            firstIconOnPressed: () {
+                              removeImage(pathImage: e.path);
+                            },
+                            secondeIconOnPressed: () {},
+                            firstIcon: Icons.remove,
+                            secondeIcon: CupertinoIcons.cloud_upload))
                         .toList(),
                   ),
                 ),

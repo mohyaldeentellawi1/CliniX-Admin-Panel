@@ -153,7 +153,7 @@ class _MainSideBarState extends State<MainSideBar> {
                   ),
                   Menu(
                     selected: widget.controller.index.value == 6,
-                    text: 'Currency',
+                    text: 'Before & After',
                     color: widget.controller.index.value == 6
                         ? AppColor.selecteColor
                         : AppColor.black,
@@ -164,7 +164,7 @@ class _MainSideBarState extends State<MainSideBar> {
                   ),
                   Menu(
                     selected: widget.controller.index.value == 7,
-                    text: 'Opening Hour',
+                    text: 'Currency',
                     color: widget.controller.index.value == 7
                         ? AppColor.selecteColor
                         : AppColor.black,
@@ -175,7 +175,7 @@ class _MainSideBarState extends State<MainSideBar> {
                   ),
                   Menu(
                     selected: widget.controller.index.value == 8,
-                    text: 'Clinic Service',
+                    text: 'Opening Hour',
                     color: widget.controller.index.value == 8
                         ? AppColor.selecteColor
                         : AppColor.black,
@@ -186,12 +186,23 @@ class _MainSideBarState extends State<MainSideBar> {
                   ),
                   Menu(
                     selected: widget.controller.index.value == 9,
-                    text: 'Payment information',
+                    text: 'Clinic Service',
                     color: widget.controller.index.value == 9
                         ? AppColor.selecteColor
                         : AppColor.black,
                     onTap: () {
                       widget.controller.index.value = 9;
+                      Get.back();
+                    },
+                  ),
+                  Menu(
+                    selected: widget.controller.index.value == 10,
+                    text: 'Payment information',
+                    color: widget.controller.index.value == 10
+                        ? AppColor.selecteColor
+                        : AppColor.black,
+                    onTap: () {
+                      widget.controller.index.value = 10;
                       Get.back();
                     },
                   ),

@@ -30,7 +30,7 @@ class _MainScreenViewState extends State<MainScreenView> {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: AppColor.mainbackground,
       appBar: width < 983 ? SmallAppBar(width: width) : null,
