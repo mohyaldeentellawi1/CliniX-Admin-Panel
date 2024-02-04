@@ -32,6 +32,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_inappwebview: ^6.0.0
   flutter_quill: ^9.2.8
   flutter_svg: ^2.0.9
   geolocator: ^10.1.0
@@ -39,8 +40,9 @@ dependencies:
   google_maps_flutter: ^2.5.3
   image_picker: ^1.0.7
   intl: ^0.18.0
+  path: ^1.8.3
   syncfusion_flutter_calendar: ^24.1.45
-  video_player: ^2.8.2
+  video_player: ^2.0.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -51,6 +53,7 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

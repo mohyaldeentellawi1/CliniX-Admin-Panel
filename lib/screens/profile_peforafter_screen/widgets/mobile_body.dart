@@ -84,6 +84,7 @@ class _MobileBodyState extends State<MobileBody> {
               child: Column(
                 children: [
                   CustomBeforAfterContainer(
+                    uplodePressed: () {},
                     listIsEmpty: beforImages.isEmpty,
                     text: 'Before...',
                     onPressed: pickedMultyBeforImages,
@@ -121,6 +122,7 @@ class _MobileBodyState extends State<MobileBody> {
                 child: Column(
                   children: [
                     CustomBeforAfterContainer(
+                        uplodePressed: () {},
                         listIsEmpty: afterImages.isEmpty,
                         text: 'After...',
                         onPressed: pickedMultyafterImages),

@@ -13,11 +13,7 @@ class AddVideoScreenView extends StatelessWidget {
         textL: 'Profile',
         texti: 'ClinicX',
         textii: 'Add Video',
-        webTabletViewWidget: const Row(
-          children: [
-            AddVideoForm(),
-          ],
-        ),
-        mobileWidget: const SizedBox());
+        webTabletViewWidget: const AddVideoForm(),
+        mobileWidget: const AddVideoForm());
   }
 }

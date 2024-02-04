@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/colors.dart';
@@ -9,10 +10,12 @@ class CustomBeforAfterContainer extends StatelessWidget {
       {super.key,
       required this.text,
       required this.onPressed,
-      required this.listIsEmpty});
+      required this.listIsEmpty,
+      required this.uplodePressed});
 
   final String text;
   final void Function() onPressed;
+  final void Function() uplodePressed;
   final bool listIsEmpty;
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,10 @@ class CustomBeforAfterContainer extends StatelessWidget {
             const SizedBox(height: 15),
             listIsEmpty
                 ? const SizedBox()
-                : CustomContainerButton(onTap: onPressed, buttonName: 'Uplode'),
+                : TextButton.icon(
+                    onPressed: uplodePressed,
+                    icon: const Icon(CupertinoIcons.cloud_upload),
+                    label: const Text('Uplode'))
           ],
         ),
       ),

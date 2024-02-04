@@ -124,12 +124,17 @@ class _FormSideBodyState extends State<FormSideBody> {
             ),
           ],
         ),
-        CustomContainerButton(
-          paddingWidth: 100,
-          paddingheight: 10,
-          onTap: () {},
-          buttonName: 'Save',
-          margin: width * .2,
+        const SizedBox(height: 20),
+        Row(
+          children: [
+            const SizedBox(width: 50),
+            CustomContainerButton(
+              paddingWidth: 100,
+              paddingheight: 10,
+              onTap: () {},
+              buttonName: 'Save',
+            ),
+          ],
         )
       ],
     );

@@ -9,7 +9,7 @@ class TreatmentScreenView extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width;
     return MainScaffold(
         width: width,
-        textL: 'Profile',
+        textL: 'Treatment',
         texti: 'ClinicX',
         textii: 'Treatment',
         webTabletViewWidget: const SizedBox(),

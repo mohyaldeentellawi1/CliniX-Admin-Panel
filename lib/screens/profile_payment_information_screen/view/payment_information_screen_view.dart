@@ -1,3 +1,4 @@
+import 'package:clinix_admin_panel/screens/profile_payment_information_screen/widgets/payment_info_body.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/widgets/main_scaffold.dart';
@@ -10,11 +11,10 @@ class PaymentinformationScreenView extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width;
     return MainScaffold(
         width: width,
-        textL: '',
+        textL: 'Profile',
         texti: 'ClinicX',
         textii: 'Payment information',
-        webTabletViewWidget:
-            Container(color: Colors.amber, child: const Text('1')),
-        mobileWidget: const SizedBox());
+        webTabletViewWidget: const PaymentInfoBody(),
+        mobileWidget: const PaymentInfoBody());
   }
 }

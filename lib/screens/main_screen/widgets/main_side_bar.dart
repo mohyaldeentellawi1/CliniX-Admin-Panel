@@ -186,7 +186,7 @@ class _MainSideBarState extends State<MainSideBar> {
                   ),
                   Menu(
                     selected: widget.controller.index.value == 9,
-                    text: 'Clinic Service',
+                    text: 'Premises',
                     color: widget.controller.index.value == 9
                         ? AppColor.selecteColor
                         : AppColor.black,
@@ -197,7 +197,7 @@ class _MainSideBarState extends State<MainSideBar> {
                   ),
                   Menu(
                     selected: widget.controller.index.value == 10,
-                    text: 'Payment information',
+                    text: 'Clinic Service',
                     color: widget.controller.index.value == 10
                         ? AppColor.selecteColor
                         : AppColor.black,
@@ -206,55 +206,23 @@ class _MainSideBarState extends State<MainSideBar> {
                       Get.back();
                     },
                   ),
-                ],
-              ),
-              MenuItem(
-                minWidth: 40,
-                text: "Treatments",
-                icon: treatment,
-                color: widget.controller.index.value == 3
-                    ? AppColor.selecteColor
-                    : Colors.transparent,
-                onTap: () {
-                  widget.controller.index.value = 3;
-                  Get.back();
-                },
-                selected: widget.controller.index.value == 10,
-              ),
-              MenuItem(
-                minWidth: 40,
-                text: "Staff",
-                icon: staff,
-                color: widget.controller.index.value == 11
-                    ? AppColor.selecteColor
-                    : Colors.transparent,
-                onTap: () {
-                  widget.controller.index.value = 11;
-                  Get.back();
-                },
-                selected: widget.controller.index.value == 11,
-              ),
-              ExpansionListCustom(
-                onExpansionChanged: (bool isExpanded) {
-                  if (widget.controller.index.value != 6) {
-                    _isExpanded = false;
-                  } else {
-                    setState(() {
-                      _isExpanded = isExpanded;
-                    });
-                  }
-                },
-                selected: widget.controller.index.value == 6,
-                title: "Reviews",
-                icoN: review,
-                color: AppColor.selecteColor,
-                children: [
+                  Menu(
+                    selected: widget.controller.index.value == 11,
+                    text: 'Payment information',
+                    color: widget.controller.index.value == 11
+                        ? AppColor.selecteColor
+                        : AppColor.black,
+                    onTap: () {
+                      widget.controller.index.value = 11;
+                      Get.back();
+                    },
+                  ),
                   Menu(
                     selected: widget.controller.index.value == 12,
-                    text: "Overview",
+                    text: 'Travel services',
                     color: widget.controller.index.value == 12
                         ? AppColor.selecteColor
-                        : AppColor.darkblack,
+                        : AppColor.black,
                     onTap: () {
                       widget.controller.index.value = 12;
                       Get.back();
@@ -262,42 +230,89 @@ class _MainSideBarState extends State<MainSideBar> {
                   ),
                   Menu(
                     selected: widget.controller.index.value == 13,
-                    text: "Invite patients to leave a review",
+                    text: 'Insurance',
                     color: widget.controller.index.value == 13
                         ? AppColor.selecteColor
-                        : AppColor.darkblack,
+                        : AppColor.black,
                     onTap: () {
                       widget.controller.index.value = 13;
                       Get.back();
                     },
                   ),
+                  Menu(
+                    selected: widget.controller.index.value == 14,
+                    text: 'Languages',
+                    color: widget.controller.index.value == 14
+                        ? AppColor.selecteColor
+                        : AppColor.black,
+                    onTap: () {
+                      widget.controller.index.value = 14;
+                      Get.back();
+                    },
+                  ),
+                  Menu(
+                      text: 'Accreditations',
+                      color: widget.controller.index.value == 15
+                          ? AppColor.selecteColor
+                          : AppColor.black,
+                      onTap: () {
+                        widget.controller.index.value = 15;
+                        Get.back();
+                      },
+                      selected: widget.controller.index.value == 15)
                 ],
               ),
               MenuItem(
                 minWidth: 40,
-                text: "Service Score",
-                icon: score,
-                color: widget.controller.index.value == 14
+                text: "Treatments",
+                icon: treatment,
+                color: widget.controller.index.value == 16
                     ? AppColor.selecteColor
                     : Colors.transparent,
                 onTap: () {
-                  widget.controller.index.value = 14;
+                  widget.controller.index.value = 16;
                   Get.back();
                 },
-                selected: widget.controller.index.value == 14,
+                selected: widget.controller.index.value == 16,
+              ),
+              MenuItem(
+                minWidth: 40,
+                text: "Doctors",
+                icon: staff,
+                color: widget.controller.index.value == 17
+                    ? AppColor.selecteColor
+                    : Colors.transparent,
+                onTap: () {
+                  widget.controller.index.value = 17;
+                  Get.back();
+                },
+                selected: widget.controller.index.value == 17,
+              ),
+              MenuItem(
+                minWidth: 40,
+                text: "Faq",
+                icon: faq,
+                color: widget.controller.index.value == 18
+                    ? AppColor.selecteColor
+                    : Colors.transparent,
+                onTap: () {
+                  widget.controller.index.value = 18;
+                  Get.back();
+                },
+                selected: widget.controller.index.value == 18,
               ),
               MenuItem(
                 minWidth: 40,
                 text: "LogOut",
                 icon: logout,
-                color: widget.controller.index.value == 15
+                color: widget.controller.index.value == 19
                     ? AppColor.selecteColor
                     : Colors.transparent,
                 onTap: () {
-                  widget.controller.index.value = 15;
+                  widget.controller.index.value = 19;
                   Get.back();
                 },
-                selected: widget.controller.index.value == 15,
+                selected: widget.controller.index.value == 19,
               ),
               Padding(
                 padding: const EdgeInsets.all(24),

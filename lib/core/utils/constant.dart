@@ -17,3 +17,5 @@ const german = "assets/image/flags/germany.jpg";
 const spanish = "assets/image/flags/spain.jpg";
 const search = "assets/svg/topbar_search.svg";
 const quill = 'assets/svg/dashboard/quill.png';
+const example = 'assets/svg/dashboard/example.webp';
+const faq = 'assets/svg/dashboard/faq.svg';

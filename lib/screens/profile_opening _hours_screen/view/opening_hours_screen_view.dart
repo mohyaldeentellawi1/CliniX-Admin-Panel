@@ -1,6 +1,8 @@
+import 'package:clinix_admin_panel/screens/profile_opening%20_hours_screen/widgets/opening_hour_mobile_body.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/widgets/main_scaffold.dart';
+import '../widgets/opening_hour_web_body.dart';
 
 class OpeningHoursScreenView extends StatelessWidget {
   const OpeningHoursScreenView({super.key});
@@ -10,11 +12,10 @@ class OpeningHoursScreenView extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width;
     return MainScaffold(
         width: width,
-        textL: '',
+        textL: 'Profile',
         texti: 'ClinicX',
         textii: 'Opening Hours',
-        webTabletViewWidget:
-            Container(color: Colors.black, child: const Text('4')),
-        mobileWidget: const SizedBox());
+        webTabletViewWidget: const OpeningHoursWebBody(),
+        mobileWidget: const OpeningHoursMobileBody());
   }
 }

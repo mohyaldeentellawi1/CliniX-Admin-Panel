@@ -1,3 +1,5 @@
+import 'package:clinix_admin_panel/screens/profile_currency_screen.dart/widgets/currency_mobile_body.dart';
+import 'package:clinix_admin_panel/screens/profile_currency_screen.dart/widgets/currency_web_body.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/widgets/main_scaffold.dart';
@@ -10,11 +12,10 @@ class CurrencyScreenView extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width;
     return MainScaffold(
         width: width,
-        textL: '',
+        textL: 'Profile',
         texti: 'ClinicX',
         textii: 'Currency',
-        webTabletViewWidget:
-            Container(color: Colors.teal, child: const Text('1')),
-        mobileWidget: const SizedBox());
+        webTabletViewWidget: const CurrencyWebBody(),
+        mobileWidget: const CurrencyMobileBody());
   }
 }

@@ -142,7 +142,7 @@ class SmallDrawer extends StatelessWidget {
                         ),
                         Menu(
                           selected: controller.index.value == 6,
-                          text: 'Currency',
+                          text: 'Before & After',
                           color: controller.index.value == 6
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
@@ -153,7 +153,7 @@ class SmallDrawer extends StatelessWidget {
                         ),
                         Menu(
                           selected: controller.index.value == 7,
-                          text: 'Opening Hour',
+                          text: 'Currency',
                           color: controller.index.value == 7
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
@@ -164,7 +164,7 @@ class SmallDrawer extends StatelessWidget {
                         ),
                         Menu(
                           selected: controller.index.value == 8,
-                          text: 'Clinic Service',
+                          text: 'Opening Hour',
                           color: controller.index.value == 8
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
@@ -175,7 +175,7 @@ class SmallDrawer extends StatelessWidget {
                         ),
                         Menu(
                           selected: controller.index.value == 9,
-                          text: 'Payment information',
+                          text: 'Premises',
                           color: controller.index.value == 9
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
@@ -184,46 +184,42 @@ class SmallDrawer extends StatelessWidget {
                             Get.back();
                           },
                         ),
-                      ],
-                    ),
-                    MenuItem(
-                      minWidth: 40,
-                      text: "Treatments",
-                      icon: treatment,
-                      color: controller.index.value == 0
-                          ? AppColor.selecteColor
-                          : Colors.transparent,
-                      onTap: () {
-                        controller.index.value = 0;
-                        Get.back();
-                      },
-                      selected: controller.index.value == 0,
-                    ),
-                    MenuItem(
-                      minWidth: 40,
-                      text: "Staff",
-                      icon: staff,
-                      color: controller.index.value == 0
-                          ? AppColor.selecteColor
-                          : Colors.transparent,
-                      onTap: () {
-                        controller.index.value = 0;
-                        Get.back();
-                      },
-                      selected: controller.index.value == 0,
-                    ),
-                    ExpansionListCustom(
-                      selected: controller.index.value == 6,
-                      onExpansionChanged: (p0) {},
-                      title: "Reviews",
-                      icoN: review,
-                      color: controller.index.value == 13
-                          ? AppColor.selecteColor
-                          : AppColor.darkblack,
-                      children: [
+                        Menu(
+                          selected: controller.index.value == 10,
+                          text: 'Clinic Service',
+                          color: controller.index.value == 10
+                              ? AppColor.selecteColor
+                              : AppColor.darkblack,
+                          onTap: () {
+                            controller.index.value = 10;
+                            Get.back();
+                          },
+                        ),
+                        Menu(
+                          selected: controller.index.value == 11,
+                          text: 'Payment Information',
+                          color: controller.index.value == 11
+                              ? AppColor.selecteColor
+                              : AppColor.darkblack,
+                          onTap: () {
+                            controller.index.value = 11;
+                            Get.back();
+                          },
+                        ),
+                        Menu(
+                          selected: controller.index.value == 12,
+                          text: 'Travel Service',
+                          color: controller.index.value == 12
+                              ? AppColor.selecteColor
+                              : AppColor.darkblack,
+                          onTap: () {
+                            controller.index.value = 12;
+                            Get.back();
+                          },
+                        ),
                         Menu(
                           selected: controller.index.value == 13,
-                          text: "Overview",
+                          text: 'Insurance',
                           color: controller.index.value == 13
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
@@ -234,41 +230,78 @@ class SmallDrawer extends StatelessWidget {
                         ),
                         Menu(
                           selected: controller.index.value == 14,
-                          text: "Invite patients to leave a review",
-                          color: controller.index.value == 50
+                          text: 'Languages',
+                          color: controller.index.value == 14
                               ? AppColor.selecteColor
                               : AppColor.darkblack,
                           onTap: () {
-                            // Get.to(Maintenance());
+                            controller.index.value = 14;
+                            Get.back();
                           },
                         ),
+                        Menu(
+                            text: 'Accreditations',
+                            color: controller.index.value == 15
+                                ? AppColor.selecteColor
+                                : AppColor.black,
+                            onTap: () {
+                              controller.index.value = 15;
+                              Get.back();
+                            },
+                            selected: controller.index.value == 15)
                       ],
                     ),
                     MenuItem(
                       minWidth: 40,
-                      text: "Service Score",
-                      icon: score,
-                      color: controller.index.value == 0
+                      text: "Treatments",
+                      icon: treatment,
+                      color: controller.index.value == 16
                           ? AppColor.selecteColor
                           : Colors.transparent,
                       onTap: () {
-                        controller.index.value = 0;
+                        controller.index.value = 16;
                         Get.back();
                       },
-                      selected: controller.index.value == 0,
+                      selected: controller.index.value == 16,
+                    ),
+                    MenuItem(
+                      minWidth: 40,
+                      text: "Doctors",
+                      icon: staff,
+                      color: controller.index.value == 17
+                          ? AppColor.selecteColor
+                          : Colors.transparent,
+                      onTap: () {
+                        controller.index.value = 17;
+                        Get.back();
+                      },
+                      selected: controller.index.value == 17,
+                    ),
+                    MenuItem(
+                      minWidth: 40,
+                      text: "Faq",
+                      icon: faq,
+                      color: controller.index.value == 18
+                          ? AppColor.selecteColor
+                          : Colors.transparent,
+                      onTap: () {
+                        controller.index.value = 18;
+                        Get.back();
+                      },
+                      selected: controller.index.value == 18,
                     ),
                     MenuItem(
                       minWidth: 40,
                       text: "LogOut",
                       icon: logout,
-                      color: controller.index.value == 0
+                      color: controller.index.value == 19
                           ? AppColor.selecteColor
                           : Colors.transparent,
                       onTap: () {
-                        controller.index.value = 0;
+                        controller.index.value = 19;
                         Get.back();
                       },
-                      selected: controller.index.value == 0,
+                      selected: controller.index.value == 19,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(24),

@@ -61,12 +61,12 @@ class IconsSideBar extends StatelessWidget {
                     selected: controller.index.value == 2),
                 Container(height: 5),
                 SideBarIconItem(
-                    color: controller.index.value == 11
+                    color: controller.index.value == 16
                         ? AppColor.selecteColor
                         : Colors.black,
                     icon: treatment,
                     onTap: () {
-                      controller.index.value = 11;
+                      controller.index.value = 16;
                       Get.back();
                     },
                     selected: controller.index.value == 11),
@@ -74,46 +74,35 @@ class IconsSideBar extends StatelessWidget {
                 SideBarIconItem(
                     icon: staff,
                     onTap: () {
-                      controller.index.value = 12;
+                      controller.index.value = 17;
                       Get.back();
                     },
-                    color: controller.index.value == 12
+                    color: controller.index.value == 17
                         ? AppColor.selecteColor
                         : Colors.black,
-                    selected: controller.index.value == 12),
+                    selected: controller.index.value == 17),
                 Container(height: 5),
                 SideBarIconItem(
-                    icon: review,
+                    icon: faq,
                     onTap: () {
-                      controller.index.value = 5;
+                      controller.index.value = 18;
                       Get.back();
                     },
-                    color: controller.index.value == 5
+                    color: controller.index.value == 18
                         ? AppColor.selecteColor
                         : Colors.black,
-                    selected: controller.index.value == 5),
-                Container(height: 5),
-                SideBarIconItem(
-                    icon: score,
-                    onTap: () {
-                      controller.index.value = 6;
-                      Get.back();
-                    },
-                    color: controller.index.value == 6
-                        ? AppColor.selecteColor
-                        : Colors.black,
-                    selected: controller.index.value == 6),
+                    selected: controller.index.value == 18),
                 Container(height: 5),
                 SideBarIconItem(
                     icon: logout,
                     onTap: () {
-                      controller.index.value = 7;
+                      controller.index.value = 19;
                       Get.back();
                     },
-                    color: controller.index.value == 7
+                    color: controller.index.value == 19
                         ? AppColor.selecteColor
                         : Colors.black,
-                    selected: controller.index.value == 7),
+                    selected: controller.index.value == 19),
               ],
             ),
           ),
