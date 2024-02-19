@@ -1,4 +1,3 @@
-import 'package:clinix_admin_panel/core/utils/colors.dart';
 import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -12,10 +11,7 @@ class CustomTextDescription extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ResponsiveTextStyle(
-            color: AppColor.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-            text: title),
+            fontWeight: FontWeight.bold, fontSize: 18, text: title),
         RichText(
           text: TextSpan(text: desc),
         ),

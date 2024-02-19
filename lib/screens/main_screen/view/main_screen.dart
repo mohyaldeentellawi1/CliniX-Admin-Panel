@@ -8,8 +8,9 @@ import 'package:clinix_admin_panel/screens/main_screen/widgets/small_app_bar.dar
 import 'package:clinix_admin_panel/screens/main_screen/widgets/small_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import '../../../controllers/sidebar_controllers.dart';
-import '../../../core/utils/colors.dart';
+import '../../../controllers/theme_controller.dart';
 
 class MainScreenView extends StatefulWidget {
   const MainScreenView({super.key});
@@ -31,9 +32,33 @@ class _MainScreenViewState extends State<MainScreenView> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
-      backgroundColor: AppColor.mainbackground,
-      appBar: width < 983 ? SmallAppBar(width: width) : null,
+      appBar: width < 983
+          ? PreferredSize(
+              preferredSize: Size.fromHeight(kToolbarHeight),
+              child: SmallAppBar(
+                width: width,
+                value: themeProvider.isDarkMode,
+                onPressed: (value) {
+                  themeProvider.toggleTheme(value);
+                },
+              ),
+            )
+          : PreferredSize(
+              preferredSize: Size.fromHeight(kToolbarHeight),
+              child: FullAppBar(
+                value: themeProvider.isDarkMode,
+                onPressed: (value) {
+                  themeProvider.toggleTheme(value);
+                },
+                width: width,
+                condition: isExpanded.isFalse && width > 983,
+                onTap: () {
+                  expandOrShrinkDrawer();
+                },
+              ),
+            ),
       drawer: SmallDrawer(controller: controller),
       body: Row(
         children: [
@@ -47,14 +72,6 @@ class _MainScreenViewState extends State<MainScreenView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                width > 983
-                    ? FullAppBar(
-                        width: width,
-                        condition: isExpanded.isFalse && width > 983,
-                        onTap: () {
-                          expandOrShrinkDrawer();
-                        })
-                    : Container(),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(
@@ -62,14 +79,11 @@ class _MainScreenViewState extends State<MainScreenView> {
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 20.0, right: 20.0, top: 18, bottom: 20),
-                          child: Container(
-                            color: AppColor.mainbackground,
-                            child: Obx(
-                              () => controller.page[controller.index.value],
-                            ),
+                          child: Obx(
+                            () => controller.page[controller.index.value],
                           ),
                         ),
-                        Divider(color: AppColor.boxborder, height: 1),
+                        Divider(height: 1),
                         FootterWidget()
                       ],
                     ),

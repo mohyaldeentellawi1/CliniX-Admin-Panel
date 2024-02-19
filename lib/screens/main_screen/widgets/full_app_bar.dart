@@ -1,97 +1,54 @@
-import 'package:clinix_admin_panel/core/utils/constant.dart';
-import 'package:clinix_admin_panel/screens/main_screen/widgets/profil_in_app_bar.dart';
+import 'package:clinix_admin_panel/core/utils/colors.dart';
+import 'package:clinix_admin_panel/screens/main_screen/widgets/localization_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../core/utils/colors.dart';
-import 'dark_light_switch.dart';
-import 'localization_widget.dart';
 import 'notification_app_bar_button.dart';
+import 'profil_in_app_bar.dart';
 
-class FullAppBar extends StatelessWidget {
+class FullAppBar extends StatelessWidget implements PreferredSizeWidget {
   const FullAppBar(
       {super.key,
       required this.width,
       required this.condition,
-      required this.onTap});
+      required this.onTap,
+      required this.onPressed,
+      required this.value});
   final double width;
   final bool condition;
   final void Function() onTap;
-
+  final void Function(bool) onPressed;
+  final bool value;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Container(
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                border: Border(bottom: BorderSide(color: AppColor.boxborder))),
-            height: 72,
-            // width: 400,
-            child: Row(
-              children: [
-                Container(width: 15),
-                condition
-                    ? InkWell(
-                        onTap: () {
-                          onTap();
-                        },
-                        child: const Icon(Icons.menu),
-                      )
-                    : Container(),
-                Container(width: 15),
-                if (width > 650)
-                  SizedBox(
-                    height: 40,
-                    width: 223,
-                    child: TextFormField(
-                        decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                      hintText: "search...",
-                      hintStyle:
-                          const TextStyle(fontSize: 14, color: AppColor.black),
-                      fillColor: AppColor.textfiledcolor,
-                      filled: true,
-                      border: const OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(6),
-                        ),
-                      ),
-                      suffixIcon: InkWell(
-                        onTap: () {},
-                        child: Container(
-                          padding: const EdgeInsets.all(8),
-                          margin: const EdgeInsets.only(
-                            right: 6,
-                            top: 4,
-                            bottom: 4,
-                          ),
-                          decoration: const BoxDecoration(
-                            color: AppColor.searchbackground,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(6),
-                            ),
-                          ),
-                          child: SvgPicture.asset(search),
-                        ),
-                      ),
-                    )),
-                  ),
-                const Spacer(),
-                const LocalizationWidget(), // for language change
-                Container(width: 10),
-                const SwitcLightDark(),
-                NotificationButton(width: width), // for notifications
-                Container(width: 10),
-                ProfileInAppBar(width: width),
-                Container(width: width > 1200 ? 35 : 20),
-              ],
-            ),
-          ),
-        ),
+    return AppBar(
+      toolbarHeight: 72,
+      leadingWidth: width > 400
+          ? 80
+          : width > 280
+              ? 0
+              : 0,
+      leading: condition
+          ? IconButton(onPressed: onTap, icon: const Icon(Icons.menu))
+          : const SizedBox(),
+      actions: [
+        const LocalizationWidget(),
+        const SizedBox(width: 10),
+        Transform.scale(
+            scale: 0.85,
+            child: Switch.adaptive(
+                activeColor: AppColor.selecteColor,
+                inactiveTrackColor: AppColor.darkyellow,
+                value: value,
+                onChanged: onPressed)),
+        NotificationButton(width: width), // for notifications
+        Container(width: 10),
+        ProfileInAppBar(width: width),
+        SizedBox(width: width > 1200 ? 35 : 20),
       ],
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(56);
 }

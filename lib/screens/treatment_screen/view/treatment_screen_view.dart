@@ -1,4 +1,5 @@
 import 'package:clinix_admin_panel/core/widgets/main_scaffold.dart';
+import 'package:clinix_admin_panel/screens/treatment_screen/widgets/treatment_body.dart';
 import 'package:flutter/material.dart';
 
 class TreatmentScreenView extends StatelessWidget {
@@ -12,7 +13,7 @@ class TreatmentScreenView extends StatelessWidget {
         textL: 'Treatment',
         texti: 'ClinicX',
         textii: 'Treatment',
-        webTabletViewWidget: const SizedBox(),
+        webTabletViewWidget: const TreatmentBody(),
         mobileWidget: const SizedBox());
   }
 }

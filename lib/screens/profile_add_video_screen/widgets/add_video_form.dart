@@ -1,10 +1,13 @@
-import 'package:clinix_admin_panel/core/utils/constant.dart';
-import 'package:clinix_admin_panel/core/widgets/custom_container_button.dart';
+import 'dart:async';
 import 'package:clinix_admin_panel/core/widgets/custom_span_description.dart';
-
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
-
+import 'package:media_kit/media_kit.dart';
+import 'package:media_kit_video/media_kit_video.dart';
+import '../../../common/sources/sources_native.dart';
+import '../../../core/utils/methods.dart';
+import '../../../core/widgets/custom_container_button.dart';
 import 'add_video_item.dart';
 
 class AddVideoForm extends StatefulWidget {
@@ -15,54 +18,38 @@ class AddVideoForm extends StatefulWidget {
 }
 
 class _AddVideoFormState extends State<AddVideoForm> {
-  Map<int, TextEditingController> controllerMap = {};
-  Map<int, VideoPlayerController> videoControllers = {};
-  _AddVideoFormState() {
-    for (int i = 0; i < 10; i++) {
-      controllerMap[i] = TextEditingController();
+  late final Player player = Player();
+
+  late final VideoController controller = VideoController(
+    player,
+    configuration: configuration.value,
+  );
+
+  late final GlobalKey<VideoState> key = GlobalKey<VideoState>();
+  Future<void> showFilePicker(BuildContext context, Player player) async {
+    final result = await FilePicker.platform.pickFiles(type: FileType.any);
+    if (result?.files.isNotEmpty ?? false) {
+      final file = result!.files.first;
+      if (kIsWeb) {
+        await player.open(Media(convertBytesToURL(file.bytes!)));
+      } else {
+        await player.open(Media(file.path!));
+      }
     }
   }
-  // void _initializeVideoPlayer(int index) {
-  //   final url = controllerMap[index]?.text;
-  //   if (url != null && url.isNotEmpty) {
-  //     videoControllers[index]?.dispose();
-  //     try {
-  //       videoControllers[index] =
-  //           VideoPlayerController.networkUrl(Uri.parse(url))
-  //             ..initialize().then((_) {
-  //               setState(() {});
-  //             });
-  //     } catch (e) {
-  //       print(e.toString());
-  //     }
-  //   }
-  // }
 
-  // Future<void> _showVideoDialog(BuildContext context, String url) async {
-  //   final VideoPlayerController videoController =
-  //       VideoPlayerController.networkUrl(Uri.parse(url));
-  //   await videoController.initialize();
-  //   await showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return AlertDialog(
-  //         content: AspectRatio(
-  //           aspectRatio: videoController.value.aspectRatio,
-  //           child: VideoPlayer(videoController),
-  //         ),
-  //         actions: <Widget>[
-  //           TextButton(
-  //             onPressed: () {
-  //               Navigator.of(context).pop();
-  //               // videoControllers.clear();
-  //             },
-  //             child: const Text('Close'),
-  //           ),
-  //         ],
-  //       );
-  //     },
-  //   );
-  // }
+  @override
+  void initState() {
+    super.initState();
+    // player.open(Media(sources[0]));
+    player.stream.error.listen((error) => debugPrint(error));
+  }
+
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,8 +71,9 @@ class _AddVideoFormState extends State<AddVideoForm> {
                 itemBuilder: (context, index) {
                   return CustomAddVideoItem(
                     onDisplay: () {},
-                    onRemove: () {},
-                    controller: controllerMap[index]!,
+                    onAdd: () {
+                      showFilePicker(context, player);
+                    },
                   );
                 },
               ),
@@ -95,7 +83,10 @@ class _AddVideoFormState extends State<AddVideoForm> {
                 child: Column(
               children: [
                 const SizedBox(height: 20),
-                SizedBox(width: 400, height: 400, child: Image.asset(example)),
+                SizedBox(
+                    width: 400,
+                    height: 400,
+                    child: Video(key: key, controller: controller)),
                 const SizedBox(height: 50),
                 CustomContainerButton(
                     paddingWidth: 100,

@@ -30,10 +30,7 @@ class CustomTextFeild extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
                 borderSide: const BorderSide(color: AppColor.selecteColor)),
             label: ResponsiveTextStyle(
-                color: AppColor.black,
-                fontWeight: FontWeight.normal,
-                fontSize: 10,
-                text: labelText)),
+                fontWeight: FontWeight.normal, fontSize: 10, text: labelText)),
       ),
     );
   }

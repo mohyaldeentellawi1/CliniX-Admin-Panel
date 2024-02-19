@@ -31,7 +31,6 @@ class ProfileInAppBar extends StatelessWidget {
               const ResponsiveTextStyle(
                 text: "Profile",
                 fontSize: 13.5,
-                color: AppColor.black,
                 fontWeight: FontWeight.w500,
               )
             ],
@@ -48,7 +47,6 @@ class ProfileInAppBar extends StatelessWidget {
               const ResponsiveTextStyle(
                 text: "Lock Screen",
                 fontSize: 13.5,
-                color: AppColor.black,
                 fontWeight: FontWeight.w500,
               )
             ],
@@ -73,7 +71,6 @@ class ProfileInAppBar extends StatelessWidget {
                     const ResponsiveTextStyle(
                       text: "LogOut",
                       fontSize: 13.5,
-                      color: AppColor.black,
                       fontWeight: FontWeight.w500,
                     )
                   ],

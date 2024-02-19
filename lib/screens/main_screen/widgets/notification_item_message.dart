@@ -31,10 +31,7 @@ class NotifcationItemMessage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ResponsiveTextStyle(
-                text: name,
-                color: const Color(0xFF313533),
-                fontSize: 14,
-                fontWeight: FontWeight.w600),
+                text: name, fontSize: 14, fontWeight: FontWeight.w600),
             Container(height: 5),
             SizedBox(
               width: width < 325 ? 190 : 230,
@@ -43,7 +40,6 @@ class NotifcationItemMessage extends StatelessWidget {
                   Expanded(
                     child: ResponsiveTextStyle(
                       text: message,
-                      color: const Color(0xFF2C302E),
                       fontSize: 13,
                       fontWeight: FontWeight.w500,
                     ),
@@ -61,7 +57,6 @@ class NotifcationItemMessage extends StatelessWidget {
                   text: time,
                   fontSize: 13,
                   fontWeight: FontWeight.w500,
-                  color: const Color(0xFF2C302E),
                 ),
               ],
             ),

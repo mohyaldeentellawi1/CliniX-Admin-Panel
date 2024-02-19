@@ -78,7 +78,6 @@ class _AddPicturFormState extends State<AddPicturForm> {
                 width: width * .5,
                 child: const Center(
                   child: ResponsiveTextStyle(
-                      color: AppColor.darkblack,
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                       text: 'You can Add Multi Images here...'),

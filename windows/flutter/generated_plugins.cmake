@@ -6,6 +6,8 @@ list(APPEND FLUTTER_PLUGIN_LIST
   file_selector_windows
   geolocator_windows
   irondash_engine_context
+  media_kit_video
+  screen_brightness_windows
   super_native_extensions
   url_launcher_windows
 )

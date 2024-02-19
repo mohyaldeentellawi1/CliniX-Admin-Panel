@@ -39,7 +39,6 @@ class _ClinicDescriptionEditiorState extends State<ClinicDescriptionEditior> {
             const ResponsiveTextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: AppColor.selecteColor,
                 text: 'ClinicX Editior'),
           ],
         ),

@@ -2,13 +2,16 @@ library event_calendar;
 
 import 'dart:math';
 
+import 'package:clinix_admin_panel/controllers/theme_controller.dart';
 import 'package:clinix_admin_panel/core/utils/constant.dart';
 import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:clinix_admin_panel/core/widgets/main_scaffold.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
@@ -72,50 +75,47 @@ class EventCalendarState extends State<EventCalendar> {
       textL: 'Calendar',
       texti: 'ClinicX',
       textii: 'Calendar',
-      webTabletViewWidget: Container(
-        color: AppColor.mainbackground,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              flex: 2,
-              child: Container(
+      webTabletViewWidget: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 2,
+            child: Container(
+              decoration: BoxDecoration(
+                  border: Border.all(
+                    color: AppColor.boxborder,
+                  ),
+                  borderRadius: BorderRadius.circular(4)),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                        top: 10.0, start: 5, end: 5),
+                    child: ColumnEvent(width: width),
+                  ),
+                  const Padding(
+                    padding: EdgeInsetsDirectional.all(15.0),
+                    child: CalendarPhoto(),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(width: 20),
+          Expanded(
+            flex: 6,
+            child: Container(
                 decoration: BoxDecoration(
                     border: Border.all(
                       color: AppColor.boxborder,
                     ),
                     borderRadius: BorderRadius.circular(4)),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsetsDirectional.only(
-                          top: 10.0, start: 5, end: 5),
-                      child: ColumnEvent(width: width),
-                    ),
-                    const Padding(
-                      padding: EdgeInsetsDirectional.all(15.0),
-                      child: CalendarPhoto(),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Container(width: 20),
-            Expanded(
-              flex: 6,
-              child: Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColor.boxborder,
-                      ),
-                      borderRadius: BorderRadius.circular(4)),
-                  child: Padding(
-                      padding: const EdgeInsetsDirectional.all(20.0),
-                      child: getEventCalendar(_events, onCalendarTapped,
-                          width: width, height: height))),
-            ),
-          ],
-        ),
+                child: Padding(
+                    padding: const EdgeInsetsDirectional.all(20.0),
+                    child: getEventCalendar(_events, onCalendarTapped,
+                        width: width, height: height))),
+          ),
+        ],
       ),
       mobileWidget: Container(
         decoration: BoxDecoration(
@@ -128,7 +128,7 @@ class EventCalendarState extends State<EventCalendar> {
           child: Column(
             children: [
               ColumnEvent(width: width),
-              Container(height: 50),
+              const SizedBox(height: 50),
               const CalendarPhoto(),
               getEventCalendar(
                   width: width > 600 ? 1000 : 500,
@@ -179,7 +179,6 @@ class EventCalendarState extends State<EventCalendar> {
               text: meeting.title,
               fontSize: 13,
               fontWeight: FontWeight.normal,
-              color: AppColor.dark,
             ),
           );
         },

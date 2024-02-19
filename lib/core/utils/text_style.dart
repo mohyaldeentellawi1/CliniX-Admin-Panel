@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
 
-//dashboard text
 class ResponsiveTextStyle extends StatelessWidget {
-  final Color color;
   final FontWeight fontWeight;
   final double fontSize;
   final String text;
+  final TextAlign? textAlign;
+  final Color? color;
 
   const ResponsiveTextStyle({
     super.key,
-    required this.color,
     required this.fontWeight,
     required this.fontSize,
     required this.text,
+    this.textAlign,
+    this.color,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
+      textAlign: textAlign ?? TextAlign.start,
       style: TextStyle(
-        fontSize: getResponsiveFontSize(context, fontSize: fontSize),
-        fontWeight: fontWeight,
-        color: color,
-      ),
+          fontSize: getResponsiveFontSize(context, fontSize: fontSize),
+          fontWeight: fontWeight,
+          color: color),
     );
   }
 

@@ -25,10 +25,7 @@ class CustomInsuranceItem extends StatelessWidget {
       children: [
         Expanded(
           child: ResponsiveTextStyle(
-              color: AppColor.black,
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
-              text: text),
+              fontWeight: FontWeight.w500, fontSize: 16, text: text),
         ),
         Expanded(
           child: Transform.scale(

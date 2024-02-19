@@ -19,7 +19,6 @@ import 'package:clinix_admin_panel/screens/profile_pictures_screen/view/pictures
 import 'package:clinix_admin_panel/screens/profile_premises_screen/view/profile_premises_screen_view.dart';
 import 'package:clinix_admin_panel/screens/travel_services_screen/view/travel_services_screen_view.dart';
 import 'package:clinix_admin_panel/screens/treatment_screen/view/treatment_screen_view.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SideBarController extends GetxController {
@@ -45,6 +44,5 @@ class SideBarController extends GetxController {
     TreatmentScreenView(),
     DoctorsScreenView(),
     FaqScreenView(),
-    SizedBox()
   ];
 }

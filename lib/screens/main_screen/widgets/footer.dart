@@ -1,8 +1,6 @@
 import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/colors.dart';
-
 class FootterWidget extends StatelessWidget {
   const FootterWidget({
     super.key,
@@ -11,8 +9,7 @@ class FootterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    return Container(
-        color: AppColor.mainbackground,
+    return SizedBox(
         height: 60,
         child: Row(
           children: [
@@ -21,7 +18,6 @@ class FootterWidget extends StatelessWidget {
               flex: 6,
               child: ResponsiveTextStyle(
                   text: '2024 © Clinix.',
-                  color: AppColor.lightdark,
                   fontSize: 14,
                   fontWeight: FontWeight.w400),
             ),
@@ -37,10 +33,10 @@ class FootterWidget extends StatelessWidget {
                             TextSpan(
                               text: '© www.clinix.com',
                               style: TextStyle(
-                                  overflow: TextOverflow.clip,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppColor.selecteColor),
+                                overflow: TextOverflow.clip,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ],
                         ),

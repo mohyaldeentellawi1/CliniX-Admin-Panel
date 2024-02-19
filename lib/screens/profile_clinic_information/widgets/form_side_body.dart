@@ -102,7 +102,6 @@ class _FormSideBodyState extends State<FormSideBody> {
               text: 'Fake Clinic',
               fontSize: 12,
               fontWeight: FontWeight.bold,
-              color: AppColor.darkred,
             ),
             Transform.scale(
               scale: 0.9,
@@ -120,7 +119,6 @@ class _FormSideBodyState extends State<FormSideBody> {
               text: 'Real Clinic',
               fontSize: 12,
               fontWeight: FontWeight.bold,
-              color: AppColor.darkGreen,
             ),
           ],
         ),

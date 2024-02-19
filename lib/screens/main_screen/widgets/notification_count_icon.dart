@@ -38,7 +38,6 @@ class NotificationCountIcon extends StatelessWidget {
               child: Center(
                 child: ResponsiveTextStyle(
                   text: '$notificationCount',
-                  color: AppColor.mainbackground,
                   fontSize: 13,
                   fontWeight: FontWeight.w500,
                 ),

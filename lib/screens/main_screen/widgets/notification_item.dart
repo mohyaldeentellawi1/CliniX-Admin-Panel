@@ -37,7 +37,6 @@ class NotifcationItem extends StatelessWidget {
           children: [
             ResponsiveTextStyle(
               text: name,
-              color: const Color(0xFF313533),
               fontSize: 14,
               fontWeight: FontWeight.w600,
             ),
@@ -49,7 +48,6 @@ class NotifcationItem extends StatelessWidget {
                   Expanded(
                     child: ResponsiveTextStyle(
                       text: message,
-                      color: const Color(0xFF2C302E),
                       fontSize: 13,
                       fontWeight: FontWeight.w400,
                     ),
@@ -64,10 +62,10 @@ class NotifcationItem extends StatelessWidget {
                 const Icon(Icons.watch_later_outlined, size: 15),
                 Container(width: 4),
                 ResponsiveTextStyle(
-                    text: time,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xFF2C302E)),
+                  text: time,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                ),
               ],
             ),
           ],

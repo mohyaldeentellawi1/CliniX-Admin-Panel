@@ -2,7 +2,6 @@ import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/utils/colors.dart';
 import '../../../core/utils/constant.dart';
 
 class LocalizationWidget extends StatefulWidget {
@@ -36,7 +35,6 @@ class _LocalizationWidgetState extends State<LocalizationWidget> {
                 Container(width: 10),
                 const ResponsiveTextStyle(
                     text: "English",
-                    color: AppColor.black,
                     fontSize: 10,
                     fontWeight: FontWeight.normal),
               ],
@@ -58,7 +56,6 @@ class _LocalizationWidgetState extends State<LocalizationWidget> {
                 Container(width: 10),
                 const ResponsiveTextStyle(
                     text: "Spanish",
-                    color: AppColor.black,
                     fontSize: 10,
                     fontWeight: FontWeight.normal),
               ],
@@ -80,7 +77,6 @@ class _LocalizationWidgetState extends State<LocalizationWidget> {
                 Container(width: 10),
                 const ResponsiveTextStyle(
                     text: "German",
-                    color: AppColor.black,
                     fontSize: 10,
                     fontWeight: FontWeight.normal),
               ],
@@ -102,7 +98,6 @@ class _LocalizationWidgetState extends State<LocalizationWidget> {
                 Container(width: 18),
                 const ResponsiveTextStyle(
                     text: "Italian",
-                    color: AppColor.black,
                     fontSize: 10,
                     fontWeight: FontWeight.normal),
               ],
@@ -124,7 +119,6 @@ class _LocalizationWidgetState extends State<LocalizationWidget> {
                 Container(width: 10),
                 const ResponsiveTextStyle(
                     text: "Russian",
-                    color: AppColor.black,
                     fontSize: 10,
                     fontWeight: FontWeight.normal),
               ],

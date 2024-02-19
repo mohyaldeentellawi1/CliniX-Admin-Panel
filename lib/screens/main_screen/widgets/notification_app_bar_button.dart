@@ -26,15 +26,14 @@ class NotificationButton extends StatelessWidget {
               const Row(
                 children: [
                   ResponsiveTextStyle(
-                      text: "Notifications",
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF313533)),
+                    text: "Notifications",
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
                   Spacer(),
                   ResponsiveTextStyle(
                       text: "Unread",
                       fontSize: 11.2,
-                      color: Color(0xFF2C302E),
                       fontWeight: FontWeight.w400)
                 ],
               ),

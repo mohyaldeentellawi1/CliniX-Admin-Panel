@@ -33,7 +33,6 @@ class CustomBeforAfterContainer extends StatelessWidget {
               text: text,
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: AppColor.dark,
             ),
             const SizedBox(height: 15),
             CustomContainerButton(onTap: onPressed, buttonName: 'Add Images'),
