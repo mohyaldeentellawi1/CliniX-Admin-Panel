@@ -391,9 +391,7 @@ class CustomSvgItem extends StatelessWidget {
       width: width,
       height: height,
       colorFilter: ColorFilter.mode(
-          themeProvider.isDarkMode
-              ? AppColor.mainbackground
-              : AppColor.selecteColor,
+          themeProvider.isDarkMode ? AppColor.mintblue : AppColor.dark,
           BlendMode.srcIn),
     );
   }

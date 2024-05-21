@@ -118,10 +118,9 @@ class SideBarIconItem extends StatelessWidget {
   }
 }
 
- // setState(() {
-        //   expandOrShrinkDrawer();
-        // });
-        // controller.index.value = 0;
+// setState(() {
+//   expandOrShrinkDrawer();
+// });
+// controller.index.value = 0;
 
-
-        //controller.index.value == 0
+//controller.index.value == 0

@@ -56,14 +56,9 @@ class _AddPicturFormState extends State<AddPicturForm> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomContainerButton(
-                paddingWidth: width * .1,
-                paddingheight: 5,
-                onTap: pickedMultyImages,
-                buttonName: 'Add Images'),
+                onTap: pickedMultyImages, buttonName: 'Add Images'),
             const SizedBox(width: 20),
             CustomContainerButton(
-                paddingWidth: width * .1,
-                paddingheight: 5,
                 onTap: pickedImages.isNotEmpty ? () {} : () {},
                 buttonName: 'Uplode')
           ],

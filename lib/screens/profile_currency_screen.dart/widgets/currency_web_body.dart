@@ -57,11 +57,7 @@ class _CurrencyWebBodyState extends State<CurrencyWebBody> {
           },
         ),
         const SizedBox(height: 10),
-        CustomContainerButton(
-            paddingWidth: 50,
-            paddingheight: 10,
-            onTap: () {},
-            buttonName: 'Uplode')
+        CustomContainerButton(onTap: () {}, buttonName: 'Uplode')
       ],
     );
   }

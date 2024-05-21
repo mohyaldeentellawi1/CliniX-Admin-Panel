@@ -73,15 +73,13 @@ class _ClinicDescriptionEditiorState extends State<ClinicDescriptionEditior> {
           child: QuillEditor.basic(
             configurations: QuillEditorConfigurations(
                 controller: _controller,
-                readOnly: false,
+                checkBoxReadOnly: false,
                 sharedConfigurations:
                     const QuillSharedConfigurations(locale: Locale('en'))),
           ),
         ),
         const SizedBox(height: 10),
         CustomContainerButton(
-            paddingWidth: 100,
-            paddingheight: 10,
             onTap: () {
               var json = jsonEncode(_controller.document.toDelta().toJson());
               print(json);

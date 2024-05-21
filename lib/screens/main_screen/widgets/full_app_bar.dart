@@ -1,8 +1,12 @@
 import 'package:clinix_admin_panel/core/utils/colors.dart';
+import 'package:clinix_admin_panel/core/utils/constant.dart';
+import 'package:clinix_admin_panel/screens/calender_screen/view/calendar.dart';
 import 'package:clinix_admin_panel/screens/main_screen/widgets/localization_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../controllers/theme_controller.dart';
 import 'notification_app_bar_button.dart';
 import 'profil_in_app_bar.dart';
 
@@ -21,6 +25,7 @@ class FullAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool value;
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return AppBar(
       toolbarHeight: 72,
       leadingWidth: width > 400
@@ -34,11 +39,16 @@ class FullAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         const LocalizationWidget(),
         const SizedBox(width: 10),
+        CustomSvgItem(
+          icon: themeProvider.isDarkMode ? darkmode : lightmode,
+          width: 35,
+          height: 35,
+        ),
         Transform.scale(
             scale: 0.85,
-            child: Switch.adaptive(
-                activeColor: AppColor.selecteColor,
-                inactiveTrackColor: AppColor.darkyellow,
+            child: CupertinoSwitch(
+                activeColor: AppColor.lightgrey,
+                trackColor: AppColor.dark,
                 value: value,
                 onChanged: onPressed)),
         NotificationButton(width: width), // for notifications

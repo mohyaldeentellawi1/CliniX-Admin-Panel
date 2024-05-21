@@ -97,11 +97,7 @@ class _AccreditationsScreenBodyState extends State<AccreditationsScreenBody> {
                     'Select the accreditations which apply to your clinic and staff'),
             width > 600 ? const SizedBox(width: 40) : const SizedBox(width: 0),
             width > 800
-                ? CustomContainerButton(
-                    paddingWidth: 100,
-                    paddingheight: 10,
-                    onTap: () {},
-                    buttonName: 'Update')
+                ? CustomContainerButton(onTap: () {}, buttonName: 'Update')
                 : CustomContainerButton(onTap: () {}, buttonName: 'Update')
           ],
         ),

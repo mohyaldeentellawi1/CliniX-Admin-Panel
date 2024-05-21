@@ -28,30 +28,22 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  carousel_slider: ^4.2.1
-  chart_sparkline: ^1.0.14
+  carousel_slider: 
+  chart_sparkline: 
   cupertino_icons: ^1.0.2
-  file_picker: ^6.1.1
-  floating_bubbles: ^2.6.2
+  floating_bubbles: 
   flutter:
     sdk: flutter
-  flutter_inappwebview: ^6.0.0
-  flutter_quill: ^9.2.8
-  flutter_svg: ^2.0.9
-  geolocator: ^10.1.0
-  get: ^4.6.6
-  get_storage: ^2.1.1
-  google_maps_flutter: ^2.5.3
-  http: ^1.2.0
-  image_picker: ^1.0.7
-  intl: ^0.18.0
-  media_kit: ^1.1.10+1
-  media_kit_video: ^1.2.4
-  path: ^1.8.3
-  path_provider: ^2.1.2
-  provider: ^6.1.1
-  syncfusion_flutter_calendar: ^24.1.45
-  video_player: ^2.0.0
+  flutter_quill: ^9.3.18
+  flutter_svg: 
+  get: 
+  get_storage: 
+  google_maps_flutter: 
+  image_picker: 
+  intl: 
+  provider: 
+  syncfusion_flutter_calendar: 
+  youtube_player_iframe: 
 
 dev_dependencies:
   flutter_lints: ^2.0.0

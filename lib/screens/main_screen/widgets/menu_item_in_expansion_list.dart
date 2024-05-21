@@ -24,7 +24,15 @@ class Menu extends StatelessWidget {
       selectedColor: themeProvider.isDarkMode
           ? AppColor.mainbackground
           : AppColor.selecteColor,
-      leading: const SizedBox(),
+      leading: Padding(
+        padding: const EdgeInsetsDirectional.only(start: 10),
+        child: CircleAvatar(
+          backgroundColor: themeProvider.isDarkMode
+              ? AppColor.mainbackground
+              : AppColor.dark,
+          radius: 5,
+        ),
+      ),
       onTap: onTap,
       dense: true,
       selected: selected,

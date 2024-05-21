@@ -1,7 +1,5 @@
 // ignore_for_file: unnecessary_overrides
 
-
-
 // class DashboardController extends GetxController {
 //   RxBool selected = true.obs;
 //   RxBool isShowen = true.obs;

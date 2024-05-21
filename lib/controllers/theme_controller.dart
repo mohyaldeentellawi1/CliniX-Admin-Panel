@@ -32,7 +32,7 @@ class ThemeProvider extends ChangeNotifier {
 
 class MyTheme {
   static final darkTheme = ThemeData(
-    useMaterial3: false,
+    useMaterial3: true,
     colorScheme: const ColorScheme.dark(),
     appBarTheme:
         const AppBarTheme(backgroundColor: AppColor.black, elevation: 0),
@@ -40,11 +40,11 @@ class MyTheme {
     iconTheme: const IconThemeData(color: AppColor.mainbackground),
     iconButtonTheme: IconButtonThemeData(
         style: ButtonStyle(
-      foregroundColor: MaterialStateProperty.all(AppColor.mainbackground),
+      foregroundColor: WidgetStateProperty.all(AppColor.mainbackground),
     )),
   );
   static final lightTheme = ThemeData(
-    useMaterial3: false,
+    useMaterial3: true,
     colorScheme: const ColorScheme.light(),
     appBarTheme: const AppBarTheme(
         backgroundColor: AppColor.mainbackground, elevation: 0),
@@ -52,11 +52,10 @@ class MyTheme {
     iconTheme: const IconThemeData(color: AppColor.black),
     iconButtonTheme: IconButtonThemeData(
         style: ButtonStyle(
-      foregroundColor: MaterialStateProperty.all(AppColor.black),
+      foregroundColor: WidgetStateProperty.all(AppColor.black),
     )),
   );
 }
-
 
 /*
  final GetStorage _box = GetStorage();

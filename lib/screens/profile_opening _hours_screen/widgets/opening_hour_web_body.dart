@@ -1,4 +1,7 @@
+import 'package:clinix_admin_panel/controllers/theme_controller.dart';
+import 'package:clinix_admin_panel/core/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/widgets/custom_container_button.dart';
 import '../../../core/widgets/custom_span_description.dart';
@@ -58,12 +61,16 @@ class _OpeningHoursWebBodyState extends State<OpeningHoursWebBody> {
   }
 
   Widget dayWithStar(String day) {
+    final theme = Provider.of<ThemeProvider>(context);
     return RichText(
       text: TextSpan(
         children: <TextSpan>[
           TextSpan(
             text: '$day ',
-            style: const TextStyle(color: Colors.black, fontSize: 16),
+            style: TextStyle(
+                color:
+                    theme.isDarkMode ? AppColor.mainbackground : AppColor.black,
+                fontSize: 16),
           ),
           const TextSpan(
             text: '*',
@@ -123,11 +130,7 @@ class _OpeningHoursWebBodyState extends State<OpeningHoursWebBody> {
           const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsetsDirectional.symmetric(horizontal: 100),
-            child: CustomContainerButton(
-                paddingheight: 10,
-                paddingWidth: 30,
-                onTap: () {},
-                buttonName: 'Update'),
+            child: CustomContainerButton(onTap: () {}, buttonName: 'Update'),
           )
         ],
       ),

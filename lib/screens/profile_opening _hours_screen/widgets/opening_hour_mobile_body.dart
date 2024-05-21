@@ -119,11 +119,7 @@ class _OpeningHoursMobileBodyState extends State<OpeningHoursMobileBody> {
           const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsetsDirectional.symmetric(horizontal: 100),
-            child: CustomContainerButton(
-                paddingheight: 10,
-                paddingWidth: 30,
-                onTap: () {},
-                buttonName: 'Update'),
+            child: CustomContainerButton(onTap: () {}, buttonName: 'Update'),
           )
         ],
       ),

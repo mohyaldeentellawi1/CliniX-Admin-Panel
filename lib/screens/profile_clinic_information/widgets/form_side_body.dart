@@ -127,8 +127,6 @@ class _FormSideBodyState extends State<FormSideBody> {
           children: [
             const SizedBox(width: 50),
             CustomContainerButton(
-              paddingWidth: 100,
-              paddingheight: 10,
               onTap: () {},
               buttonName: 'Save',
             ),
@@ -138,7 +136,6 @@ class _FormSideBodyState extends State<FormSideBody> {
     );
   }
 }
-
 
 /*
 DropdownButton<int>(

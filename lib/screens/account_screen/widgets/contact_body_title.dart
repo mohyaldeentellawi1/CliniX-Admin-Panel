@@ -1,4 +1,3 @@
-import 'package:clinix_admin_panel/core/widgets/custom_container_button.dart';
 import 'package:flutter/material.dart';
 
 class ContactBodyTitle extends StatefulWidget {
@@ -11,11 +10,11 @@ class ContactBodyTitle extends StatefulWidget {
 class _ContactBodyTitleState extends State<ContactBodyTitle> {
   @override
   Widget build(BuildContext context) {
-    return Wrap(
+    return const Wrap(
       children: [
-        const Text('Contact'),
-        const SizedBox(width: 10),
-        CustomContainerButton(onTap: () {}, buttonName: 'Add New Contact'),
+        Text('Contact'),
+        SizedBox(width: 10),
+        // CustomContainerButton(onTap: () {}, buttonName: 'Add New Contact'),
       ],
     );
   }

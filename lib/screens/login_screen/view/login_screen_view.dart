@@ -12,9 +12,11 @@ import 'package:floating_bubbles/floating_bubbles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 import '../../../controllers/login_controller.dart';
 
+import '../../../controllers/theme_controller.dart';
 import '../../../core/utils/text_style.dart';
 
 class LoginScreenView extends StatefulWidget {
@@ -77,6 +79,7 @@ class _LoginScreenViewState extends State<LoginScreenView> {
 
   Padding loginfileds(height) {
     LoginController loginController = Get.find();
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Padding(
       padding: const EdgeInsetsDirectional.only(start: 20.0, end: 20.0),
       child: Column(
@@ -84,6 +87,7 @@ class _LoginScreenViewState extends State<LoginScreenView> {
           DrawerHeader(
               child: Center(
             child: ListTile(
+              dense: true,
               leading: Image.asset(logo1),
               title: const ResponsiveTextStyle(
                   fontWeight: FontWeight.bold, fontSize: 18, text: 'ClinicX'),
@@ -155,11 +159,13 @@ class _LoginScreenViewState extends State<LoginScreenView> {
                             !loginController.isShow.value;
                       },
                       child: Container(
+                        color: Colors.grey[200],
                         width: 50,
                         child: Icon(
                           loginController.isShow.value
                               ? Icons.visibility
                               : Icons.visibility_off,
+                          color: AppColor.black,
                           size: 18,
                         ),
                       ),
@@ -198,16 +204,20 @@ class _LoginScreenViewState extends State<LoginScreenView> {
                           child: Container(
                               height: 38,
                               decoration: BoxDecoration(
+                                color: themeProvider.isDarkMode
+                                    ? AppColor.mainbackground
+                                    : AppColor.selecteColor,
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               child: Align(
                                 alignment: Alignment.center,
-                                child: Text(
-                                  "Log in",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700,
-                                  ),
+                                child: ResponsiveTextStyle(
+                                  text: "Log in",
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w500,
+                                  color: themeProvider.isDarkMode
+                                      ? AppColor.black
+                                      : AppColor.mainbackground,
                                 ),
                               )),
                         ),

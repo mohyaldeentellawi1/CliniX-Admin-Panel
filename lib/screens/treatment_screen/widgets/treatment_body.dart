@@ -47,7 +47,7 @@ class _TreatmentBodyState extends State<TreatmentBody> {
   Widget build(BuildContext context) {
     return DataTable(
       headingTextStyle: const TextStyle(color: AppColor.mainbackground),
-      headingRowColor: const MaterialStatePropertyAll(AppColor.selecteColor),
+      headingRowColor: const WidgetStatePropertyAll(AppColor.selecteColor),
       showBottomBorder: true,
       border: TableBorder.all(color: AppColor.borders),
       columnSpacing: 200,

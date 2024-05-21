@@ -64,11 +64,7 @@ class _PremisesBodyState extends State<PremisesBody> {
           ),
         ),
         const SizedBox(height: 20),
-        CustomContainerButton(
-            paddingWidth: 50,
-            paddingheight: 10,
-            onTap: () {},
-            buttonName: 'Update')
+        CustomContainerButton(onTap: () {}, buttonName: 'Update')
       ],
     );
   }

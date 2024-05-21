@@ -1,12 +1,10 @@
-import 'dart:async';
+import 'package:clinix_admin_panel/core/utils/constant.dart';
 import 'package:clinix_admin_panel/core/widgets/custom_span_description.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:media_kit/media_kit.dart';
-import 'package:media_kit_video/media_kit_video.dart';
-import '../../../common/sources/sources_native.dart';
-import '../../../core/utils/methods.dart';
+import 'package:clinix_admin_panel/screens/calender_screen/view/calendar.dart';
+import 'package:flutter/cupertino.dart';
+
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+
 import '../../../core/widgets/custom_container_button.dart';
 import 'add_video_item.dart';
 
@@ -18,37 +16,49 @@ class AddVideoForm extends StatefulWidget {
 }
 
 class _AddVideoFormState extends State<AddVideoForm> {
-  late final Player player = Player();
-
-  late final VideoController controller = VideoController(
-    player,
-    configuration: configuration.value,
-  );
-
-  late final GlobalKey<VideoState> key = GlobalKey<VideoState>();
-  Future<void> showFilePicker(BuildContext context, Player player) async {
-    final result = await FilePicker.platform.pickFiles(type: FileType.any);
-    if (result?.files.isNotEmpty ?? false) {
-      final file = result!.files.first;
-      if (kIsWeb) {
-        await player.open(Media(convertBytesToURL(file.bytes!)));
-      } else {
-        await player.open(Media(file.path!));
-      }
+  late YoutubePlayerController youtubeUrl;
+  Map<int, YoutubePlayerController> youTubeController = {};
+  Map<int, TextEditingController> controllerMap = {};
+  bool textEmpty = true;
+  _AddVideoFormState() {
+    for (int i = 0; i < 5; i++) {
+      controllerMap[i] = TextEditingController();
+      youtubeUrl = YoutubePlayerController();
     }
   }
 
   @override
   void initState() {
     super.initState();
-    // player.open(Media(sources[0]));
-    player.stream.error.listen((error) => debugPrint(error));
+    for (int i = 0; i < 5; i++) {
+      youTubeController[i] = youtubeUrl;
+      playUrl(i);
+    }
   }
 
-  @override
-  void dispose() {
-    player.dispose();
-    super.dispose();
+  void playUrl(int index) {
+    String sharedUrl = controllerMap[index]!.text;
+    if (sharedUrl.isNotEmpty) {
+      youtubeUrl = YoutubePlayerController.fromVideoId(
+        autoPlay: true,
+        videoId: YoutubePlayerController.convertUrlToId(sharedUrl)!,
+        params: const YoutubePlayerParams(),
+      );
+      youTubeController[index] = youtubeUrl;
+      if (textEmpty == true) {
+        setState(() {
+          textEmpty = false;
+        });
+      } else {
+        setState(() {
+          textEmpty = true;
+        });
+      }
+    } else {
+      textEmpty = true;
+      setState(() {});
+      print("Invalid YouTube URL");
+    }
   }
 
   @override
@@ -70,9 +80,9 @@ class _AddVideoFormState extends State<AddVideoForm> {
                 itemCount: 5,
                 itemBuilder: (context, index) {
                   return CustomAddVideoItem(
-                    onDisplay: () {},
-                    onAdd: () {
-                      showFilePicker(context, player);
+                    controller: controllerMap[index]!,
+                    onDisplay: () {
+                      playUrl(index);
                     },
                   );
                 },
@@ -83,16 +93,32 @@ class _AddVideoFormState extends State<AddVideoForm> {
                 child: Column(
               children: [
                 const SizedBox(height: 20),
-                SizedBox(
-                    width: 400,
-                    height: 400,
-                    child: Video(key: key, controller: controller)),
+                textEmpty
+                    ? GestureDetector(
+                        onTap: () {
+                          showCupertinoDialog(
+                            barrierDismissible: true,
+                            context: context,
+                            builder: (context) {
+                              return const CupertinoAlertDialog(
+                                  title: Text('No video to display'),
+                                  content: Text(
+                                      'Please enter a valid YouTube URL.'));
+                            },
+                          );
+                        },
+                        child: const CustomSvgItem(
+                          icon: plsyvideo,
+                          width: 300,
+                          height: 300,
+                        ),
+                      )
+                    : YoutubePlayer(
+                        controller: youtubeUrl,
+                        aspectRatio: 16 / 9,
+                      ),
                 const SizedBox(height: 50),
-                CustomContainerButton(
-                    paddingWidth: 100,
-                    paddingheight: 10,
-                    onTap: () {},
-                    buttonName: "Update")
+                CustomContainerButton(onTap: () {}, buttonName: "Update")
               ],
             )),
           ],

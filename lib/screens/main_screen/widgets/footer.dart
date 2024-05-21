@@ -1,5 +1,9 @@
+import 'package:clinix_admin_panel/core/utils/colors.dart';
 import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../controllers/theme_controller.dart';
 
 class FootterWidget extends StatelessWidget {
   const FootterWidget({
@@ -9,6 +13,7 @@ class FootterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return SizedBox(
         height: 60,
         child: Row(
@@ -28,11 +33,14 @@ class FootterWidget extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: RichText(
-                        text: const TextSpan(
+                        text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
                               text: '© www.clinix.com',
                               style: TextStyle(
+                                color: themeProvider.isDarkMode
+                                    ? AppColor.mainbackground
+                                    : AppColor.dark,
                                 overflow: TextOverflow.clip,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400,

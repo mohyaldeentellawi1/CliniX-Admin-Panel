@@ -1,36 +1,41 @@
+import 'package:clinix_admin_panel/controllers/theme_controller.dart';
+import 'package:clinix_admin_panel/core/utils/colors.dart';
+import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../utils/colors.dart';
-
-class CustomContainerButton extends StatefulWidget {
-  const CustomContainerButton(
-      {super.key,
-      required this.onTap,
-      required this.buttonName,
-      this.margin,
-      this.paddingWidth,
-      this.paddingheight});
+class CustomContainerButton extends StatelessWidget {
+  const CustomContainerButton({
+    super.key,
+    required this.onTap,
+    required this.buttonName,
+  });
 
   final void Function() onTap;
   final String buttonName;
-  final double? margin;
-  final double? paddingWidth;
-  final double? paddingheight;
-  @override
-  State<CustomContainerButton> createState() => _CustomContainerButtonState();
-}
-
-class _CustomContainerButtonState extends State<CustomContainerButton> {
-  bool _isTouched = false;
-  void _handleHover(bool isHovering) {
-    setState(() {
-      _isTouched = isHovering;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    final theme = Provider.of<ThemeProvider>(context);
+    return FilledButton(
+      style: ButtonStyle(
+          backgroundColor: WidgetStatePropertyAll(
+              theme.isDarkMode ? AppColor.lightyellow : AppColor.selecteColor),
+          foregroundColor: WidgetStatePropertyAll(
+              theme.isDarkMode ? AppColor.black : AppColor.mainbackground)),
+      onPressed: onTap,
+      child: ResponsiveTextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.w700,
+        text: buttonName,
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+}
+
+/*
+InkWell(
       onTap: widget.onTap,
       onHover: _handleHover,
       child: Container(
@@ -49,5 +54,4 @@ class _CustomContainerButtonState extends State<CustomContainerButton> {
         ),
       ),
     );
-  }
-}
+ */

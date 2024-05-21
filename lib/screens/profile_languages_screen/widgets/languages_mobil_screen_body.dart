@@ -113,11 +113,7 @@ class _LanguagesMobilScreenBodyState extends State<LanguagesMobilScreenBody> {
           },
         ),
         const SizedBox(height: 10),
-        CustomContainerButton(
-            paddingWidth: 100,
-            paddingheight: 10,
-            onTap: () {},
-            buttonName: 'Update')
+        CustomContainerButton(onTap: () {}, buttonName: 'Update')
       ],
     );
   }

@@ -43,14 +43,13 @@ class CustomImageItem extends StatelessWidget {
           children: [
             TextButton.icon(
                 style: ButtonStyle(
-                    foregroundColor: MaterialStatePropertyAll(firstIconColor)),
+                    foregroundColor: WidgetStatePropertyAll(firstIconColor)),
                 onPressed: firstIconOnPressed,
                 label: Icon(firstIcon),
                 icon: Text(firstIconName)),
             TextButton.icon(
                 style: ButtonStyle(
-                    foregroundColor:
-                        MaterialStatePropertyAll(secondeIconColor)),
+                    foregroundColor: WidgetStatePropertyAll(secondeIconColor)),
                 onPressed: secondeIconOnPressed,
                 label: Icon(secondeIcon),
                 icon: Text(secondeIconName)),

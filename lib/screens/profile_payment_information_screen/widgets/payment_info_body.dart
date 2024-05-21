@@ -59,11 +59,7 @@ class _PaymentInfoBodyState extends State<PaymentInfoBody> {
           ),
         ),
         const SizedBox(height: 20),
-        CustomContainerButton(
-            paddingWidth: 50,
-            paddingheight: 10,
-            onTap: () {},
-            buttonName: 'Update')
+        CustomContainerButton(onTap: () {}, buttonName: 'Update')
       ],
     );
   }

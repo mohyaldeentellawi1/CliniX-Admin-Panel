@@ -46,7 +46,7 @@ class _MainSideBarState extends State<MainSideBar> {
                   fontWeight: FontWeight.bold, fontSize: 10, text: 'V 1.0.0'),
               trailing: IconButton(
                 onPressed: widget.onTap,
-                icon: const Icon(Icons.menu),
+                icon: const Icon(Icons.arrow_back_ios_rounded),
               ),
             ),
           )),
