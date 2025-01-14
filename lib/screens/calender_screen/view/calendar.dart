@@ -1,3 +1,4 @@
+// ignore: unnecessary_library_name
 library event_calendar;
 
 import 'dart:math';
@@ -24,7 +25,7 @@ part '../widgets/doctor.dart';
 part '../widgets/treatment.dart';
 
 class EventCalendar extends StatefulWidget {
-  const EventCalendar({Key? key}) : super(key: key);
+  const EventCalendar({super.key});
 
   @override
   EventCalendarState createState() => EventCalendarState();

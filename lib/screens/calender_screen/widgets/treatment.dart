@@ -1,4 +1,4 @@
-part of event_calendar;
+part of '../view/calendar.dart';
 
 class _Treatment extends StatefulWidget {
   @override

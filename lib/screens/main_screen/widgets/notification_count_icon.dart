@@ -10,12 +10,12 @@ class NotificationCountIcon extends StatelessWidget {
   final int notificationCount;
 
   const NotificationCountIcon({
-    Key? key,
+    super.key,
     this.onTap,
     required this.text,
     required this.iconData,
     this.notificationCount = 5,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
