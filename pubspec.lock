@@ -45,10 +45,10 @@ packages:
     dependency: "direct main"
     description:
       name: chart_sparkline
-      sha256: "380196fdc12feee87ab7854e2867d0a20d4d01cead234ffb47ba1ca2c8a8219c"
+      sha256: "3b224a3d1d2dabfd1c8690153694d1c874b9d9f68a9dccd79151d345435dad0a"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.14"
+    version: "1.1.1"
   clock:
     dependency: transitive
     description:
@@ -334,7 +334,7 @@ packages:
     source: hosted
     version: "2.9.5"
   google_maps_flutter_web:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: google_maps_flutter_web
       sha256: ff39211bd25d7fad125d19f757eba85bd154460907cd4d135e07e3d0f98a4130

@@ -18,7 +18,13 @@ class ClinicDescriptionEditior extends StatefulWidget {
 }
 
 class _ClinicDescriptionEditiorState extends State<ClinicDescriptionEditior> {
-  final QuillController _controller = QuillController.basic();
+  late QuillController _controller;
+
+  @override
+  void initState() {
+    _controller = QuillController.basic();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +53,7 @@ class _ClinicDescriptionEditiorState extends State<ClinicDescriptionEditior> {
             desc:
                 'Kindly provide a detailed description of your clinic for inclusion in your brochure. Highlight the key features that set your clinic apart. Avoid including contact information such as email, phone numbers, or website addresses. Any additional formatting will be removed from this text.'),
         QuillToolbar.simple(
+          controller: _controller,
           configurations: QuillSimpleToolbarConfigurations(
             customButtons: [
               QuillToolbarCustomButtonOptions(
@@ -71,6 +78,7 @@ class _ClinicDescriptionEditiorState extends State<ClinicDescriptionEditior> {
           width: width * .5,
           height: height * .32,
           child: QuillEditor.basic(
+            controller: _controller,
             configurations: const QuillEditorConfigurations(
                 checkBoxReadOnly: false,
                 sharedConfigurations:
