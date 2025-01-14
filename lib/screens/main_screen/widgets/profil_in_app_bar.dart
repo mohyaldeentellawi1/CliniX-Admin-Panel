@@ -99,7 +99,7 @@ class ProfileInAppBar extends StatelessWidget {
               height: 72,
               decoration: BoxDecoration(
                   border: Border.all(color: AppColor.boxborder),
-                  color: AppColor.selecteColor.withOpacity(.06)),
+                  color: AppColor.selecteColor.withValues(alpha: .06)),
               child: Padding(
                 padding: const EdgeInsets.only(left: 15.0, right: 10),
                 child: Row(
@@ -132,7 +132,7 @@ class ProfileInAppBar extends StatelessWidget {
               height: 72,
               decoration: BoxDecoration(
                   border: Border.all(color: AppColor.boxborder),
-                  color: AppColor.selecteColor.withOpacity(.06)),
+                  color: AppColor.selecteColor.withValues(alpha: .06)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

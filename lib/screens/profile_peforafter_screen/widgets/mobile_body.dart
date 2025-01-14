@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:clinix_admin_panel/core/widgets/custom_span_description.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,7 @@ class _MobileBodyState extends State<MobileBody> {
         });
       }
     } catch (error) {
-      print(error.toString());
+      log(error.toString());
     }
   }
 
@@ -48,7 +50,7 @@ class _MobileBodyState extends State<MobileBody> {
         });
       }
     } catch (error) {
-      print(error.toString());
+      log(error.toString());
     }
   }
 

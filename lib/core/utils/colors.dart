@@ -16,7 +16,7 @@ class AppColor {
   static const Color textfiledcolor = Color(0xffF3F3F9);
   static const Color searchbackground = Color(0xff003366);
   static Color unselectedCalendarButton =
-      const Color(0xff003366).withOpacity(0.5);
+      const Color(0xff003366).withValues(alpha: 0.5);
   static Color search = const Color.fromARGB(255, 132, 135, 193);
   static const Color dotscolor = Color(0x99FFFFFF);
   static const Color backgorundDrawer = Color(0xFFFBFAFF);

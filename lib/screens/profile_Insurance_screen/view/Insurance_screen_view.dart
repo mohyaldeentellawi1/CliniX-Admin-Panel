@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:clinix_admin_panel/core/widgets/main_scaffold.dart';
 import 'package:clinix_admin_panel/screens/profile_Insurance_screen/widgets/insurance_screen_body.dart';
 import 'package:flutter/material.dart';

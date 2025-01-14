@@ -174,7 +174,7 @@ class EventCalendarState extends State<EventCalendar> {
         appointmentBuilder: (context, calendarAppointmentDetails) {
           final Meeting meeting = calendarAppointmentDetails.appointments.first;
           return Container(
-            color: meeting.background.withOpacity(0.8),
+            color: meeting.background.withValues(alpha: 0.8),
             child: ResponsiveTextStyle(
               text: meeting.title,
               fontSize: 13,

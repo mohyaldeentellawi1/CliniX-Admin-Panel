@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:clinix_admin_panel/core/utils/constant.dart';
 import 'package:clinix_admin_panel/core/widgets/custom_span_description.dart';
 import 'package:clinix_admin_panel/screens/calender_screen/view/calendar.dart';
@@ -57,7 +59,7 @@ class _AddVideoFormState extends State<AddVideoForm> {
     } else {
       textEmpty = true;
       setState(() {});
-      print("Invalid YouTube URL");
+      log("Invalid YouTube URL");
     }
   }
 

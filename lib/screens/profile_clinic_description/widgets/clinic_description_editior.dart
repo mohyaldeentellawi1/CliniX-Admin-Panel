@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:clinix_admin_panel/core/utils/colors.dart';
 import 'package:clinix_admin_panel/core/utils/constant.dart';
@@ -47,7 +48,6 @@ class _ClinicDescriptionEditiorState extends State<ClinicDescriptionEditior> {
                 'Kindly provide a detailed description of your clinic for inclusion in your brochure. Highlight the key features that set your clinic apart. Avoid including contact information such as email, phone numbers, or website addresses. Any additional formatting will be removed from this text.'),
         QuillToolbar.simple(
           configurations: QuillSimpleToolbarConfigurations(
-            controller: _controller,
             customButtons: [
               QuillToolbarCustomButtonOptions(
                 tooltip: 'Clear the entire text',
@@ -71,18 +71,17 @@ class _ClinicDescriptionEditiorState extends State<ClinicDescriptionEditior> {
           width: width * .5,
           height: height * .32,
           child: QuillEditor.basic(
-            configurations: QuillEditorConfigurations(
-                controller: _controller,
+            configurations: const QuillEditorConfigurations(
                 checkBoxReadOnly: false,
                 sharedConfigurations:
-                    const QuillSharedConfigurations(locale: Locale('en'))),
+                    QuillSharedConfigurations(locale: Locale('en'))),
           ),
         ),
         const SizedBox(height: 10),
         CustomContainerButton(
             onTap: () {
               var json = jsonEncode(_controller.document.toDelta().toJson());
-              print(json);
+              log(json);
               // Save 'json' to a persistent storage (e.g., database, file, etc.)
               // You can implement the storage logic here.
             },

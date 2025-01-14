@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:clinix_admin_panel/core/utils/colors.dart';
 import 'package:clinix_admin_panel/core/widgets/custom_span_description.dart';
 import 'package:clinix_admin_panel/screens/profile_peforafter_screen/widgets/custom_befor_after_container.dart';
@@ -31,7 +33,7 @@ class _WebTabletViewState extends State<WebTabletView> {
         });
       }
     } catch (error) {
-      print(error.toString());
+      log(error.toString());
     }
   }
 
@@ -47,7 +49,7 @@ class _WebTabletViewState extends State<WebTabletView> {
         });
       }
     } catch (error) {
-      print(error.toString());
+      log(error.toString());
     }
   }
 

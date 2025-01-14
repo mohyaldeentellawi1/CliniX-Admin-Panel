@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:clinix_admin_panel/core/utils/colors.dart';
 import 'package:clinix_admin_panel/core/utils/text_style.dart';
 import 'package:clinix_admin_panel/core/widgets/custom_span_description.dart';
@@ -31,7 +33,7 @@ class _AddPicturFormState extends State<AddPicturForm> {
         });
       }
     } catch (error) {
-      print(error.toString());
+      log(error.toString());
     }
   }
 

@@ -2,7 +2,6 @@
 
 // import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
 
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:clinix_admin_panel/core/utils/colors.dart';
 import 'package:clinix_admin_panel/core/utils/constant.dart';
 import 'package:clinix_admin_panel/screens/login_screen/widgets/auth_feild.dart';
@@ -333,8 +332,9 @@ class _LoginScreenViewState extends State<LoginScreenView> {
         ListView(
           padding: const EdgeInsetsDirectional.only(start: 20.0, end: 20.0),
           children: [
-            CarouselSlider(
-              items: [
+            CarouselView(
+              itemExtent: 400,
+              children: [
                 LoginNews(
                     image: "assets/image/avatar5.png",
                     text:
@@ -351,20 +351,20 @@ class _LoginScreenViewState extends State<LoginScreenView> {
                         "“I've learned that people will forget what you said, people will forget what you did, but people will never forget how donec in efficitur lectus, nec lobortis metus you made them feel.”",
                     name: "Ilse R. Eaton"),
               ],
-              options: CarouselOptions(
-                height: 400,
-                aspectRatio: 16 / 9,
-                viewportFraction: 1.0,
-                initialPage: 0,
-                enableInfiniteScroll: true,
-                reverse: false,
-                autoPlay: true,
-                autoPlayInterval: Duration(seconds: 3),
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enlargeCenterPage: true,
-                scrollDirection: Axis.horizontal,
-              ),
+              // options: CarouselOptions(
+              //   height: 400,
+              //   aspectRatio: 16 / 9,
+              //   viewportFraction: 1.0,
+              //   initialPage: 0,
+              //   enableInfiniteScroll: true,
+              //   reverse: false,
+              //   autoPlay: true,
+              //   autoPlayInterval: Duration(seconds: 3),
+              //   autoPlayAnimationDuration: Duration(milliseconds: 800),
+              //   autoPlayCurve: Curves.fastOutSlowIn,
+              //   enlargeCenterPage: true,
+              //   scrollDirection: Axis.horizontal,
+              // ),
             ),
           ],
         ),

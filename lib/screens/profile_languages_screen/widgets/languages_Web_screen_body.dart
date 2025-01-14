@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:clinix_admin_panel/core/utils/colors.dart';
 import 'package:clinix_admin_panel/core/widgets/custom_container_button.dart';
 import 'package:clinix_admin_panel/core/widgets/custom_span_description.dart';
