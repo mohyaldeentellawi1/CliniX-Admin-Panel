@@ -47,8 +47,8 @@ class FullAppBar extends StatelessWidget implements PreferredSizeWidget {
         Transform.scale(
             scale: 0.85,
             child: CupertinoSwitch(
-                activeColor: AppColor.lightgrey,
-                trackColor: AppColor.dark,
+                activeTrackColor: AppColor.lightgrey,
+                inactiveTrackColor: AppColor.dark,
                 value: value,
                 onChanged: onPressed)),
         NotificationButton(width: width), // for notifications
